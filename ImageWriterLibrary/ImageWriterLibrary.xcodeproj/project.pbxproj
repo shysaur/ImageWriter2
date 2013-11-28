@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0162E4D61847EC86005B8284 /* citohapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4D51847EC86005B8284 /* citohapi.c */; };
+		0162E4E01847F1B7005B8284 /* apitest.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4DF1847F1B7005B8284 /* apitest.c */; };
+		0162E4E61847F402005B8284 /* libImageWriterLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0162E4DB1847F1B7005B8284 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImageWriterLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0162E4D51847EC86005B8284 /* citohapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = citohapi.c; sourceTree = "<group>"; };
+		0162E4D71847EC98005B8284 /* citohapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = citohapi.h; sourceTree = "<group>"; };
+		0162E4DD1847F1B7005B8284 /* ImageWriterLibraryTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageWriterLibraryTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0162E4DF1847F1B7005B8284 /* apitest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = apitest.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0162E4CB1847EBDB005B8284 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0162E4DA1847F1B7005B8284 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0162E4E61847F402005B8284 /* libImageWriterLibrary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0162E4C51847EBDB005B8284 = {
+			isa = PBXGroup;
+			children = (
+				0162E4D81847F17B005B8284 /* Printer Interface */,
+				0162E4DE1847F1B7005B8284 /* Printer Interface Test */,
+				0162E4CF1847EBDB005B8284 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0162E4CF1847EBDB005B8284 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */,
+				0162E4DD1847F1B7005B8284 /* ImageWriterLibraryTest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0162E4D81847F17B005B8284 /* Printer Interface */ = {
+			isa = PBXGroup;
+			children = (
+				0162E4D51847EC86005B8284 /* citohapi.c */,
+				0162E4D71847EC98005B8284 /* citohapi.h */,
+			);
+			name = "Printer Interface";
+			sourceTree = "<group>";
+		};
+		0162E4DE1847F1B7005B8284 /* Printer Interface Test */ = {
+			isa = PBXGroup;
+			children = (
+				0162E4DF1847F1B7005B8284 /* apitest.c */,
+			);
+			name = "Printer Interface Test";
+			path = ImageWriterLibraryTest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0162E4CC1847EBDB005B8284 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0162E4CD1847EBDB005B8284 /* ImageWriterLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0162E4D21847EBDB005B8284 /* Build configuration list for PBXNativeTarget "ImageWriterLibrary" */;
+			buildPhases = (
+				0162E4CA1847EBDB005B8284 /* Sources */,
+				0162E4CB1847EBDB005B8284 /* Frameworks */,
+				0162E4CC1847EBDB005B8284 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageWriterLibrary;
+			productName = ImageWriterLibrary;
+			productReference = 0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		0162E4DC1847F1B7005B8284 /* ImageWriterLibraryTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0162E4E31847F1B7005B8284 /* Build configuration list for PBXNativeTarget "ImageWriterLibraryTest" */;
+			buildPhases = (
+				0162E4D91847F1B7005B8284 /* Sources */,
+				0162E4DA1847F1B7005B8284 /* Frameworks */,
+				0162E4DB1847F1B7005B8284 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageWriterLibraryTest;
+			productName = ImageWriterLibraryTest;
+			productReference = 0162E4DD1847F1B7005B8284 /* ImageWriterLibraryTest */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0162E4C61847EBDB005B8284 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Daniele Cattaneo";
+			};
+			buildConfigurationList = 0162E4C91847EBDB005B8284 /* Build configuration list for PBXProject "ImageWriterLibrary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0162E4C51847EBDB005B8284;
+			productRefGroup = 0162E4CF1847EBDB005B8284 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0162E4CD1847EBDB005B8284 /* ImageWriterLibrary */,
+				0162E4DC1847F1B7005B8284 /* ImageWriterLibraryTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0162E4CA1847EBDB005B8284 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0162E4D61847EC86005B8284 /* citohapi.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0162E4D91847F1B7005B8284 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0162E4E01847F1B7005B8284 /* apitest.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0162E4D01847EBDB005B8284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0162E4D11847EBDB005B8284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0162E4D31847EBDB005B8284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0162E4D41847EBDB005B8284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0162E4E41847F1B7005B8284 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0162E4E51847F1B7005B8284 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0162E4C91847EBDB005B8284 /* Build configuration list for PBXProject "ImageWriterLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0162E4D01847EBDB005B8284 /* Debug */,
+				0162E4D11847EBDB005B8284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0162E4D21847EBDB005B8284 /* Build configuration list for PBXNativeTarget "ImageWriterLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0162E4D31847EBDB005B8284 /* Debug */,
+				0162E4D41847EBDB005B8284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0162E4E31847F1B7005B8284 /* Build configuration list for PBXNativeTarget "ImageWriterLibraryTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0162E4E41847F1B7005B8284 /* Debug */,
+				0162E4E51847F1B7005B8284 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0162E4C61847EBDB005B8284 /* Project object */;
+}

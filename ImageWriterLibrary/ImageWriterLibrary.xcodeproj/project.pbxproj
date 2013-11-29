@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0162E4E01847F1B7005B8284 /* apitest.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4DF1847F1B7005B8284 /* apitest.c */; };
-		0162E4E61847F402005B8284 /* libImageWriterLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */; };
+		0162E4E61847F402005B8284 /* libimagewriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0162E4CE1847EBDB005B8284 /* libimagewriter.a */; };
 		0162E4EA18480A3E005B8284 /* citohapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4E818480A3E005B8284 /* citohapi.c */; };
 		0162E4ED18480AA6005B8284 /* imwhgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4EC18480AA6005B8284 /* imwhgr.c */; };
 /* End PBXBuildFile section */
@@ -26,7 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libImageWriterLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0162E4CE1847EBDB005B8284 /* libimagewriter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimagewriter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0162E4DD1847F1B7005B8284 /* ImageWriterLibraryTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageWriterLibraryTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0162E4DF1847F1B7005B8284 /* apitest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = apitest.c; sourceTree = "<group>"; };
 		0162E4E818480A3E005B8284 /* citohapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = citohapi.c; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0162E4E61847F402005B8284 /* libImageWriterLibrary.a in Frameworks */,
+				0162E4E61847F402005B8284 /* libimagewriter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +66,7 @@
 		0162E4CF1847EBDB005B8284 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */,
+				0162E4CE1847EBDB005B8284 /* libimagewriter.a */,
 				0162E4DD1847F1B7005B8284 /* ImageWriterLibraryTest */,
 			);
 			name = Products;
@@ -105,9 +105,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0162E4CD1847EBDB005B8284 /* ImageWriterLibrary */ = {
+		0162E4CD1847EBDB005B8284 /* imagewriter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0162E4D21847EBDB005B8284 /* Build configuration list for PBXNativeTarget "ImageWriterLibrary" */;
+			buildConfigurationList = 0162E4D21847EBDB005B8284 /* Build configuration list for PBXNativeTarget "imagewriter" */;
 			buildPhases = (
 				0162E4CA1847EBDB005B8284 /* Sources */,
 				0162E4CB1847EBDB005B8284 /* Frameworks */,
@@ -117,9 +117,9 @@
 			);
 			dependencies = (
 			);
-			name = ImageWriterLibrary;
+			name = imagewriter;
 			productName = ImageWriterLibrary;
-			productReference = 0162E4CE1847EBDB005B8284 /* libImageWriterLibrary.a */;
+			productReference = 0162E4CE1847EBDB005B8284 /* libimagewriter.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		0162E4DC1847F1B7005B8284 /* ImageWriterLibraryTest */ = {
@@ -160,7 +160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0162E4CD1847EBDB005B8284 /* ImageWriterLibrary */,
+				0162E4CD1847EBDB005B8284 /* imagewriter */,
 				0162E4DC1847F1B7005B8284 /* ImageWriterLibraryTest */,
 			);
 		};
@@ -309,13 +309,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0162E4D21847EBDB005B8284 /* Build configuration list for PBXNativeTarget "ImageWriterLibrary" */ = {
+		0162E4D21847EBDB005B8284 /* Build configuration list for PBXNativeTarget "imagewriter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0162E4D31847EBDB005B8284 /* Debug */,
 				0162E4D41847EBDB005B8284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0162E4E31847F1B7005B8284 /* Build configuration list for PBXNativeTarget "ImageWriterLibraryTest" */ = {
 			isa = XCConfigurationList;
@@ -324,6 +325,7 @@
 				0162E4E51847F1B7005B8284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -87,12 +87,62 @@ int prnSetFormHeight(printerRef prn, int rows) {
   return 0;
 }
 
-/* TODO: improve this with RLE compression */
+#define GSP_MINRLE -7
 int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth) {
+  int partstart, partlen, partrle, nextpart, minrle;
+  
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
   if (swidth < 1 || swidth > 9999) return ERR_IMWAPI_WRONGORDER;
-  fprintf(prn->s_out, "\033G%04d", swidth);
-  fwrite(stripe, sizeof(uint8_t), swidth, prn->s_out);
+  
+  partrle = -1;
+  partlen = 1;
+  partstart = 0;
+  nextpart = -1;
+  minrle = GSP_MINRLE;
+  while (partstart+partlen < swidth) {
+    if (partrle < 0) {
+      /* Not in a run */
+      if (nextpart <= minrle) {
+        partlen += nextpart;
+        if (partlen > 0) {
+          fprintf(prn->s_out, "\033G%04d", partlen);
+          fwrite(&stripe[partstart], sizeof(uint8_t), partlen, prn->s_out);
+        }
+        nextpart = -1;
+        partstart += partlen;
+        partlen = 1;
+        partrle = stripe[partstart];
+      } else {
+        if (stripe[partstart+partlen] == stripe[partstart+partlen-1])
+          nextpart--;
+        else {
+          nextpart = -1;
+          minrle = GSP_MINRLE;
+        }
+        partlen++;
+      }
+    } else {
+      /* In a run */
+      if (stripe[partstart+partlen] != stripe[partstart+partlen-1]) {
+        if (partlen > 0)
+          fprintf(prn->s_out, "\033V%04d%c", partlen, (uint8_t)partrle);
+        partstart += partlen;
+        partlen = 1;
+        partrle = -1;
+        minrle = -2;
+      } else
+        partlen++;
+    }
+  }
+  
+  if (partlen > 0) {
+    if (partrle < 0) {
+      fprintf(prn->s_out, "\033G%04d", partlen);
+      fwrite(&stripe[partstart], sizeof(uint8_t), partlen, prn->s_out);
+    } else
+      fprintf(prn->s_out, "\033V%04d%c", partlen, (uint8_t)partrle);
+  }
+  
   if (prn->headPos > 0) prn->headPos += swidth;
   return 0;
 }

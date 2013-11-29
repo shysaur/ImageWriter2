@@ -61,10 +61,16 @@ int hgrPrintBitmapStripeHiresH16Wk8(printerRef prn, const uint8_t bitmap[], int 
   if (err) goto error_catch;
   err = hgrPrintBitmapStripeH8Wk8(prn, intbmp+8*chrWidth, chrWidth);
   if (err) goto error_catch;
-  err = prnSetLineHeight(prn, 8);
+  err = prnSetLineHeight(prn, 16);
   if (err) goto error_catch;
   err = prnCarriageReturnLineFeed(prn);
 error_catch:
   free(intbmp);
   return err;
 }
+
+
+
+
+
+

@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		01106D0F18494F10004DC5E2 /* Files */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 01106D1018494F10004DC5E2 /* Build configuration list for PBXAggregateTarget "Files" */;
+			buildPhases = (
+				01106D1318494F37004DC5E2 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Files;
+			productName = Files;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		01106D28184950BA004DC5E2 /* PrinterIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 01106D0818494C39004DC5E2 /* PrinterIcon.icns */; };
+		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01106D29184951B8004DC5E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01106D0018494C1B004DC5E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01106D0F18494F10004DC5E2;
+			remoteInfo = Files;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		01106D2B18495AEA004DC5E2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Apple ImageWriter II.drv"; sourceTree = "<group>"; };
+		01106D0818494C39004DC5E2 /* PrinterIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PrinterIcon.icns; sourceTree = "<group>"; };
+		01106D18184950A1004DC5E2 /* ImageWriterII.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageWriterII.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "imagewriterii-Info.plist"; path = "imagewriterii/imagewriterii-Info.plist"; sourceTree = "<group>"; };
+		01106D2C18495AF6004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = rastertoimw; path = "/Users/danielecattaneo/Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/rastertoimw"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01106D15184950A1004DC5E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01106CFF18494C1B004DC5E2 = {
+			isa = PBXGroup;
+			children = (
+				01106D2C18495AF6004DC5E2 /* rastertoimw */,
+				01106D0618494C20004DC5E2 /* Resources */,
+				01106D19184950A1004DC5E2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01106D0618494C20004DC5E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */,
+				01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */,
+				01106D0818494C39004DC5E2 /* PrinterIcon.icns */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		01106D19184950A1004DC5E2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01106D18184950A1004DC5E2 /* ImageWriterII.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01106D17184950A1004DC5E2 /* ImageWriterII */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01106D24184950A1004DC5E2 /* Build configuration list for PBXNativeTarget "ImageWriterII" */;
+			buildPhases = (
+				01106D14184950A1004DC5E2 /* Sources */,
+				01106D15184950A1004DC5E2 /* Frameworks */,
+				01106D16184950A1004DC5E2 /* Resources */,
+				01106D2B18495AEA004DC5E2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01106D2A184951B8004DC5E2 /* PBXTargetDependency */,
+			);
+			name = ImageWriterII;
+			productName = imagewriterii;
+			productReference = 01106D18184950A1004DC5E2 /* ImageWriterII.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01106D0018494C1B004DC5E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = 01106D0318494C1B004DC5E2 /* Build configuration list for PBXProject "DriverBundle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 01106CFF18494C1B004DC5E2;
+			productRefGroup = 01106D19184950A1004DC5E2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01106D0F18494F10004DC5E2 /* Files */,
+				01106D17184950A1004DC5E2 /* ImageWriterII */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01106D16184950A1004DC5E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01106D28184950BA004DC5E2 /* PrinterIcon.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01106D1318494F37004DC5E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Symlink the commandtosample and rastertosample filters to /usr/libexec/cups/filter\nmkdir -p \"$DSTROOT/usr/libexec/cups/filter\"\nln -sf \"/Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/rastertoimw\" \"$DSTROOT/usr/libexec/cups/filter\"\n\n# Create the PPD file and place it in the PPDs directory...\nmkdir -p \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\"\nppdc -d \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\" \"$SRCROOT/Apple Imagewriter II.drv\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01106D14184950A1004DC5E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01106D2A184951B8004DC5E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01106D0F18494F10004DC5E2 /* Files */;
+			targetProxy = 01106D29184951B8004DC5E2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01106D0418494C1B004DC5E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		01106D0518494C1B004DC5E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		01106D1118494F10004DC5E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01106D1218494F10004DC5E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		01106D25184950A1004DC5E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "imagewriterii/imagewriterii-Info.plist";
+				INSTALL_PATH = /Library/Printers/Apple;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		01106D26184950A1004DC5E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "imagewriterii/imagewriterii-Info.plist";
+				INSTALL_PATH = /Library/Printers/Apple;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01106D0318494C1B004DC5E2 /* Build configuration list for PBXProject "DriverBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01106D0418494C1B004DC5E2 /* Debug */,
+				01106D0518494C1B004DC5E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01106D1018494F10004DC5E2 /* Build configuration list for PBXAggregateTarget "Files" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01106D1118494F10004DC5E2 /* Debug */,
+				01106D1218494F10004DC5E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01106D24184950A1004DC5E2 /* Build configuration list for PBXNativeTarget "ImageWriterII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01106D25184950A1004DC5E2 /* Debug */,
+				01106D26184950A1004DC5E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01106D0018494C1B004DC5E2 /* Project object */;
+}

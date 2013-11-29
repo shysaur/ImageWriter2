@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ImageWriterLibrary/ImageWriterLibrary.xcodeproj">
+      location = "group:DriverBundle/../ImageWriterLibrary/ImageWriterLibrary.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:CupsFilters/CupsFilters.xcodeproj">
+      location = "group:DriverBundle/../CupsFilters/CupsFilters.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:DriverBundle/DriverBundle.xcodeproj">
    </FileRef>
 </Workspace>

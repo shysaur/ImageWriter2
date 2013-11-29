@@ -54,6 +54,7 @@
 				01106CF618491BB7004DC5E2 /* libcupsimage.dylib */,
 				01106CF418491BA0004DC5E2 /* libcups.dylib */,
 				01106CCB18491923004DC5E2 /* CupsFilters */,
+				01106CFE18494941004DC5E2 /* Resources */,
 				01106CCA18491923004DC5E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +73,13 @@
 				01106CF018491B04004DC5E2 /* rastertoimw.c */,
 			);
 			path = CupsFilters;
+			sourceTree = "<group>";
+		};
+		01106CFE18494941004DC5E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

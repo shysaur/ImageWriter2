@@ -1,0 +1,36 @@
+#include <font.defs>
+#include <media.defs>
+#include <raster.defs>
+
+// This driver info file only defines a single device that produces PGM or PPM files...
+Font *
+ManualCopies Yes
+Manufacturer Apple
+ModelName "ImageWriter II"
+PCFileName "Apple ImageWriter II.ppd"
+Version 1.0
+Attribute Product "" "(ImageWriter II)"
+Attribute 1284DeviceID "" "MFG:Apple;MODEL:ImageWriter II;"
+
+// Filters provided and commands supported by this driver...
+Attribute cupsFilter "" "application/vnd.cups-raster 100 /Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/rastertoimw"
+
+// Icon for this printer
+Attribute APPrinterIconPath "" "/Library/Printers/Apple/ImageWriterII.bundle/Contents/Resources/PrinterIcon.icns"
+
+// Use ICC color matching via installed sRGB profile
+ColorDevice No
+Attribute cupsICCProfile Gray../Grayscale "/System/Library/ColorSync/Profiles/Generic Gray Profile.icc"
+
+// Supported media sizes - Letter, A4, and custom
+HWMargins 3mm 3mm 3mm 3mm
+*MediaSize Letter
+MediaSize A4
+
+VariablePaperSize Yes
+MinSize 2in 2in
+MaxSize 12in 18in
+
+// Output resolution - default to highest resolution...
+Option Resolution PickOne AnySetup 10
+  *Choice 72dpi "<</HWResolution[72 72]>>setpagedevice"

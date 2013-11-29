@@ -92,7 +92,7 @@ int main(int argc, const char *argv[]) {
   prn = prnAlloc(output, input, NULL);
   prnSetHorizontalResolution(prn, 72);
   prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
-  
+  /*
   prnTextPrint(prn, "New Stuff Test! New Graphics! This is LORES:");
   prnCarriageReturnLineFeed(prn);
   hgrPrintBitmapStripeH8Wk8(prn, test_gfx_linear, 8);
@@ -104,7 +104,10 @@ int main(int argc, const char *argv[]) {
   prnTextPrint(prn, "This is compressed:");
   prnCarriageReturnLineFeed(prn);
   hgrPrintBitmapStripeHiresH16Wk8(prn, test_gfx_linear_rle, 32);
-  
+  */
+  hgrPrintBitmapStripeHiresH16Wk8(prn, test_gfx_linear_hires, 8);
+  hgrPrintBitmapStripeHiresH16Wk8(prn, test_gfx_linear_hires, 8);
+  prnSetLineHeight(prn, IMWAPI_6LPI);
   prnFormFeed(prn);
   
   prnDealloc(prn);

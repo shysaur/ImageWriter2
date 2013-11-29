@@ -24,6 +24,9 @@
 #define IMWAPI_ASCIIMODE              0
 #define IMWAPI_8BITMODE               1
 
+#define IMWAPI_6LPI                  -1
+#define IMWAPI_8LPI                  -2
+
 typedef struct {
   FILE *s_out;
   FILE *s_in;
@@ -43,5 +46,6 @@ int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth);
 int prnGraphicGoToX(printerRef prn, int swidth);
 int prnCarriageReturnLineFeed(printerRef prn);
 int prnSetBidirectionalMode(printerRef prn, int bidi);
+int prnResetPrinterStatus(printerRef prn);
 
 #endif

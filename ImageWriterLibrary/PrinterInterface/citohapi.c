@@ -75,8 +75,16 @@ int prnFormFeed(printerRef prn) {
 
 int prnSetLineHeight(printerRef prn, int rows) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (rows < 1 || rows > 99) return ERR_IMWAPI_WRONGORDER;
-  fprintf(prn->s_out, "\033T%02d", rows);
+  if ((rows < 1 || rows > 99) && rows != IMWAPI_6LPI && rows != IMWAPI_8LPI)
+    return ERR_IMWAPI_WRONGORDER;
+  switch (rows) {
+    case IMWAPI_6LPI:
+      fprintf(prn->s_out, "\033A"); break;
+    case IMWAPI_8LPI:
+      fprintf(prn->s_out, "\033B"); break;
+    default:
+      fprintf(prn->s_out, "\033T%02d", rows);
+  }
   return 0;
 }
 
@@ -184,6 +192,11 @@ int prnSetHighBitMode(printerRef prn, int ascii) {
   return 0;
 }
 
+int prnResetPrinterStatus(printerRef prn) {
+  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  fprintf(prn->s_out, "\033c");
+  return 0;
+}
 
 
 

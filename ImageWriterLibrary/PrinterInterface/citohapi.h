@@ -34,5 +34,6 @@ int prnSetLineHeight(printerRef prn, int rows);
 int prnSetFormHeight(printerRef prn, int rows);
 int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth);
 int prnGraphicGoToX(printerRef prn, int swidth);
+int prnCarriageReturnLineFeed(printerRef prn);
 
 #endif

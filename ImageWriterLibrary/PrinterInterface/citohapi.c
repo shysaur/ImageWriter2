@@ -112,3 +112,31 @@ int prnCarriageReturnLineFeed(printerRef prn) {
   return 0;
 }
 
+int prnSetBidirectionalMode(printerRef prn, int bidi) {
+  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  switch (bidi) {
+    case IMWAPI_BIDIRECTIONAL: fprintf(prn->s_out, "\033<"); break;
+    case IMWAPI_LEFTTORIGHT: fprintf(prn->s_out, "\033>"); break;
+    default:
+      return ERR_IMWAPI_INVALIDPARAM;
+  }
+  return 0;
+}
+
+int prnSetHighBitMode(printerRef prn, int ascii) {
+  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  switch (ascii) {
+    case IMWAPI_ASCIIMODE: fwrite("\033D\0 ", sizeof(char), 4, prn->s_out); break;
+    case IMWAPI_8BITMODE: fwrite("\033Z\0 ", sizeof(char), 4, prn->s_out); break;
+    default:
+      return ERR_IMWAPI_INVALIDPARAM;
+  }
+  return 0;
+}
+
+
+
+
+
+
+

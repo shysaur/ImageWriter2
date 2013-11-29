@@ -12,5 +12,6 @@
 #define IMAGEWRITERLIBRARY_IMWHGR_H
 
 int hgrPrintBitmapStripeH8Wk8(printerRef prn, const uint8_t bitmap[], int chrWidth);
+int hgrPrintBitmapStripeHiresH16Wk8(printerRef prn, const uint8_t bitmap[], int chrWidth);
 
 #endif

@@ -7,11 +7,13 @@
 //
 
 #include <stdio.h>
+#include <string.h>
 #include "imwhgr.h"
 
 int hgrPrintBitmapStripeH8Wk8(printerRef prn, const uint8_t bitmap[], int chrWidth) {
   uint8_t *stripes;
   int i, j;
+  int err;
   
   stripes = malloc(chrWidth * 8);
   if (stripes) {
@@ -26,7 +28,43 @@ int hgrPrintBitmapStripeH8Wk8(printerRef prn, const uint8_t bitmap[], int chrWid
           ((bitmap[i+5*chrWidth] >> (7-j) & 1) << 5) |
           ((bitmap[i+6*chrWidth] >> (7-j) & 1) << 6) |
           ((bitmap[i+7*chrWidth] >> (7-j) & 1) << 7);
-    return prnGraphicStripePrint(prn, stripes, chrWidth*8);
+    err = prnGraphicStripePrint(prn, stripes, chrWidth*8);
+    free(stripes);
+    return err;
   } else
     return ERR_IMWAPI_OUTOFMEMORY;
+}
+
+int hgrInterleaveBitmapH16Wk8(const uint8_t inbmp[], uint8_t outbmp[], int chrWidth) {
+  int i;
+  
+  for (i=0; i<8; i++)
+    memcpy(&outbmp[i*chrWidth], &inbmp[2*i*chrWidth], chrWidth);
+  for (i=0; i<8; i++)
+    memcpy(&outbmp[(i+8)*chrWidth], &inbmp[(2*i+1)*chrWidth], chrWidth);
+  return 0;
+}
+
+int hgrPrintBitmapStripeHiresH16Wk8(printerRef prn, const uint8_t bitmap[], int chrWidth) {
+  uint8_t *intbmp;
+  int err;
+  
+  intbmp = malloc(chrWidth * 16);
+  if (!intbmp) return ERR_IMWAPI_OUTOFMEMORY;
+  err = hgrInterleaveBitmapH16Wk8(bitmap, intbmp, chrWidth);
+  if (err) goto error_catch;
+  err = prnSetLineHeight(prn, 1);
+  if (err) goto error_catch;
+  err = hgrPrintBitmapStripeH8Wk8(prn, intbmp, chrWidth);
+  if (err) goto error_catch;
+  err = prnCarriageReturnLineFeed(prn);
+  if (err) goto error_catch;
+  err = hgrPrintBitmapStripeH8Wk8(prn, intbmp+8*chrWidth, chrWidth);
+  if (err) goto error_catch;
+  err = prnSetLineHeight(prn, 8);
+  if (err) goto error_catch;
+  err = prnCarriageReturnLineFeed(prn);
+error_catch:
+  free(intbmp);
+  return err;
 }

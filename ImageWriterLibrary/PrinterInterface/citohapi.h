@@ -12,10 +12,17 @@
 #ifndef IMAGEWRITERLIBRARY_CITOHAPI_H
 #define IMAGEWRITERLIBRARY_CITOHAPI_H
 
+#define ERR_IMWAPI_NOERR              0
 #define ERR_IMWAPI_UNKNOWN           -1
 #define ERR_IMWAPI_OUTOFMEMORY   -0x100
 #define ERR_IMWAPI_WRONGORDER    -0x101
 #define ERR_IMWAPI_INVALIDPARAM  -0x102
+
+#define IMWAPI_BIDIRECTIONAL          0
+#define IMWAPI_LEFTTORIGHT            1
+
+#define IMWAPI_ASCIIMODE              0
+#define IMWAPI_8BITMODE               1
 
 typedef struct {
   FILE *s_out;
@@ -35,5 +42,6 @@ int prnSetFormHeight(printerRef prn, int rows);
 int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth);
 int prnGraphicGoToX(printerRef prn, int swidth);
 int prnCarriageReturnLineFeed(printerRef prn);
+int prnSetBidirectionalMode(printerRef prn, int bidi);
 
 #endif

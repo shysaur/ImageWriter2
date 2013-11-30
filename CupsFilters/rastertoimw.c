@@ -38,6 +38,7 @@ int main(int argc, const char *argv[]) {
   ppd_file_t *ppd;
   cups_raster_t *ras;
   cups_page_header2_t	pagehdr;
+  ppd_choice_t *temp;
   job_data_t job;
   printerRef prn;
   int rasterfile;
@@ -72,7 +73,14 @@ int main(int argc, const char *argv[]) {
   page = 0;
   ras = cupsRasterOpen(rasterfile, CUPS_RASTER_READ);
   prn = prnAlloc(stdout, NULL, NULL);
-  prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
+  
+  if ((temp = ppdFindMarkedChoice(ppd, "Bidirectional"))) {
+    if (!strcmp(temp->choice, "True"))
+      prnSetBidirectionalMode(prn, IMWAPI_BIDIRECTIONAL);
+    else
+      prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
+  }
+  
   while (cupsRasterReadHeader2(ras, &pagehdr)) {
     uint8_t *curStripe;
     int y, row;

@@ -29,7 +29,10 @@ VariablePaperSize Yes
 MinSize 2in 2in
 MaxSize 12in 18in
 
-// Output resolution - default to highest resolution...
+/* Options */
+Option Bidirectional Boolean AnySetup 10
+  Choice True ""
+  *Choice False ""
 Option Resolution PickOne AnySetup 10
   Choice 72x72dpi "<</HWResolution[72 72]>>setpagedevice"
   Choice 80x72dpi "<</HWResolution[80 72]>>setpagedevice"

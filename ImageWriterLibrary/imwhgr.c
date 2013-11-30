@@ -1,10 +1,8 @@
-//
-//  imwhgr.c
-//  ImageWriterLibrary
-//
-//  Created by Daniele Cattaneo on 29/11/13.
-//  Copyright (c) 2013 Daniele Cattaneo. All rights reserved.
-//
+/*
+ *  imwhgr.c
+ *  Apple Imagewriter bitmap output helper
+ *  (c) 2013 Daniele Cattaneo
+ */
 
 #include <stdio.h>
 #include <string.h>

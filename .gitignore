@@ -159,3 +159,4 @@ xcuserdata
 #
 # ...none. Everything is now explained.
 TestOutput
+*.pkg

@@ -11,6 +11,7 @@
 		0162E4E61847F402005B8284 /* libimagewriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0162E4CE1847EBDB005B8284 /* libimagewriter.a */; };
 		0162E4EA18480A3E005B8284 /* citohapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4E818480A3E005B8284 /* citohapi.c */; };
 		0162E4ED18480AA6005B8284 /* imwhgr.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4EC18480AA6005B8284 /* imwhgr.c */; };
+		01BB91D8184A8A0F00DD7A13 /* imwlibver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91D7184A8A0F00DD7A13 /* imwlibver.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,13 +27,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01180471184A886D00BC698F /* imwlibver.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = imwlibver.in; sourceTree = "<group>"; };
 		0162E4CE1847EBDB005B8284 /* libimagewriter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimagewriter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0162E4DD1847F1B7005B8284 /* ImageWriterLibraryTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageWriterLibraryTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0162E4DF1847F1B7005B8284 /* apitest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = apitest.c; sourceTree = "<group>"; };
-		0162E4E818480A3E005B8284 /* citohapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = citohapi.c; sourceTree = "<group>"; };
-		0162E4E918480A3E005B8284 /* citohapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citohapi.h; sourceTree = "<group>"; };
-		0162E4EC18480AA6005B8284 /* imwhgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = imwhgr.c; sourceTree = "<group>"; };
-		0162E4EE18480AB8005B8284 /* imwhgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imwhgr.h; sourceTree = "<group>"; };
+		0162E4DF1847F1B7005B8284 /* apitest.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = apitest.c; sourceTree = SOURCE_ROOT; };
+		0162E4E818480A3E005B8284 /* citohapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = citohapi.c; sourceTree = SOURCE_ROOT; };
+		0162E4E918480A3E005B8284 /* citohapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = citohapi.h; sourceTree = SOURCE_ROOT; };
+		0162E4EC18480AA6005B8284 /* imwhgr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = imwhgr.c; sourceTree = SOURCE_ROOT; };
+		0162E4EE18480AB8005B8284 /* imwhgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imwhgr.h; sourceTree = SOURCE_ROOT; };
+		01BB91D6184A89A500DD7A13 /* imwlibver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = imwlibver.h; sourceTree = "<group>"; };
+		01BB91D7184A8A0F00DD7A13 /* imwlibver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = imwlibver.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +58,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01180470184A885A00BC698F /* LibraryVersion */ = {
+			isa = PBXGroup;
+			children = (
+				01180471184A886D00BC698F /* imwlibver.in */,
+				01BB91D6184A89A500DD7A13 /* imwlibver.h */,
+				01BB91D7184A8A0F00DD7A13 /* imwlibver.c */,
+			);
+			name = LibraryVersion;
+			sourceTree = "<group>";
+		};
 		0162E4C51847EBDB005B8284 = {
 			isa = PBXGroup;
 			children = (
+				01180470184A885A00BC698F /* LibraryVersion */,
 				0162E4E718480A3E005B8284 /* PrinterInterface */,
 				0162E4DE1847F1B7005B8284 /* PrinterInterface Test */,
 				0162E4CF1847EBDB005B8284 /* Products */,
@@ -109,6 +124,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0162E4D21847EBDB005B8284 /* Build configuration list for PBXNativeTarget "imagewriter" */;
 			buildPhases = (
+				01BB91DA184A8C9800DD7A13 /* ShellScript */,
 				0162E4CA1847EBDB005B8284 /* Sources */,
 				0162E4CB1847EBDB005B8284 /* Frameworks */,
 				0162E4CC1847EBDB005B8284 /* Headers */,
@@ -166,12 +182,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01BB91DA184A8C9800DD7A13 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat imwlibver.in | sed \"s/@VERSION/$COUNTER/g\" > imwlibver.c";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0162E4CA1847EBDB005B8284 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0162E4EA18480A3E005B8284 /* citohapi.c in Sources */,
+				01BB91D8184A8A0F00DD7A13 /* imwlibver.c in Sources */,
 				0162E4ED18480AA6005B8284 /* imwhgr.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +294,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/PrinterInterface\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/\"";
 			};
 			name = Debug;
 		};
@@ -271,7 +304,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/PrinterInterface\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/\"";
 			};
 			name = Release;
 		};
@@ -284,7 +317,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/PrinterInterface/\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/\"";
 			};
 			name = Debug;
 		};
@@ -293,7 +326,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/PrinterInterface/\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/\"";
 			};
 			name = Release;
 		};

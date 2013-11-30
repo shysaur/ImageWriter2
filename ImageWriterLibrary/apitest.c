@@ -1,10 +1,8 @@
-//
-//  main.c
-//  ImageWriterLibraryTest
-//
-//  Created by Daniele Cattaneo on 28/11/13.
-//  Copyright (c) 2013 Daniele Cattaneo. All rights reserved.
-//
+/*
+ *  imwhgr.c
+ *  Apple Imagewriter abstraction layer test program
+ *  (c) 2013 Daniele Cattaneo
+ */
 
 #include <stdio.h>
 #include <errno.h>
@@ -72,13 +70,14 @@ const uint8_t test_gfx_linear_rle[] = {
 };
 
 const uint8_t test_rle[] = {
-  0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,8,9,10,5,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,7,7,1,2,3,4,5,6,7,8,9,10
+  0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,1
 };
 
 int main(int argc, const char *argv[]) {
   printerRef prn;
   FILE *output, *input;
   
+  printf("Library version %f\n", citohapiVersion);
   input = output = NULL;
   if (argc > 2)
     input = fopen(argv[2], "rb");
@@ -92,7 +91,7 @@ int main(int argc, const char *argv[]) {
   prn = prnAlloc(output, input, NULL);
   prnSetHorizontalResolution(prn, 72);
   prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
-  /*
+  
   prnTextPrint(prn, "New Stuff Test! New Graphics! This is LORES:");
   prnCarriageReturnLineFeed(prn);
   hgrPrintBitmapStripeH8Wk8(prn, test_gfx_linear, 8);
@@ -103,10 +102,8 @@ int main(int argc, const char *argv[]) {
   prnCarriageReturnLineFeed(prn);
   prnTextPrint(prn, "This is compressed:");
   prnCarriageReturnLineFeed(prn);
-  hgrPrintBitmapStripeHiresH16Wk8(prn, test_gfx_linear_rle, 32);
-  */
-  hgrPrintBitmapStripeHiresH16Wk8(prn, test_gfx_linear_hires, 8);
-  hgrPrintBitmapStripeHiresH16Wk8(prn, test_gfx_linear_hires, 8);
+  prnGraphicStripePrint(prn, test_rle, sizeof(test_rle));
+  
   prnSetLineHeight(prn, IMWAPI_6LPI);
   prnFormFeed(prn);
   

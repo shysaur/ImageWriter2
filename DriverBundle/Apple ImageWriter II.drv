@@ -1,6 +1,14 @@
+/*
+ *  Apple Imagewriter II.drv
+ *  Apple Imagewriter II CUPS PPD source file
+ *  (c) 2013 Daniele Cattaneo
+ */
+
 #include <font.defs>
 #include <media.defs>
 #include <raster.defs>
+
+#include "bundlever.defs"
 
 // This driver info file only defines a single device that produces PGM or PPM files...
 Font *
@@ -8,7 +16,7 @@ ManualCopies Yes
 Manufacturer Apple
 ModelName "ImageWriter II"
 PCFileName "Apple ImageWriter II.ppd"
-Version 1.0
+Version 1.$BUNDLE_VER
 Attribute Product "" "(ImageWriter II)"
 Attribute 1284DeviceID "" "MFG:Apple;MODEL:ImageWriter II;"
 

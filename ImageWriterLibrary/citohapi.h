@@ -1,13 +1,12 @@
-//
-//  citohapi.h
-//  ImageWriterLibrary
-//
-//  Created by Daniele Cattaneo on 28/11/13.
-//  Copyright (c) 2013 Daniele Cattaneo. All rights reserved.
-//
+/*
+ *  citohapi.h
+ *  C-ITOH 8510, Apple DMP, Apple ImageWriter, Apple Imagewriter II abstraction layer
+ *  (c) 2013 Daniele Cattaneo
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "imwlibver.h"
 
 #ifndef IMAGEWRITERLIBRARY_CITOHAPI_H
 #define IMAGEWRITERLIBRARY_CITOHAPI_H

@@ -1,10 +1,8 @@
-//
-//  main.c
-//  CupsFilters
-//
-//  Created by Daniele Cattaneo on 29/11/13.
-//  Copyright (c) 2013 Daniele Cattaneo. All rights reserved.
-//
+/*
+ *  rastertoimw.c
+ *  Apple Imagewriter CUPS raster filter
+ *  (c) 2013 Daniele Cattaneo
+ */
 
 #include <stdio.h>
 #include <cups/raster.h>
@@ -13,6 +11,7 @@
 
 #include "citohapi.h"
 #include "imwhgr.h"
+#include "filtersver.h"
 
 typedef struct {
   int job_id;

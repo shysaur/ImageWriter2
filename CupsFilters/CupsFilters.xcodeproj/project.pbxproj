@@ -11,6 +11,7 @@
 		01106CF518491BA0004DC5E2 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF418491BA0004DC5E2 /* libcups.dylib */; };
 		01106CF718491BB7004DC5E2 /* libcupsimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF618491BB7004DC5E2 /* libcupsimage.dylib */; };
 		01106CFC184947CE004DC5E2 /* libimagewriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CFB184947CE004DC5E2 /* libimagewriter.a */; };
+		01BB91E0184A8D7800DD7A13 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,9 @@
 		01106CF418491BA0004DC5E2 /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
 		01106CF618491BB7004DC5E2 /* libcupsimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcupsimage.dylib; path = usr/lib/libcupsimage.dylib; sourceTree = SDKROOT; };
 		01106CFB184947CE004DC5E2 /* libimagewriter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libimagewriter.a; path = "../../../../Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/libimagewriter.a"; sourceTree = "<group>"; };
+		01BB91DD184A8D5900DD7A13 /* filtersver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filtersver.h; sourceTree = "<group>"; };
+		01BB91DE184A8D5D00DD7A13 /* filtersver.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = filtersver.in; sourceTree = "<group>"; };
+		01BB91DF184A8D7800DD7A13 /* filtersver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filtersver.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,8 @@
 				01106CFB184947CE004DC5E2 /* libimagewriter.a */,
 				01106CF618491BB7004DC5E2 /* libcupsimage.dylib */,
 				01106CF418491BA0004DC5E2 /* libcups.dylib */,
+				01BB91DC184A8D3700DD7A13 /* FiltersVersion */,
 				01106CCB18491923004DC5E2 /* CupsFilters */,
-				01106CFE18494941004DC5E2 /* Resources */,
 				01106CCA18491923004DC5E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,11 +79,14 @@
 			path = CupsFilters;
 			sourceTree = "<group>";
 		};
-		01106CFE18494941004DC5E2 /* Resources */ = {
+		01BB91DC184A8D3700DD7A13 /* FiltersVersion */ = {
 			isa = PBXGroup;
 			children = (
+				01BB91DE184A8D5D00DD7A13 /* filtersver.in */,
+				01BB91DD184A8D5900DD7A13 /* filtersver.h */,
+				01BB91DF184A8D7800DD7A13 /* filtersver.c */,
 			);
-			name = Resources;
+			name = FiltersVersion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,6 +96,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01106CEC18491ACA004DC5E2 /* Build configuration list for PBXNativeTarget "rastertoimw" */;
 			buildPhases = (
+				01BB91DB184A8CFD00DD7A13 /* ShellScript */,
 				01106CE218491AC9004DC5E2 /* Sources */,
 				01106CE318491AC9004DC5E2 /* Frameworks */,
 				01106CE418491AC9004DC5E2 /* CopyFiles */,
@@ -128,12 +136,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01BB91DB184A8CFD00DD7A13 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat filtersver.in | sed \"s/@VERSION/$COUNTER/g\" > filtersver.c";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		01106CE218491AC9004DC5E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				01106CF118491B04004DC5E2 /* rastertoimw.c in Sources */,
+				01BB91E0184A8D7800DD7A13 /* filtersver.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +247,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Debug;
 		};
@@ -233,6 +259,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Release;
 		};
@@ -255,6 +282,7 @@
 				01106CEE18491ACA004DC5E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -100,7 +100,6 @@ int main(int argc, const char *argv[]) {
     
     page++;
     fprintf(stderr, "PAGE: %d %d\n", page, pagehdr.NumCopies);
-    prnFormFeed(prn);
     row = 0;
     lineskip = 0;
     

@@ -18,9 +18,7 @@ Attribute cupsFilter "" "application/vnd.cups-raster 100 /Library/Printers/Apple
 // Icon for this printer
 Attribute APPrinterIconPath "" "/Library/Printers/Apple/ImageWriterII.bundle/Contents/Resources/PrinterIcon.icns"
 
-// Use ICC color matching via installed sRGB profile
 ColorDevice No
-Attribute cupsICCProfile Gray../Grayscale "/System/Library/ColorSync/Profiles/Generic Gray Profile.icc"
 
 // Supported media sizes - Letter, A4, and custom
 HWMargins 3mm 3mm 3mm 3mm
@@ -33,4 +31,19 @@ MaxSize 12in 18in
 
 // Output resolution - default to highest resolution...
 Option Resolution PickOne AnySetup 10
-  *Choice 72dpi "<</HWResolution[72 72]>>setpagedevice"
+  Choice 72x72dpi "<</HWResolution[72 72]>>setpagedevice"
+  Choice 80x72dpi "<</HWResolution[80 72]>>setpagedevice"
+  Choice 96x72dpi "<</HWResolution[96 72]>>setpagedevice"
+  Choice 107x72dpi "<</HWResolution[107 72]>>setpagedevice"
+  Choice 120x72dpi "<</HWResolution[120 72]>>setpagedevice"
+  Choice 136x72dpi "<</HWResolution[136 72]>>setpagedevice"
+  Choice 144x72dpi "<</HWResolution[144 72]>>setpagedevice"
+  Choice 160x72dpi "<</HWResolution[160 72]>>setpagedevice"
+  Choice 72x144dpi "<</HWResolution[72 144]>>setpagedevice"
+  Choice 80x144dpi "<</HWResolution[80 144]>>setpagedevice"
+  Choice 96x144dpi "<</HWResolution[96 144]>>setpagedevice"
+  Choice 107x144dpi "<</HWResolution[107 144]>>setpagedevice"
+  Choice 120x144dpi "<</HWResolution[120 144]>>setpagedevice"
+  Choice 136x144dpi "<</HWResolution[136 144]>>setpagedevice"
+  Choice 144x144dpi "<</HWResolution[144 144]>>setpagedevice"
+  *Choice 160x144dpi "<</HWResolution[160 144]>>setpagedevice"

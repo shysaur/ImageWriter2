@@ -21,8 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		01106D28184950BA004DC5E2 /* PrinterIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 01106D0818494C39004DC5E2 /* PrinterIcon.icns */; };
 		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; };
+		01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 01E70A0A184BADD200B913FF /* PrinterIcon.iconset */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +50,10 @@
 
 /* Begin PBXFileReference section */
 		01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Apple ImageWriter II.drv"; sourceTree = "<group>"; };
-		01106D0818494C39004DC5E2 /* PrinterIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = PrinterIcon.icns; sourceTree = "<group>"; };
 		01106D18184950A1004DC5E2 /* ImageWriterII.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageWriterII.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imagewriterii-Info.plist"; sourceTree = "<group>"; };
 		01106D2C18495AF6004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = rastertoimw; path = "/Users/danielecattaneo/Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/rastertoimw"; sourceTree = "<absolute>"; };
+		01E70A0A184BADD200B913FF /* PrinterIcon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = PrinterIcon.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			children = (
 				01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */,
 				01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */,
-				01106D0818494C39004DC5E2 /* PrinterIcon.icns */,
+				01E70A0A184BADD200B913FF /* PrinterIcon.iconset */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01106D28184950BA004DC5E2 /* PrinterIcon.icns in Resources */,
+				01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

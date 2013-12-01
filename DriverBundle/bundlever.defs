@@ -1,7 +1,0 @@
-/* 
- *  bundlever.in
- *  Apple ImageWriter Driver bundle version
- *  (c) 2013 Daniele Cattaneo
- */
- 
-#define BUNDLE_VER 28

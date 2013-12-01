@@ -160,3 +160,6 @@ xcuserdata
 # ...none. Everything is now explained.
 TestOutput
 *.pkg
+filtersver.c
+bundlever.defs
+imwlibver.c

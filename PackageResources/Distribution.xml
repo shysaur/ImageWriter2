@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="1">
+    <title>Apple ImageWriter II Printer Driver</title> 
+    <background alignment="left" file="background.png" mime-type="image/png"/>
+
+    <pkg-ref id="com.danielecattaneo.printers.imagewriterii"/>
+    <options customize="never" require-scripts="false"/>
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.danielecattaneo.printers.imagewriterii"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="com.danielecattaneo.printers.imagewriterii" visible="false">
+        <pkg-ref id="com.danielecattaneo.printers.imagewriterii"/>
+    </choice>
+    <pkg-ref id="com.danielecattaneo.printers.imagewriterii" version="0.9.0" onConclusion="none">DriverPackage.pkg</pkg-ref>
+</installer-gui-script>

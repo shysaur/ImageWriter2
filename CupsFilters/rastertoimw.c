@@ -96,7 +96,7 @@ int outputStripeWithRes(printerRef prn, uint8_t curStripe[], int width, int hgr)
 
 
 int main(int argc, const char *argv[]) {
-  ppd_file_t *ppd;
+  ppd_file_t *ppd = NULL;
   cups_raster_t *ras;
   cups_page_header2_t	pagehdr;
   job_data_t job;
@@ -142,6 +142,7 @@ int main(int argc, const char *argv[]) {
       curStripe = malloc(pagehdr.cupsBytesPerLine*8);
     if (prnSetHorizontalResolution(prn, pagehdr.HWResolution[0])) {
       fprintf(stderr, "ERROR: horizontal resolution not supported\n");
+      free(curStripe);
       return 1;
     };
     
@@ -154,7 +155,7 @@ int main(int argc, const char *argv[]) {
       cupsRasterReadPixels(ras, &curStripe[row*pagehdr.cupsBytesPerLine], pagehdr.cupsBytesPerLine);
       row++;
       
-      if (row >= 8+(8*hgr)) {
+      if ((row >= 8+(8*hgr)) || (y+1 == pagehdr.cupsHeight)) {
         if (!stripeIsEmpty(curStripe, pagehdr.cupsBytesPerLine, 8+(8*hgr))) {
           skipLines(prn, &lineskip);
           outputStripeWithRes(prn, curStripe, pagehdr.cupsBytesPerLine, hgr);
@@ -166,10 +167,6 @@ int main(int argc, const char *argv[]) {
       
       if (y * 25 % pagehdr.cupsHeight < 25)
         fprintf(stderr, "INFO: %d%%\n", y*100/pagehdr.cupsHeight);
-    }
-    if (!stripeIsEmpty(curStripe, pagehdr.cupsBytesPerLine, 8+(8*hgr))) {
-      skipLines(prn, &lineskip);
-      outputStripeWithRes(prn, curStripe, pagehdr.cupsBytesPerLine, hgr);
     }
     
     free(curStripe);

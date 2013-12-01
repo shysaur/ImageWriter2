@@ -26,7 +26,7 @@ int hgrPrintBitmapStripeH8Wk8(printerRef prn, const uint8_t bitmap[], int chrWid
           ((bitmap[i+5*chrWidth] >> (7-j) & 1) << 5) |
           ((bitmap[i+6*chrWidth] >> (7-j) & 1) << 6) |
           ((bitmap[i+7*chrWidth] >> (7-j) & 1) << 7);
-    err = prnGraphicStripePrint(prn, stripes, chrWidth*8);
+    err = prnGraphicStripePrint(prn, stripes, chrWidth*8, 1);
     free(stripes);
     return err;
   } else

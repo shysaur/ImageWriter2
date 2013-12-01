@@ -94,7 +94,7 @@ int prnSetFormHeight(printerRef prn, int rows) {
 }
 
 #define GSP_MINRLE -7
-int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth) {
+int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth, int optimizeWidth) {
   int partstart, partlen, partrle, nextpart, minrle;
   
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
@@ -146,7 +146,8 @@ int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth) {
       fprintf(prn->s_out, "\033G%04d", partlen);
       fwrite(&stripe[partstart], sizeof(uint8_t), partlen, prn->s_out);
     } else
-      fprintf(prn->s_out, "\033V%04d%c", partlen, (uint8_t)partrle);
+      if (!(optimizeWidth && partrle == 0))
+        fprintf(prn->s_out, "\033V%04d%c", partlen, (uint8_t)partrle);
   }
   
   if (prn->headPos > 0) prn->headPos += swidth;

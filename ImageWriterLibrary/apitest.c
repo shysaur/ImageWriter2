@@ -70,7 +70,7 @@ const uint8_t test_gfx_linear_rle[] = {
 };
 
 const uint8_t test_rle[] = {
-  0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,1
+  0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
 };
 
 int main(int argc, const char *argv[]) {
@@ -102,7 +102,7 @@ int main(int argc, const char *argv[]) {
   prnCarriageReturnLineFeed(prn);
   prnTextPrint(prn, "This is compressed:");
   prnCarriageReturnLineFeed(prn);
-  prnGraphicStripePrint(prn, test_rle, sizeof(test_rle));
+  prnGraphicStripePrint(prn, test_rle, sizeof(test_rle), 1);
   
   prnSetLineHeight(prn, IMWAPI_6LPI);
   prnFormFeed(prn);

@@ -26,6 +26,23 @@
 #define IMWAPI_6LPI                  -1
 #define IMWAPI_8LPI                  -2
 
+typedef enum {
+  kAmerican = 0,
+  kBritish,
+  kGerman,
+  kFrench,
+  kSwedish,
+  kItalian,
+  kSpanish,
+  kDanish
+} charSet;
+
+typedef enum {
+  kDraft = 0,
+  kStandard,
+  kNLQ
+} printFont;
+
 typedef struct {
   FILE *s_out;
   FILE *s_in;
@@ -45,6 +62,8 @@ int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth, in
 int prnGraphicGoToX(printerRef prn, int swidth);
 int prnCarriageReturnLineFeed(printerRef prn);
 int prnSetBidirectionalMode(printerRef prn, int bidi);
+int prnSetHighBitMode(printerRef prn, int ascii);
 int prnResetPrinterStatus(printerRef prn);
+int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang);
 
 #endif

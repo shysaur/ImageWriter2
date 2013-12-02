@@ -22,6 +22,8 @@ Attribute 1284DeviceID "" "MFG:Apple;MODEL:ImageWriter II;"
 
 // Filters provided and commands supported by this driver...
 Attribute cupsFilter "" "application/vnd.cups-raster 100 /Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/rastertoimw"
+Attribute cupsFilter "" "application/vnd.cups-command 100 /Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/commandtoimw"
+Attribute cupsCommands "" "PrintSelfTestPage"
 
 // Icon for this printer
 Attribute APPrinterIconPath "" "/Library/Printers/Apple/ImageWriterII.bundle/Contents/Resources/PrinterIcon.icns"

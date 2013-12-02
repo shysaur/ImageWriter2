@@ -11,11 +11,25 @@
 		01106CF518491BA0004DC5E2 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF418491BA0004DC5E2 /* libcups.dylib */; };
 		01106CF718491BB7004DC5E2 /* libcupsimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF618491BB7004DC5E2 /* libcupsimage.dylib */; };
 		01106CFC184947CE004DC5E2 /* libimagewriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CFB184947CE004DC5E2 /* libimagewriter.a */; };
+		011DFF71184CF51100212711 /* commandtoimw.c in Sources */ = {isa = PBXBuildFile; fileRef = 011DFF6A184CD4BC00212711 /* commandtoimw.c */; };
+		011DFF74184D075300212711 /* libimagewriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CFB184947CE004DC5E2 /* libimagewriter.a */; };
+		011DFF75184D075E00212711 /* libcupsimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF618491BB7004DC5E2 /* libcupsimage.dylib */; };
+		011DFF76184D076000212711 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF418491BA0004DC5E2 /* libcups.dylib */; };
+		011DFF77184D079300212711 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
 		01BB91E0184A8D7800DD7A13 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		01106CE418491AC9004DC5E2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		011DFF66184CD4BC00212711 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -32,6 +46,8 @@
 		01106CF418491BA0004DC5E2 /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
 		01106CF618491BB7004DC5E2 /* libcupsimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcupsimage.dylib; path = usr/lib/libcupsimage.dylib; sourceTree = SDKROOT; };
 		01106CFB184947CE004DC5E2 /* libimagewriter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libimagewriter.a; path = "../../../../Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/libimagewriter.a"; sourceTree = "<group>"; };
+		011DFF68184CD4BC00212711 /* commandtoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = commandtoimw; sourceTree = BUILT_PRODUCTS_DIR; };
+		011DFF6A184CD4BC00212711 /* commandtoimw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = commandtoimw.c; sourceTree = SOURCE_ROOT; };
 		01BB91DD184A8D5900DD7A13 /* filtersver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filtersver.h; sourceTree = "<group>"; };
 		01BB91DE184A8D5D00DD7A13 /* filtersver.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = filtersver.in; sourceTree = "<group>"; };
 		01BB91DF184A8D7800DD7A13 /* filtersver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filtersver.c; sourceTree = "<group>"; };
@@ -45,6 +61,16 @@
 				01106CF718491BB7004DC5E2 /* libcupsimage.dylib in Frameworks */,
 				01106CF518491BA0004DC5E2 /* libcups.dylib in Frameworks */,
 				01106CFC184947CE004DC5E2 /* libimagewriter.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011DFF65184CD4BC00212711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011DFF74184D075300212711 /* libimagewriter.a in Frameworks */,
+				011DFF75184D075E00212711 /* libcupsimage.dylib in Frameworks */,
+				011DFF76184D076000212711 /* libcups.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				01106CE618491AC9004DC5E2 /* rastertoimw */,
+				011DFF68184CD4BC00212711 /* commandtoimw */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				01106CF018491B04004DC5E2 /* rastertoimw.c */,
+				011DFF6A184CD4BC00212711 /* commandtoimw.c */,
 			);
 			path = CupsFilters;
 			sourceTree = "<group>";
@@ -110,6 +138,23 @@
 			productReference = 01106CE618491AC9004DC5E2 /* rastertoimw */;
 			productType = "com.apple.product-type.tool";
 		};
+		011DFF67184CD4BC00212711 /* commandtoimw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 011DFF70184CD4BC00212711 /* Build configuration list for PBXNativeTarget "commandtoimw" */;
+			buildPhases = (
+				011DFF64184CD4BC00212711 /* Sources */,
+				011DFF65184CD4BC00212711 /* Frameworks */,
+				011DFF66184CD4BC00212711 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = commandtoimw;
+			productName = commandtoimw;
+			productReference = 011DFF68184CD4BC00212711 /* commandtoimw */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -132,6 +177,7 @@
 			projectRoot = "";
 			targets = (
 				01106CE518491AC9004DC5E2 /* rastertoimw */,
+				011DFF67184CD4BC00212711 /* commandtoimw */,
 			);
 		};
 /* End PBXProject section */
@@ -159,6 +205,15 @@
 			files = (
 				01106CF118491B04004DC5E2 /* rastertoimw.c in Sources */,
 				01BB91E0184A8D7800DD7A13 /* filtersver.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		011DFF64184CD4BC00212711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				011DFF71184CF51100212711 /* commandtoimw.c in Sources */,
+				011DFF77184D079300212711 /* filtersver.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +254,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/PrinterInterface/";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Debug;
 		};
@@ -231,7 +286,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/PrinterInterface/";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Release;
 		};
@@ -263,6 +318,36 @@
 			};
 			name = Release;
 		};
+		011DFF6E184CD4BC00212711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
+			};
+			name = Debug;
+		};
+		011DFF6F184CD4BC00212711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -283,6 +368,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		011DFF70184CD4BC00212711 /* Build configuration list for PBXNativeTarget "commandtoimw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				011DFF6E184CD4BC00212711 /* Debug */,
+				011DFF6F184CD4BC00212711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

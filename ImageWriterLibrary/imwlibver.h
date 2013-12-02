@@ -1,5 +1,5 @@
 /*
- *  imwlibver.in
+ *  imwlibver.h
  *  Apple ImageWriter library version
  *  (c) 2013 Daniele Cattaneo
  */

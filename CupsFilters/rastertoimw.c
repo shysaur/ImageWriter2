@@ -5,9 +5,11 @@
  */
 
 #include <stdio.h>
-#include <cups/raster.h>
 #include <signal.h>
 #include <errno.h>
+#include <cups/cups.h>
+#include <cups/ppd.h>
+#include <cups/raster.h>
 
 #include "citohapi.h"
 #include "imwhgr.h"

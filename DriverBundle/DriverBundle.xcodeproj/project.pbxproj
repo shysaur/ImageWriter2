@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; };
+		011DFF79184D195B00212711 /* commandtoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 011DFF78184D195B00212711 /* commandtoimw */; };
 		01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 01E70A0A184BADD200B913FF /* PrinterIcon.iconset */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 			dstSubfolderSpec = 6;
 			files = (
 				01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */,
+				011DFF79184D195B00212711 /* commandtoimw in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +55,7 @@
 		01106D18184950A1004DC5E2 /* ImageWriterII.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageWriterII.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imagewriterii-Info.plist"; sourceTree = "<group>"; };
 		01106D2C18495AF6004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = rastertoimw; path = "/Users/danielecattaneo/Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/rastertoimw"; sourceTree = "<absolute>"; };
+		011DFF78184D195B00212711 /* commandtoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = commandtoimw; path = "/Users/danielecattaneo/Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/commandtoimw"; sourceTree = "<absolute>"; };
 		01E70A0A184BADD200B913FF /* PrinterIcon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = PrinterIcon.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +73,7 @@
 		01106CFF18494C1B004DC5E2 = {
 			isa = PBXGroup;
 			children = (
+				011DFF78184D195B00212711 /* commandtoimw */,
 				01106D2C18495AF6004DC5E2 /* rastertoimw */,
 				01106D0618494C20004DC5E2 /* Resources */,
 				01106D19184950A1004DC5E2 /* Products */,

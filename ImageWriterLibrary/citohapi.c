@@ -135,7 +135,7 @@ int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth, in
         partstart += partlen;
         partlen = 1;
         partrle = -1;
-        minrle = -2;
+        minrle = GSP_MINRLE;
       } else
         partlen++;
     }
@@ -197,7 +197,51 @@ int prnResetPrinterStatus(printerRef prn) {
   return 0;
 }
 
+int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang) {
+  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (mouseText < 0 || mouseText > 1) return ERR_IMWAPI_INVALIDPARAM;
+  if (mouseText) {
+    fprintf(stderr, "DEBUG: mouseText is on. This is extremely dangerous because"
+            " it can lead to garbage prints with no apparent reason if it's not disabled."
+            " You can also access mouseText stuff by printing a character > 128.\n");
+    fprintf(prn->s_out, "\033&");
+  } else {
+    fprintf(prn->s_out, "\033$");
+  }
+  switch (lang) {
+    case kAmerican:
+      fwrite("\033Z\07\0", sizeof(char), 4, prn->s_out); break;
+    case kBritish:
+      fwrite("\033Z\04\0\033D\03\0", sizeof(char), 8, prn->s_out); break;
+    case kGerman:
+      fwrite("\033Z\03\0\033D\04\0", sizeof(char), 8, prn->s_out); break;
+    case kFrench:
+      fwrite("\033Z\01\0\033D\06\0", sizeof(char), 8, prn->s_out); break;
+    case kSwedish:
+      fwrite("\033Z\02\0\033D\05\0", sizeof(char), 8, prn->s_out); break;
+    case kItalian:
+      fwrite("\033Z\06\0\033D\01\0", sizeof(char), 8, prn->s_out); break;
+    case kSpanish:
+      fwrite("\033D\07\0", sizeof(char), 4, prn->s_out); break;
+    case kDanish:
+      fwrite("\033Z\05\0\033D\02\0", sizeof(char), 8, prn->s_out); break;
+    default:
+      return ERR_IMWAPI_INVALIDPARAM;
+  }
+  return 0;
+}
 
+int prnSelectFont(printerRef prn, printFont font) {
+  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  switch (font) {
+    case kDraft: fprintf(prn->s_out, "\033a1"); break;
+    case kStandard: fprintf(prn->s_out, "\033a0"); break;
+    case kNLQ: fprintf(prn->s_out, "\033a2"); break;
+    default:
+      return ERR_IMWAPI_INVALIDPARAM;
+  }
+  return 0;
+}
 
 
 

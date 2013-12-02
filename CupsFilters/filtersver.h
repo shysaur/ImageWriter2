@@ -1,12 +1,12 @@
 /*
- *  imwlibver.in
+ *  filtersver.h
  *  Apple ImageWriter library version
  *  (c) 2013 Daniele Cattaneo
  */
 
-#ifndef IMAGEWRITERLIBRARY_IMWLIBVER_H
-#define IMAGEWRITERLIBRARY_IMWLIBVER_H
+#ifndef CUPSFILTERS_FILTERSVER_H
+#define CUPSFILTERS_FILTERSVER_H
 
-extern float const citohapiVersion;
+extern float const imwfiltersVersion;
 
 #endif

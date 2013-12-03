@@ -92,7 +92,7 @@ int prnOutputSelfTestPage(printerRef prn) {
     0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
   };
   char temp[256];
-  int i, j;
+  int c, i, j;
   
   prnTextPrint(prn, " ");
   /* This dummy space is needed to signal the beginning of a print job in case a */
@@ -101,56 +101,72 @@ int prnOutputSelfTestPage(printerRef prn) {
   /* silently offline until the user feeds a sheet manually. */
   prnSetHighBitMode(prn, IMWAPI_8BITMODE);
   prnSetLineHeight(prn, IMWAPI_6LPI);
-  prnSetBidirectionalMode(prn, 0);
+  prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
   prnSelectCharacterSet(prn, 0, kAmerican);
   prnSetHorizontalResolution(prn, 72);
   prnCarriageReturnLineFeed(prn);
+  prnSelectFont(prn, kNLQ);
   prnTextPrint(prn, "\016ImageWriter Test Page\017\r\n\r\n");
   prnSetHorizontalResolution(prn, 96);
   sprintf(temp, "Filter version %.2f - Library version %.2f\r\n\r\n", imwfiltersVersion, citohapiVersion);
   prnTextPrint(prn, temp);
+  prnSelectFont(prn, kDraft);
+  prnSetBidirectionalMode(prn, IMWAPI_BIDIRECTIONAL);
   prnTextPrint(prn,
-               "To get the printer's ROM version and to run the printer's self test, hold the Form Feed but-\r\n"
-               "ton while pressing the On/Off button, then release both buttons. To stop the print, turn off\r\n"
-               "the printer.\r\n"
-               "Disclaimer: This driver is not provided and is not endorsed by Apple Inc.\r\n\r\n");
+               "To get the printer's ROM version and to run the printer's self test, hold the Form Feed button\r\n"
+               "while pressing the On/Off button, then release both buttons. To stop the print, turn off the\r\n"
+               "printer. \033!Disclaimer:\033\042 This driver is not provided and is not endorsed by Apple Inc.\r\n");
   
   /* Nozzle Test */
+  prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
+  prnSelectFont(prn, kStandard);
   prnSetHorizontalResolution(prn, 72);
   prnSelectCharacterSet(prn, 0, kAmerican);
   prnCarriageReturnLineFeed(prn);
-  prnGraphicStripePrint(prn, nozzle_test, sizeof(nozzle_test), 0);
-  prnTextPrint(prn, "_");
+  for (i=0; i<4; i++) {
+    prnGraphicStripePrint(prn, nozzle_test, sizeof(nozzle_test), 0);
+    prnTextPrint(prn, "_ ");
+  }
   prnSetLineHeight(prn, 1);
   prnCarriageReturnLineFeed(prn);
   prnGraphicGoToX(prn, 8);
-  prnGraphicStripePrint(prn, nozzle_test, sizeof(nozzle_test), 0);
-  prnTextPrint(prn, "_");
+  for (i=0; i<4; i++) {
+    prnGraphicStripePrint(prn, nozzle_test, sizeof(nozzle_test), 0);
+    prnTextPrint(prn, "_ ");
+  }
   prnSetLineHeight(prn, IMWAPI_6LPI);
-  prnCarriageReturnLineFeed(prn);
   prnCarriageReturnLineFeed(prn);
   
   /* Charset test */
+  prnSelectFont(prn, kStandard);
   prnSetHorizontalResolution(prn, 72);
-  prnSelectCharacterSet(prn, 0, kAmerican);
+  j = 0;
   temp[1] = '\0';
-  for (i=32, j=0; i<127; i++) {
-    if (i != 127) {
-      if (j % 70 == 0) prnCarriageReturnLineFeed(prn);
+  for (c=kAmerican; c<kDanish; c++) {
+    prnSelectCharacterSet(prn, 0, c);
+    for (i=32; i<127; i++) {
+      if (j % 72 == 0) prnCarriageReturnLineFeed(prn);
       temp[0] = i;
       prnTextPrint(prn, temp);
       j++;
     }
   }
+  for (i=192; i<223; i++) { /* MouseText (who ever used that?) */
+    if (j % 72 == 0) prnCarriageReturnLineFeed(prn);
+    temp[0] = i;
+    prnTextPrint(prn, temp);
+    j++;
+  }
   prnCarriageReturnLineFeed(prn);
   prnCarriageReturnLineFeed(prn);
   
   /* Resolution Test */
-  prnSetHorizontalResolution(prn, 72);
+  prnSelectFont(prn, kDraft);
+  prnSetHorizontalResolution(prn, 144);
   prnSelectCharacterSet(prn, 0, kAmerican);
-  prnGraphicGoToX(prn, TEST_COL_WIDTH);
+  prnGraphicGoToX(prn, TEST_COL_WIDTH*144/72);
   prnTextPrint(prn, "72 dpi vertical");
-  prnGraphicGoToX(prn, 2*TEST_COL_WIDTH);
+  prnGraphicGoToX(prn, 2*TEST_COL_WIDTH*144/72);
   prnTextPrint(prn, "144 dpi vertical");
   prnCarriageReturnLineFeed(prn);
   for (i=0; i<8; i++) {
@@ -169,6 +185,7 @@ int prnOutputSelfTestPage(printerRef prn) {
     prnCarriageReturnLineFeed(prn);
   }
   
+  prnSetLineHeight(prn, IMWAPI_6LPI);
   prnFormFeed(prn);
   return 0;
 }

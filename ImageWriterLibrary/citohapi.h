@@ -65,5 +65,6 @@ int prnSetBidirectionalMode(printerRef prn, int bidi);
 int prnSetHighBitMode(printerRef prn, int ascii);
 int prnResetPrinterStatus(printerRef prn);
 int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang);
+int prnSelectFont(printerRef prn, printFont font);
 
 #endif

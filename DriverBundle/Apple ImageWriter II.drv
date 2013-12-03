@@ -10,7 +10,7 @@
 
 #include "bundlever.defs"
 
-// This driver info file only defines a single device that produces PGM or PPM files...
+/* Generic information */
 Font *
 ManualCopies Yes
 Manufacturer Apple
@@ -20,24 +20,26 @@ Version 1.$BUNDLE_VER
 Attribute Product "" "(ImageWriter II)"
 Attribute 1284DeviceID "" "MFG:Apple;MODEL:ImageWriter II;"
 
-// Filters provided and commands supported by this driver...
+/* Filters and commands */
 Attribute cupsFilter "" "application/vnd.cups-raster 100 /Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/rastertoimw"
 Attribute cupsFilter "" "application/vnd.cups-command 100 /Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/commandtoimw"
 Attribute cupsCommands "" "PrintSelfTestPage"
 
-// Icon for this printer
+/* Apple printer icon */
 Attribute APPrinterIconPath "" "/Library/Printers/Apple/ImageWriterII.bundle/Contents/Resources/PrinterIcon.icns"
 
 ColorDevice No
 
-// Supported media sizes - Letter, A4, and custom
+/* Paper sizes */
 HWMargins 3mm 3mm 3mm 3mm
 *MediaSize Letter
+MediaSize Legal
 MediaSize A4
+MediaSize FanFoldUS
 
 VariablePaperSize Yes
-MinSize 2in 2in
-MaxSize 12in 18in
+MinSize 10cm 10cm
+MaxSize 22cm 22cm
 
 /* Options */
 Option Bidirectional Boolean AnySetup 10

@@ -15,8 +15,8 @@
 		011DFF74184D075300212711 /* libimagewriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CFB184947CE004DC5E2 /* libimagewriter.a */; };
 		011DFF75184D075E00212711 /* libcupsimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF618491BB7004DC5E2 /* libcupsimage.dylib */; };
 		011DFF76184D076000212711 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF418491BA0004DC5E2 /* libcups.dylib */; };
-		011DFF77184D079300212711 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
-		01BB91E0184A8D7800DD7A13 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
+		0149FBBC184E6CC5002B4C05 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
+		0149FBBD184E6CC6002B4C05 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,6 +142,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 011DFF70184CD4BC00212711 /* Build configuration list for PBXNativeTarget "commandtoimw" */;
 			buildPhases = (
+				0149FBBE184E6CE5002B4C05 /* ShellScript */,
 				011DFF64184CD4BC00212711 /* Sources */,
 				011DFF65184CD4BC00212711 /* Frameworks */,
 				011DFF66184CD4BC00212711 /* CopyFiles */,
@@ -183,6 +184,19 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0149FBBE184E6CE5002B4C05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat filtersver.in | sed \"s/@VERSION/$COUNTER/g\" > filtersver.c";
+		};
 		01BB91DB184A8CFD00DD7A13 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01106CF118491B04004DC5E2 /* rastertoimw.c in Sources */,
-				01BB91E0184A8D7800DD7A13 /* filtersver.c in Sources */,
+				0149FBBD184E6CC6002B4C05 /* filtersver.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				011DFF71184CF51100212711 /* commandtoimw.c in Sources */,
-				011DFF77184D079300212711 /* filtersver.c in Sources */,
+				0149FBBC184E6CC5002B4C05 /* filtersver.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +390,7 @@
 				011DFF6F184CD4BC00212711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

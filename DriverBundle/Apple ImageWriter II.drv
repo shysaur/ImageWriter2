@@ -28,6 +28,10 @@ Attribute cupsCommands "" "PrintSelfTestPage"
 /* Apple printer icon */
 Attribute APPrinterIconPath "" "/Library/Printers/Apple/ImageWriterII.bundle/Contents/Resources/PrinterIcon.icns"
 
+/* PDE */
+Attribute APDialogExtension "" "/Library/Printers/Apple/ImageWriterIIPDE.bundle"
+
+/* B/W */
 ColorDevice No
 
 /* Paper sizes */

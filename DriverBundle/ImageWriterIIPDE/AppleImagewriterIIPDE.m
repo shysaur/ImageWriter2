@@ -88,7 +88,7 @@ const pdeOptions presets[] = {
 
 
 - (NSArray *)supportedPPDOptionKeys {
-  return [NSArray arrayWithObjects:@"Resolution", @"Bidirectional", nil];
+  return [NSArray arrayWithObjects:@"Bidirectional", @"Resolution", nil];
 }
 
 
@@ -110,8 +110,8 @@ const pdeOptions presets[] = {
 
 - (IBAction)listResolutionXDidChange:(id)sender {
   NSInteger i;
-  i = [listResolutionY indexOfSelectedItem];
-  options.resY = resolutions_x[i];
+  i = [listResolutionX indexOfSelectedItem];
+  options.resX = resolutions_x[i];
   [self updateControls];
 }
 
@@ -125,7 +125,7 @@ const pdeOptions presets[] = {
 - (BOOL)saveValuesAndReturnError:(NSError **)error {
   [pdeCallback
     willChangePPDOptionKeyValue:@"Resolution"
-    ppdChoice:[NSString stringWithFormat:@"%dx%d", options.resX, options.resY]];
+    ppdChoice:[NSString stringWithFormat:@"%dx%ddpi", options.resX, options.resY]];
   [pdeCallback
     willChangePPDOptionKeyValue:@"Bidirectional"
     ppdChoice:options.bidir ? @"True" : @"False"];
@@ -143,7 +143,6 @@ const pdeOptions presets[] = {
   temp = ppdFindMarkedChoice(ppd, "Bidirectional");
   options.bidir = (temp->choice[0] == 'T');
   
-  NSLog(@"Preset not set");
   preset = PRESET_NOTSET;
   
   return [self updateControls];

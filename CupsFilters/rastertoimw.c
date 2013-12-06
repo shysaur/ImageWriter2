@@ -36,15 +36,15 @@ int stripeIsEmpty(const uint8_t stripe[], int charWidth, int height) {
 }
 
 
-int initializeCupsOptions(job_data_t *job, ppd_file_t *ppd, const char *argv[]) {
+int initializeCupsOptions(job_data_t *job, ppd_file_t **ppd, const char *argv[]) {
   job->job_id      = atoi(argv[1]);
   job->user        = argv[2];
   job->title       = argv[3];
   job->num_options = cupsParseOptions(argv[5], 0, &(job->options));
   
-  if ((ppd = ppdOpenFile(getenv("PPD"))) != NULL) {
-    ppdMarkDefaults(ppd);
-    cupsMarkOptions(ppd, job->num_options, job->options);
+  if ((*ppd = ppdOpenFile(getenv("PPD"))) != NULL) {
+    ppdMarkDefaults(*ppd);
+    cupsMarkOptions(*ppd, job->num_options, job->options);
   } else {
     fprintf(stderr, "ERROR: Unable to open PPD file: %s\n", strerror(errno));
     return 1;
@@ -61,6 +61,10 @@ int initializeBidirectional(ppd_file_t *ppd, printerRef prn) {
       return prnSetBidirectionalMode(prn, IMWAPI_BIDIRECTIONAL);
     else
       return prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
+  } else {
+    prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
+    fprintf(stderr, "ERROR: Bidirectional option not found!\n");
+    return -1;
   }
   return 0;
 }
@@ -98,7 +102,7 @@ int outputStripeWithRes(printerRef prn, uint8_t curStripe[], int width, int hgr)
 
 
 int main(int argc, const char *argv[]) {
-  ppd_file_t *ppd = NULL;
+  ppd_file_t *ppd;
   cups_raster_t *ras;
   cups_page_header2_t	pagehdr;
   job_data_t job;
@@ -112,7 +116,7 @@ int main(int argc, const char *argv[]) {
     return 0;
   }
   
-  if (initializeCupsOptions(&job, ppd, argv)) return 1;
+  if (initializeCupsOptions(&job, &ppd, argv)) return 1;
   
   if (argc == 7) {
     if ((rasterfile = open(argv[6], O_RDONLY)) == -1) {

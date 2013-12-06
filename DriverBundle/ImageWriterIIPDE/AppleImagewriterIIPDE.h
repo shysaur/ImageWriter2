@@ -1,10 +1,8 @@
-//
-//  AppleImagewriterIIPDE.h
-//  DriverBundle
-//
-//  Created by Daniele Cattaneo on 05/12/13.
-//
-//
+/*
+ *  AppleImagewriterIIPDE.m
+ *  Apple Imagewriter OS X PDE classes
+ *  (c) 2013 Daniele Cattaneo
+ */
 
 #import <Cocoa/Cocoa.h>
 
@@ -21,16 +19,26 @@ typedef struct {
 #define PRESET_CUSTOM 4
 
 
-@interface AppleImagewriterIIPDEPlugIn : NSObject
+
+
+@interface AppleImagewriterIIPDEPlugIn : NSObject /* <PMPlugIn> */
+{
+}
+
+- (BOOL)initWithBundle:(NSBundle *)bundle;
+- (NSArray*)PDEPanelsForType:(NSString*)pdeType withHostInfo:(id)host;
+
+@end
+
+
+
+
+@interface PDEPluginCallback : NSObject /* <PDEPlugInCallbackProtocol> */
 {
 }
 @end
 
 
-@interface PDEPluginCallback : NSObject
-{
-}
-@end
 
 
 @interface AppleImagewriterIIPDE : NSObject
@@ -50,7 +58,25 @@ typedef struct {
 }
 
 - (id)initWithCallback:(PDEPluginCallback *)callback;
+- (void)dealloc;
 
+- (NSString *)panelName;
+- (NSString *)panelKind;
+- (NSView *)panelView;
+- (NSArray *)supportedPPDOptionKeys;
+- (BOOL)saveValuesAndReturnError:(NSError **)error;
+- (BOOL)restoreValuesAndReturnError:(NSError **)error;
+- (BOOL)updateControls;
+- (void)willShow;
+- (BOOL)shouldHide;
 
+- (IBAction)listQualityPresetsDidChange:(id)sender;
+- (IBAction)listResolutionYDidChange:(id)sender;
+- (IBAction)listResolutionXDidChange:(id)sender;
+- (IBAction)buttonBidirectionalDidChange:(id)sender;
 
 @end
+
+
+
+

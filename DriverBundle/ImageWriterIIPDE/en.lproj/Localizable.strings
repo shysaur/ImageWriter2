@@ -1,7 +1,8 @@
-/* 
-  AppleImagewriterIIPDE.strings
-  DriverBundle
+/*
+ *  Localizable.strings
+ *  Apple Imagewriter PDE Localized Strings
+ *  (c) 2013 Daniele Cattaneo
+ */
 
-  Created by Daniele Cattaneo on 05/12/13.
-
-*/
+/* Panel name in option list */
+"Print Quality" = "Print Quality";

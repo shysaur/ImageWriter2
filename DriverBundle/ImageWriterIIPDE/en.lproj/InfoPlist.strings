@@ -1,2 +1,7 @@
-/* Localized versions of Info.plist keys */
+/*
+ *  InfoPlist.strings
+ *  Apple Imagewriter PDE Bundle Info Localized Strings
+ *  (c) 2013 Daniele Cattaneo
+ */
 
+CFBundleGetInfoString = "Apple ImageWriter II Option Panel";

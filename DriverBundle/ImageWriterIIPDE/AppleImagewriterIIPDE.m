@@ -1,10 +1,8 @@
-//
-//  AppleImagewriterIIPDE.m
-//  DriverBundle
-//
-//  Created by Daniele Cattaneo on 05/12/13.
-//
-//
+/*
+ *  AppleImagewriterIIPDE.m
+ *  Apple Imagewriter OS X PDE classes
+ *  (c) 2013 Daniele Cattaneo
+ */
 
 #import "AppleImagewriterIIPDE.h"
 

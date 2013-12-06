@@ -80,7 +80,6 @@
 		016E71001850891800D129D7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		016E71031850891800D129D7 /* ImageWriterIIPDE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImageWriterIIPDE-Info.plist"; sourceTree = "<group>"; };
 		016E71051850891800D129D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		016E71071850891800D129D7 /* ImageWriterIIPDE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageWriterIIPDE-Prefix.pch"; sourceTree = "<group>"; };
 		016E710B185089A800D129D7 /* PDEView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PDEView.xib; sourceTree = "<group>"; };
 		016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleImagewriterIIPDE.h; sourceTree = "<group>"; };
 		016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleImagewriterIIPDE.m; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 		016E71011850891800D129D7 /* ImageWriterIIPDE */ = {
 			isa = PBXGroup;
 			children = (
-				016E71111850A5AF00D129D7 /* Other Sources */,
 				016E71101850A59C00D129D7 /* Classes */,
 				016E71021850891800D129D7 /* Resources */,
 			);
@@ -196,14 +194,6 @@
 				016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		016E71111850A5AF00D129D7 /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				016E71071850891800D129D7 /* ImageWriterIIPDE-Prefix.pch */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,8 +519,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ImageWriterIIPDE/ImageWriterIIPDE-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -586,8 +574,6 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ImageWriterIIPDE/ImageWriterIIPDE-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

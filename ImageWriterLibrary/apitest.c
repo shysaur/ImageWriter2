@@ -8,6 +8,7 @@
 #include <errno.h>
 #include "citohapi.h"
 #include "imwhgr.h"
+#include "imwtext.h"
 
 const uint8_t test_gfx[] = {
   0b00111100,
@@ -103,6 +104,7 @@ int main(int argc, const char *argv[]) {
   prnTextPrint(prn, "This is compressed:");
   prnCarriageReturnLineFeed(prn);
   prnGraphicStripePrint(prn, test_rle, sizeof(test_rle), 1);
+  prnEncodedTextPrint(prn, "I want to be international today! à@ù§éè*][-äÑ", "UTF-8");
   
   prnSetLineHeight(prn, IMWAPI_6LPI);
   prnFormFeed(prn);

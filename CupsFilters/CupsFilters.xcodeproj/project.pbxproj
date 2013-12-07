@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010BBFA1185378660068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBFA0185378660068874E /* libiconv.dylib */; };
+		010BBFA2185378780068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBFA0185378660068874E /* libiconv.dylib */; };
 		01106CF118491B04004DC5E2 /* rastertoimw.c in Sources */ = {isa = PBXBuildFile; fileRef = 01106CF018491B04004DC5E2 /* rastertoimw.c */; };
 		01106CF518491BA0004DC5E2 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF418491BA0004DC5E2 /* libcups.dylib */; };
 		01106CF718491BB7004DC5E2 /* libcupsimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF618491BB7004DC5E2 /* libcupsimage.dylib */; };
@@ -41,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010BBFA0185378660068874E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		01106CE618491AC9004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rastertoimw; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106CF018491B04004DC5E2 /* rastertoimw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rastertoimw.c; sourceTree = SOURCE_ROOT; };
 		01106CF418491BA0004DC5E2 /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
@@ -58,9 +61,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01106CFC184947CE004DC5E2 /* libimagewriter.a in Frameworks */,
+				010BBFA2185378780068874E /* libiconv.dylib in Frameworks */,
 				01106CF718491BB7004DC5E2 /* libcupsimage.dylib in Frameworks */,
 				01106CF518491BA0004DC5E2 /* libcups.dylib in Frameworks */,
-				01106CFC184947CE004DC5E2 /* libimagewriter.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				011DFF74184D075300212711 /* libimagewriter.a in Frameworks */,
+				010BBFA1185378660068874E /* libiconv.dylib in Frameworks */,
 				011DFF75184D075E00212711 /* libcupsimage.dylib in Frameworks */,
 				011DFF76184D076000212711 /* libcups.dylib in Frameworks */,
 			);
@@ -118,6 +123,7 @@
 		01C20CFB18528F0F00B323C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				010BBFA0185378660068874E /* libiconv.dylib */,
 				01106CFB184947CE004DC5E2 /* libimagewriter.a */,
 				01106CF618491BB7004DC5E2 /* libcupsimage.dylib */,
 				01106CF418491BA0004DC5E2 /* libcups.dylib */,

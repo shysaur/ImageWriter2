@@ -1,0 +1,8 @@
+/*
+ *  Localizable.strings
+ *  Apple Imagewriter PDE Localized Strings
+ *  (c) 2013 Daniele Cattaneo
+ */
+
+/* Panel name in option list */
+"Print Quality" = "Qualità";

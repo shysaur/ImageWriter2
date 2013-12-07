@@ -1,0 +1,7 @@
+/*
+ *  InfoPlist.strings
+ *  Apple Imagewriter PDE Bundle Info Localized Strings
+ *  (c) 2013 Daniele Cattaneo
+ */
+
+CFBundleGetInfoString = "Opzioni Apple ImageWriter II";

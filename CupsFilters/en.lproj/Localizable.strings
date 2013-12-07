@@ -16,8 +16,8 @@
 while pressing the On/Off button, then release both buttons. To stop the print, turn off the\r
 printer. \033!Disclaimer:\033\042 This driver is not provided and is not endorsed by Apple Inc.";
 
-"dpi vertical"   = "dpi vertical";
-"dpi horizontal" = "dpi horizontal";
+"dpi vertical"   = "DPI vertical";
+"dpi horizontal" = "DPI horizontal";
 
 
 /* Command Filter Messages */

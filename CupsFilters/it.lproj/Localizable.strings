@@ -1,0 +1,41 @@
+/*
+ *  Localizable.strings
+ *  Apple Imagewriter CUPS command filter localized strings for Mac OS X
+ *  (c) 2013 Daniele Cattaneo
+ */
+
+
+/* Test page strings */
+
+"ImageWriter Test Page" = "Pagina di prova ImageWriter";
+"Filter version"        = "Filtro versione";
+"Library version"       = "Libreria version";
+
+/* 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+ *         111111111122222222223333333333444444444455555555556666666666777777777788888888889999999999 */
+"Test Page Additional Information" =
+  "Per eseguire il test interno alla stampante e stampare la versione del firmware, tenere premuto\r
+il pulsante Form Feed mentre si accende la stampante. Per interrompere la stampa di tale pagina\r
+di prova, spegnere la stampante. \033!Attenzione:\033\042 Questo driver non è fornito e/o supportato\r
+da Apple.";
+
+"dpi vertical"   = "DPI verticali";
+"dpi horizontal" = "DPI orizzontali";
+
+
+/* Command Filter Messages */
+
+"Unable to open command file" = "Impossibile aprire il file dei comandi";
+"Unknown printer command"     = "Comando non valido";
+
+
+/* Raster Filter Messages */
+
+"Unable to open PPD file" = "Impossibile aprire il file PPD";
+"Bidirectional option not found!" = "Opzione Bidirectional non trovata!";
+"Unable to open raster file" = "Impossibile aprire il file raster";
+"Color page not supported!" = "Pagine a colori non supportate!";
+"Horizontal resolution not supported" = "La risoluzione orizzontale specificata non è supportata";
+"No pages found!" = "Nessuna pagina trovata!";
+"Ready to print." = "Pronto.";
+

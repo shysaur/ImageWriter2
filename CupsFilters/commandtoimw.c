@@ -93,8 +93,7 @@ int prnOutputSelfTestPage(printerRef prn) {
     0x80,0x80,0x80,0x80,0x80,0x80,0x80,0x80,
     0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
   };
-  char temp[256];
-  char temp2[256];
+  char temp[400], temp2[64];
   int c, i, j;
   
   prnTextPrint(prn, " ");
@@ -109,19 +108,21 @@ int prnOutputSelfTestPage(printerRef prn) {
   prnSetHorizontalResolution(prn, 72);
   prnCarriageReturnLineFeed(prn);
   prnSelectFont(prn, kNLQ);
-  l10nGetString("ImageWriter Test Page", temp2, sizeof(temp2));
-  sprintf(temp, "\016%s\017\r\n\r\n", temp2);
-  prnEncodedTextPrint(prn, temp, "UTF-8");
+  
+  l10nGetString("ImageWriter Test Page", temp, sizeof(temp));
+  prnEncodedTextPrintF(prn, "UTF-8", "\016%s\017\r\n\r\n", temp);
   prnSetHorizontalResolution(prn, 96);
-  sprintf(temp, "Filter version %.2f - Library version %.2f\r\n\r\n", imwfiltersVersion, citohapiVersion);
-  prnEncodedTextPrint(prn, temp, "UTF-8");
+  
+  l10nGetString("Filter version", temp, sizeof(temp));
+  l10nGetString("Library version", temp2, sizeof(temp2));
+  prnEncodedTextPrintF(prn, "UTF-8", "%s %.2f - %s %.2f\r\n\r\n", temp, imwfiltersVersion, temp2, citohapiVersion);
+  
   prnSelectFont(prn, kDraft);
   prnSetBidirectionalMode(prn, IMWAPI_BIDIRECTIONAL);
-  prnEncodedTextPrint(prn,
-               "To get the printer's ROM version and to run the printer's self test, hold the Form Feed button\r\n"
-               "while pressing the On/Off button, then release both buttons. To stop the print, turn off the\r\n"
-               "printer. \033!Disclaimer:\033\042 This driver is not provided and is not endorsed by Apple Inc.\r\n",
-               "UTF-8");
+  
+  l10nGetString("Test Page Additional Information", temp, sizeof(temp));
+  prnEncodedTextPrintF(prn, "UTF-8", "%s\r\n", temp);
+  
   
   /* Nozzle Test */
   prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
@@ -142,6 +143,7 @@ int prnOutputSelfTestPage(printerRef prn) {
   }
   prnSetLineHeight(prn, IMWAPI_6LPI);
   prnCarriageReturnLineFeed(prn);
+  
   
   /* Charset test */
   prnSelectFont(prn, kStandard);
@@ -166,18 +168,20 @@ int prnOutputSelfTestPage(printerRef prn) {
   prnCarriageReturnLineFeed(prn);
   prnCarriageReturnLineFeed(prn);
   
+  
   /* Resolution Test */
   prnSelectFont(prn, kDraft);
   prnSetHorizontalResolution(prn, 144);
+  l10nGetString("dpi vertical", temp, sizeof(temp));
   prnGraphicGoToX(prn, TEST_COL_WIDTH*144/72);
-  prnEncodedTextPrint(prn, "72 dpi vertical", "UTF-8");
+  prnEncodedTextPrintF(prn, "UTF-8", "72 %s", temp);
   prnGraphicGoToX(prn, 2*TEST_COL_WIDTH*144/72);
-  prnEncodedTextPrint(prn, "144 dpi vertical", "UTF-8");
+  prnEncodedTextPrintF(prn, "UTF-8", "144 %s", temp);
+  l10nGetString("dpi horizontal", temp, sizeof(temp));
   prnCarriageReturnLineFeed(prn);
   for (i=0; i<8; i++) {
     prnSetHorizontalResolution(prn, resolution_list[i]);
-    sprintf(temp, "%d dpi horizontal", resolution_list[i]);
-    prnEncodedTextPrint(prn, temp, "UTF-8");
+    prnEncodedTextPrintF(prn, "UTF-8", "%d %s", resolution_list[i], temp);
     prnGraphicGoToX(prn, TEST_COL_WIDTH*resolution_list[i]/72);
     hgrPrintBitmapStripeH8Wk8(prn, resolution_test, 4);
     prnGraphicGoToX(prn, TEST_COL_WIDTH*2*resolution_list[i]/72);
@@ -201,7 +205,7 @@ int main(int argc, const char *argv[]) {
   job_data_t job;
   printerRef prn;
   cups_file_t *cmdfile;
-  
+  char ls[128];
   char line[1024], *value;
   int ln;
   
@@ -217,7 +221,8 @@ int main(int argc, const char *argv[]) {
   
   if (argc == 7) {
     if ((cmdfile = cupsFileOpen(argv[6], "r")) == NULL) {
-      fprintf(stderr, "ERROR: Unable to open command file - %s\n", strerror(errno));
+      l10nGetString("Unable to open command file", ls, sizeof(ls));
+      fprintf(stderr, "ERROR: %s - %s\n", ls, strerror(errno));
       return 1;
     }
   } else
@@ -230,7 +235,8 @@ int main(int argc, const char *argv[]) {
     if (!strcasecmp(line, "PrintSelfTestPage")) {
       prnOutputSelfTestPage(prn);
     } else {
-      fprintf(stderr, "ERROR: Unknown printer command %s\n", line);
+      l10nGetString("Unknown printer command", ls, sizeof(ls));
+      fprintf(stderr, "ERROR: %s %s\n", ls, line);
     }
   }
   prnDealloc(prn);

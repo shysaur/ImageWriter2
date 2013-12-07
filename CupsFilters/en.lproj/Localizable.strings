@@ -1,0 +1,38 @@
+/*
+ *  Localizable.strings
+ *  Apple Imagewriter CUPS command filter localized strings for Mac OS X
+ *  (c) 2013 Daniele Cattaneo
+ */
+
+
+/* Test page strings */
+
+"ImageWriter Test Page" = "ImageWriter Test Page";
+"Filter version"        = "Filter version";
+"Library version"       = "Library version";
+
+"Test Page Additional Information" =
+  "To get the printer's ROM version and to run the printer's self test, hold the Form Feed button\r
+while pressing the On/Off button, then release both buttons. To stop the print, turn off the\r
+printer. \033!Disclaimer:\033\042 This driver is not provided and is not endorsed by Apple Inc.";
+
+"dpi vertical"   = "dpi vertical";
+"dpi horizontal" = "dpi horizontal";
+
+
+/* Command Filter Messages */
+
+"Unable to open command file" = "Unable to open command file";
+"Unknown printer command"     = "Unknown printer command";
+
+
+/* Raster Filter Messages */
+
+"Unable to open PPD file" = "Unable to open PPD file";
+"Bidirectional option not found!" = "Bidirectional option not found!";
+"Unable to open raster file" = "Unable to open raster file";
+"Color page not supported!" = "Color page not supported!";
+"Horizontal resolution not supported" = "Horizontal resolution not supported";
+"No pages found!" = "No pages found!";
+"Ready to print." = "Ready to print.";
+

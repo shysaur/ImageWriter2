@@ -8,6 +8,7 @@
 #include <string.h>
 #include <iconv.h>
 #include <errno.h>
+#include <stdarg.h>
 #include "imwtext.h"
 
 #define N_A 0
@@ -231,6 +232,24 @@ int prnEncodedTextPrint(printerRef prn, const char *s, const char *fromcode) {
   e = prnISO8859TextPrint(prn, outb);
   free(outb);
   return e;
+}
+
+
+int prnEncodedTextPrintF(printerRef prn, const char *fromcode, const char *format, ...) {
+  char *tempbuf;
+  va_list args;
+  
+  tempbuf = malloc(strlen(format)+512);
+  
+  va_start(args, format);
+  vsprintf(tempbuf, format, args);
+  va_end(args);
+  
+  prnEncodedTextPrint(prn, tempbuf, fromcode);
+  
+  free(tempbuf);
+  
+  return 0;
 }
 
 

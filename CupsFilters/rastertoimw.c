@@ -38,6 +38,8 @@ int stripeIsEmpty(const uint8_t stripe[], int charWidth, int height) {
 
 
 int initializeCupsOptions(job_data_t *job, ppd_file_t **ppd, const char *argv[]) {
+  char ls[64];
+  
   job->job_id      = atoi(argv[1]);
   job->user        = argv[2];
   job->title       = argv[3];
@@ -47,7 +49,8 @@ int initializeCupsOptions(job_data_t *job, ppd_file_t **ppd, const char *argv[])
     ppdMarkDefaults(*ppd);
     cupsMarkOptions(*ppd, job->num_options, job->options);
   } else {
-    fprintf(stderr, "ERROR: Unable to open PPD file: %s\n", strerror(errno));
+    l10nGetString("Unable to open PPD file", ls, sizeof(ls));
+    fprintf(stderr, "ERROR: %s: %s\n", ls, strerror(errno));
     return 1;
   }
   return 0;
@@ -55,6 +58,7 @@ int initializeCupsOptions(job_data_t *job, ppd_file_t **ppd, const char *argv[])
 
 
 int initializeBidirectional(ppd_file_t *ppd, printerRef prn) {
+  char ls[64];
   ppd_choice_t *temp;
   
   if ((temp = ppdFindMarkedChoice(ppd, "Bidirectional"))) {
@@ -64,7 +68,8 @@ int initializeBidirectional(ppd_file_t *ppd, printerRef prn) {
       return prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
   } else {
     prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
-    fprintf(stderr, "ERROR: Bidirectional option not found!\n");
+    l10nGetString("Bidirectional option not found!", ls, sizeof(ls));
+    fprintf(stderr, "%s\n", ls);
     return -1;
   }
   return 0;
@@ -110,6 +115,7 @@ int main(int argc, const char *argv[]) {
   printerRef prn;
   int rasterfile;
   int page;
+  char ls[64];
   
   l10nInitialize();
   
@@ -123,7 +129,8 @@ int main(int argc, const char *argv[]) {
   
   if (argc == 7) {
     if ((rasterfile = open(argv[6], O_RDONLY)) == -1) {
-      fprintf(stderr, "ERROR: Unable to open raster file - %s\n", strerror(errno));
+      l10nGetString("Unable to open raster file", ls, sizeof(ls));
+      fprintf(stderr, "ERROR: %s - %s\n", ls, strerror(errno));
       return 1;
     }
   } else
@@ -141,7 +148,8 @@ int main(int argc, const char *argv[]) {
     int lineskip;
     
     if (pagehdr.cupsBitsPerPixel > 1) {
-      fprintf(stderr, "ERROR: Color page not supported!\n");
+      l10nGetString("Color page not supported!", ls, sizeof(ls));
+      fprintf(stderr, "ERROR: %s\n", ls);
       return 1;
     }
     hgr = (pagehdr.HWResolution[1] == 144);
@@ -150,7 +158,8 @@ int main(int argc, const char *argv[]) {
     else
       curStripe = malloc(pagehdr.cupsBytesPerLine*8);
     if (prnSetHorizontalResolution(prn, pagehdr.HWResolution[0])) {
-      fprintf(stderr, "ERROR: horizontal resolution not supported\n");
+      l10nGetString("Horizontal resolution not supported", ls, sizeof(ls));
+      fprintf(stderr, "ERROR: %s\n", ls);
       free(curStripe);
       return 1;
     };
@@ -184,10 +193,12 @@ int main(int argc, const char *argv[]) {
   prnFormFeed(prn);
   prnDealloc(prn);
   if (page == 0) {
-    fprintf(stderr, "ERROR: No pages found!\n");
+    l10nGetString("No pages found!", ls, sizeof(ls));
+    fprintf(stderr, "ERROR: %s\n", ls);
     return 1;
   } else {
-    fprintf(stderr, "INFO: Ready to print.\n");
+    l10nGetString("Ready to print.", ls, sizeof(ls));
+    fprintf(stderr, "INFO: %s\n", ls);
   }
   return 0;
 }

@@ -50,7 +50,6 @@
 		010BBFA0185378660068874E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		010BBFA3185383900068874E /* filterlocalizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filterlocalizer.c; sourceTree = SOURCE_ROOT; };
 		010BBFA51853839E0068874E /* filterlocalizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filterlocalizer.h; sourceTree = SOURCE_ROOT; };
-		010BBFA6185389F00068874E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = SOURCE_ROOT; };
 		010BBFA918538A650068874E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		01106CE618491AC9004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rastertoimw; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106CF018491B04004DC5E2 /* rastertoimw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rastertoimw.c; sourceTree = SOURCE_ROOT; };
@@ -92,18 +91,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		010BBFA7185389F60068874E /* OSXLocalization */ = {
-			isa = PBXGroup;
-			children = (
-				010BBFA6185389F00068874E /* Localizable.strings */,
-			);
-			name = OSXLocalization;
-			sourceTree = "<group>";
-		};
 		01106CC018491923004DC5E2 = {
 			isa = PBXGroup;
 			children = (
-				010BBFA7185389F60068874E /* OSXLocalization */,
 				01BB91DC184A8D3700DD7A13 /* FiltersVersion */,
 				01106CCB18491923004DC5E2 /* CupsFilters */,
 				01C20CFB18528F0F00B323C9 /* Frameworks */,

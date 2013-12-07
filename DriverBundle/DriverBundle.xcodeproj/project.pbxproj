@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		010BBFAD18538BF70068874E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 010BBFAC18538BF70068874E /* Localizable.strings */; };
 		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; };
 		011DFF79184D195B00212711 /* commandtoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 011DFF78184D195B00212711 /* commandtoimw */; };
 		014F764F1850F24F0069A909 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 014F764E1850F24F0069A909 /* libcups.dylib */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010BBFAC18538BF70068874E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ../CupsFilters/Localizable.strings; sourceTree = "<group>"; };
 		01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Apple ImageWriter II.drv"; sourceTree = "<group>"; };
 		01106D18184950A1004DC5E2 /* ImageWriterII.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageWriterII.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imagewriterii-Info.plist"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */,
+				010BBFAC18538BF70068874E /* Localizable.strings */,
 				01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */,
 				01E70A0A184BADD200B913FF /* PrinterIcon.iconset */,
 			);
@@ -275,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010BBFAD18538BF70068874E /* Localizable.strings in Resources */,
 				01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

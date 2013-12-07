@@ -11,6 +11,7 @@
 #include <cups/ppd.h>
 #include <cups/raster.h>
 
+#include "filterlocalizer.h"
 #include "citohapi.h"
 #include "imwhgr.h"
 #include "filtersver.h"
@@ -109,6 +110,8 @@ int main(int argc, const char *argv[]) {
   printerRef prn;
   int rasterfile;
   int page;
+  
+  l10nInitialize();
   
   setbuf(stderr, NULL);
   if (argc < 6 || argc > 7) {

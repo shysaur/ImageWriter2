@@ -1,0 +1,7 @@
+/*
+ *  Localizable.strings
+ *  Apple Imagewriter CUPS command filter localized strings for Mac OS X
+ *  (c) 2013 Daniele Cattaneo
+ */
+
+"ImageWriter Test Page" = "ImageWriter Test Page";

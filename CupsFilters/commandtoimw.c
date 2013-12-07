@@ -10,6 +10,7 @@
 #include <cups/cups.h>
 #include <cups/ppd.h>
 
+#include "filterlocalizer.h"
 #include "citohapi.h"
 #include "imwhgr.h"
 #include "imwtext.h"
@@ -93,6 +94,7 @@ int prnOutputSelfTestPage(printerRef prn) {
     0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
   };
   char temp[256];
+  char temp2[256];
   int c, i, j;
   
   prnTextPrint(prn, " ");
@@ -107,7 +109,9 @@ int prnOutputSelfTestPage(printerRef prn) {
   prnSetHorizontalResolution(prn, 72);
   prnCarriageReturnLineFeed(prn);
   prnSelectFont(prn, kNLQ);
-  prnEncodedTextPrint(prn, "\016ImageWriter Test Page\017\r\n\r\n", "UTF-8");
+  l10nGetString("ImageWriter Test Page", temp2, sizeof(temp2));
+  sprintf(temp, "\016%s\017\r\n\r\n", temp2);
+  prnEncodedTextPrint(prn, temp, "UTF-8");
   prnSetHorizontalResolution(prn, 96);
   sprintf(temp, "Filter version %.2f - Library version %.2f\r\n\r\n", imwfiltersVersion, citohapiVersion);
   prnEncodedTextPrint(prn, temp, "UTF-8");
@@ -200,6 +204,8 @@ int main(int argc, const char *argv[]) {
   
   char line[1024], *value;
   int ln;
+  
+  l10nInitialize();
   
   setbuf(stderr, NULL);
   if (argc < 6 || argc > 7) {

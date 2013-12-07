@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DriverBundle/ImageWriterIIPDE/PDEView.xib">
-   </FileRef>
-   <FileRef
       location = "group:DriverBundle/../ImageWriterLibrary/ImageWriterLibrary.xcodeproj">
    </FileRef>
    <FileRef

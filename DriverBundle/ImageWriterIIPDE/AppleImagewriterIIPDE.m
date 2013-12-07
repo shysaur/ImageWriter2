@@ -4,7 +4,10 @@
  *  (c) 2013 Daniele Cattaneo
  */
 
+
 #import "AppleImagewriterIIPDE.h"
+
+
 
 
 @implementation AppleImagewriterIIPDEPlugIn
@@ -163,7 +166,11 @@ const pdeOptions presets[] = {
   }
   
   [listQualityPresets selectItemAtIndex:preset];
-  [viewAdvanced setHidden:(preset != PRESET_CUSTOM)];
+  if (preset != PRESET_CUSTOM) {
+    [viewAdvanced collapse:self];
+  } else {
+    [viewAdvanced expand:self];
+  }
   [pdeCallback panelViewDidResize];
   
   stop = 0;

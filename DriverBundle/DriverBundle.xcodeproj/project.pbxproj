@@ -30,6 +30,7 @@
 		016E71061850891800D129D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 016E71041850891800D129D7 /* InfoPlist.strings */; };
 		016E710C185089A800D129D7 /* PDEView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016E710B185089A800D129D7 /* PDEView.xib */; };
 		016E710F1850A58700D129D7 /* AppleImagewriterIIPDE.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */; };
+		01C20CFE1852961100B323C9 /* VUTCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C20CFD1852961100B323C9 /* VUTCollapsibleView.m */; };
 		01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 01E70A0A184BADD200B913FF /* PrinterIcon.iconset */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,8 @@
 		016E710B185089A800D129D7 /* PDEView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PDEView.xib; sourceTree = "<group>"; };
 		016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleImagewriterIIPDE.h; sourceTree = "<group>"; };
 		016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleImagewriterIIPDE.m; sourceTree = "<group>"; };
+		01C20CFC1852961100B323C9 /* VUTCollapsibleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VUTCollapsibleView.h; sourceTree = "<group>"; };
+		01C20CFD1852961100B323C9 /* VUTCollapsibleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VUTCollapsibleView.m; sourceTree = "<group>"; };
 		01E70A0A184BADD200B913FF /* PrinterIcon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = PrinterIcon.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +195,8 @@
 			children = (
 				016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */,
 				016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */,
+				01C20CFD1852961100B323C9 /* VUTCollapsibleView.m */,
+				01C20CFC1852961100B323C9 /* VUTCollapsibleView.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				016E710F1850A58700D129D7 /* AppleImagewriterIIPDE.m in Sources */,
+				01C20CFE1852961100B323C9 /* VUTCollapsibleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

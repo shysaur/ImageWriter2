@@ -4,10 +4,12 @@
  *  (c) 2013 Daniele Cattaneo
  */
 
+
 #import <Cocoa/Cocoa.h>
 
 #import <PrintCore/PDEPluginInterface.h>
 #import <PrintCore/PMPrintingDialogExtensions.h>
+#import "VUTCollapsibleView.h"
 
 
 typedef struct {
@@ -47,7 +49,7 @@ typedef struct {
   IBOutlet id listResolutionX;
   IBOutlet id listResolutionY;
   IBOutlet id buttonBidirectional;
-  IBOutlet id viewAdvanced;
+  IBOutlet VUTCollapsibleView *viewAdvanced;
   IBOutlet id view;
   
   pdeOptions options;

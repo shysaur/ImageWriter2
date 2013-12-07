@@ -80,11 +80,9 @@
 		01106CC018491923004DC5E2 = {
 			isa = PBXGroup;
 			children = (
-				01106CFB184947CE004DC5E2 /* libimagewriter.a */,
-				01106CF618491BB7004DC5E2 /* libcupsimage.dylib */,
-				01106CF418491BA0004DC5E2 /* libcups.dylib */,
 				01BB91DC184A8D3700DD7A13 /* FiltersVersion */,
 				01106CCB18491923004DC5E2 /* CupsFilters */,
+				01C20CFB18528F0F00B323C9 /* Frameworks */,
 				01106CCA18491923004DC5E2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,6 +113,16 @@
 				01BB91DF184A8D7800DD7A13 /* filtersver.c */,
 			);
 			name = FiltersVersion;
+			sourceTree = "<group>";
+		};
+		01C20CFB18528F0F00B323C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01106CFB184947CE004DC5E2 /* libimagewriter.a */,
+				01106CF618491BB7004DC5E2 /* libcupsimage.dylib */,
+				01106CF418491BA0004DC5E2 /* libcups.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

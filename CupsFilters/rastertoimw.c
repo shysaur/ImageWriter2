@@ -167,7 +167,7 @@ int main(int argc, const char *argv[]) {
     }
     
     curStripe = malloc(pagehdr.cupsBytesPerLine*(8+8*hgr));
-    prnSetFormHeight(prn, pagehdr.pageSize[1]*2);
+    prnSetFormHeight(prn, pagehdr.PageSize[1]*2);
     
     page++;
     fprintf(stderr, "PAGE: %d %d\n", page, pagehdr.NumCopies);

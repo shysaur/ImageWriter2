@@ -312,7 +312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "# Symlink the commandtosample and rastertosample filters to /usr/libexec/cups/filter\nmkdir -p \"$DSTROOT/usr/libexec/cups/filter\"\nln -sf \"/Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/rastertoimw\" \"$DSTROOT/usr/libexec/cups/filter\"\n\n# Create the PPD file and place it in the PPDs directory...\nmkdir -p \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\"\nppdc -d \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\" \"$SRCROOT/Apple Imagewriter II.drv\"";
+			shellScript = "# Symlink the filters to /usr/libexec/cups/filter\nmkdir -p \"$DSTROOT/usr/libexec/cups/filter\"\nln -sf \"/Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/rastertoimw\" \"$DSTROOT/usr/libexec/cups/filter\"\nln -sf \"/Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/commandtoimw\" \"$DSTROOT/usr/libexec/cups/filter\"\n\n# Create the PPD file and place it in the PPDs directory...\nmkdir -p \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\"\nppdc -d \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\" -z \"$SRCROOT/Apple Imagewriter II.drv\"\n";
 		};
 		014F765818512FD90069A909 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -418,12 +418,17 @@
 		01106D0418494C1B004DC5E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		01106D0518494C1B004DC5E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -479,7 +484,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "imagewriterii-Info.plist";
 				INSTALL_PATH = /Library/Printers/Apple;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -520,7 +524,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "imagewriterii-Info.plist";
 				INSTALL_PATH = /Library/Printers/Apple;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = bundle;
@@ -531,7 +534,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -568,7 +570,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "ImageWriterIIPDE/ImageWriterIIPDE-Info.plist";
 				INSTALL_PATH = /Library/Printers/Apple;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -586,7 +587,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -618,7 +618,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "ImageWriterIIPDE/ImageWriterIIPDE-Info.plist";
 				INSTALL_PATH = /Library/Printers/Apple;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,

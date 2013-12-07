@@ -31,6 +31,7 @@ printer. \033!Disclaimer:\033\042 This driver is not provided and is not endorse
 "Unable to open PPD file" = "Unable to open PPD file";
 "Bidirectional option not found!" = "Bidirectional option not found!";
 "Unable to open raster file" = "Unable to open raster file";
+"Multiple copies of a single page not supported" = "Multiple copies of a single page not supported";
 "Color page not supported!" = "Color page not supported!";
 "Horizontal resolution not supported" = "Horizontal resolution not supported";
 "No pages found!" = "No pages found!";

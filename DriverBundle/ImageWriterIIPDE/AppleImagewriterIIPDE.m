@@ -82,8 +82,10 @@ const pdeOptions presets[] = {
 
 
 - (NSView *)panelView {
-  if (!view)
+  if (!view) {
     [NSBundle loadNibNamed:@"PDEView" owner:self];
+    [viewAdvanced collapse:self];
+  }
   return view;
 }
 

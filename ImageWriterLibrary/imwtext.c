@@ -11,9 +11,11 @@
 #include <stdarg.h>
 #include "imwtext.h"
 
+
 #define N_A 0
 
 #define CHARSET_CNT 8
+
 
 const char iso_8859_to_imw[CHARSET_CNT][256] = {
   /* kAmerican (ASCII) */
@@ -154,6 +156,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,'|',N_A,N_A,N_A,N_A,N_A,N_A,N_A }
 };
 
+
 const charSet charset_idx[CHARSET_CNT] = {
   kAmerican, kBritish, kGerman, kFrench, kSwedish, kItalian, kSpanish, kDanish
 };
@@ -238,18 +241,17 @@ int prnEncodedTextPrint(printerRef prn, const char *s, const char *fromcode) {
 int prnEncodedTextPrintF(printerRef prn, const char *fromcode, const char *format, ...) {
   char *tempbuf;
   va_list args;
-  
-  tempbuf = malloc(strlen(format)+512);
+  int ret;
   
   va_start(args, format);
-  vsprintf(tempbuf, format, args);
+  ret = vasprintf(&tempbuf, format, args);
   va_end(args);
+  if (ret) return ERR_IMWAPI_OUTOFMEMORY;
   
-  prnEncodedTextPrint(prn, tempbuf, fromcode);
+  ret = prnEncodedTextPrint(prn, tempbuf, fromcode);
   
   free(tempbuf);
-  
-  return 0;
+  return ret;
 }
 
 

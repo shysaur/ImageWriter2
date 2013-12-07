@@ -34,6 +34,7 @@ da Apple.";
 "Unable to open PPD file" = "Impossibile aprire il file PPD";
 "Bidirectional option not found!" = "Opzione Bidirectional non trovata!";
 "Unable to open raster file" = "Impossibile aprire il file raster";
+"Multiple copies of a single page not supported" = "Copie multiple non supportate dalla stampante";
 "Color page not supported!" = "Pagine a colori non supportate!";
 "Horizontal resolution not supported" = "La risoluzione orizzontale specificata non è supportata";
 "No pages found!" = "Nessuna pagina trovata!";

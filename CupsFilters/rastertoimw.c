@@ -140,6 +140,7 @@ int main(int argc, const char *argv[]) {
   prn = prnAlloc(stdout, NULL, NULL);
   initializeBidirectional(ppd, prn);
   
+  /* Page loop */
   page = 0;
   while (cupsRasterReadHeader2(ras, &pagehdr)) {
     uint8_t *curStripe;
@@ -147,26 +148,29 @@ int main(int argc, const char *argv[]) {
     int hgr;
     int lineskip;
     
+    /* Initialize printer for page */
+    if (pagehdr.NumCopies > 1) {
+      l10nGetString("Multiple copies of a single page not supported", ls, sizeof(ls));
+      fprintf(stderr, "ERROR: %s\n", ls);
+      return 1;
+    }
     if (pagehdr.cupsBitsPerPixel > 1) {
       l10nGetString("Color page not supported!", ls, sizeof(ls));
       fprintf(stderr, "ERROR: %s\n", ls);
       return 1;
     }
     hgr = (pagehdr.HWResolution[1] == 144);
-    if (hgr)
-      curStripe = malloc(pagehdr.cupsBytesPerLine*16);
-    else
-      curStripe = malloc(pagehdr.cupsBytesPerLine*8);
     if (prnSetHorizontalResolution(prn, pagehdr.HWResolution[0])) {
       l10nGetString("Horizontal resolution not supported", ls, sizeof(ls));
       fprintf(stderr, "ERROR: %s\n", ls);
-      free(curStripe);
       return 1;
-    };
+    }
+    
+    curStripe = malloc(pagehdr.cupsBytesPerLine*(8+8*hgr));
+    prnSetFormHeight(prn, pagehdr.pageSize[1]*2);
     
     page++;
     fprintf(stderr, "PAGE: %d %d\n", page, pagehdr.NumCopies);
-    
     row = 0;
     lineskip = 0;
     for (y=0; y<pagehdr.cupsHeight; y++) {
@@ -187,10 +191,12 @@ int main(int argc, const char *argv[]) {
         fprintf(stderr, "INFO: %d%%\n", y*100/pagehdr.cupsHeight);
     }
     
+    prnFormFeed(prn);
+    
     free(curStripe);
   }
+  /* Page loop end */
   
-  prnFormFeed(prn);
   prnDealloc(prn);
   if (page == 0) {
     l10nGetString("No pages found!", ls, sizeof(ls));

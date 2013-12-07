@@ -6,6 +6,7 @@
 
 #include "citohapi.h"
 
+
 printerRef prnAlloc(FILE *output, FILE *input, int *err) {
   printerRef prn;
   if (output) {
@@ -21,10 +22,12 @@ printerRef prnAlloc(FILE *output, FILE *input, int *err) {
   return NULL;
 }
 
+
 int prnDealloc(printerRef prn) {
   free(prn);
   return 0;
 }
+
 
 int prnHardwareQuery(printerRef prn, char *answer) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
@@ -37,12 +40,14 @@ int prnHardwareQuery(printerRef prn, char *answer) {
   return 0;
 }
 
+
 int prnTextPrint(printerRef prn, char *text) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
   fputs(text, prn->s_out);
   prn->headPos = -1;
   return 0;
 }
+
 
 int prnSetHorizontalResolution(printerRef prn, int res) {
   char rc;
@@ -64,12 +69,14 @@ int prnSetHorizontalResolution(printerRef prn, int res) {
   return 0;
 }
 
+
 int prnFormFeed(printerRef prn) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
   fprintf(prn->s_out, "\014");
   prn->headPos = 0;
   return 0;
 }
+
 
 int prnSetLineHeight(printerRef prn, int rows) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
@@ -86,12 +93,14 @@ int prnSetLineHeight(printerRef prn, int rows) {
   return 0;
 }
 
+
 int prnSetFormHeight(printerRef prn, int rows) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
   if (rows < 1 || rows > 9999) return ERR_IMWAPI_WRONGORDER;
   fprintf(prn->s_out, "\033H%04d", rows);
   return 0;
 }
+
 
 #define GSP_MINRLE -7
 int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth, int optimizeWidth) {
@@ -154,13 +163,15 @@ int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth, in
   return 0;
 }
 
+
 int prnGraphicGoToX(printerRef prn, int swidth) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (swidth < 1 || swidth > 9999) return ERR_IMWAPI_WRONGORDER;
+  if (swidth < 0 || swidth > 9999) return ERR_IMWAPI_WRONGORDER;
   fprintf(prn->s_out, "\033F%04d", swidth);
   prn->headPos = swidth;
   return 0;
 }
+
 
 int prnCarriageReturnLineFeed(printerRef prn) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
@@ -168,6 +179,7 @@ int prnCarriageReturnLineFeed(printerRef prn) {
   prn->headPos = 0;
   return 0;
 }
+
 
 int prnSetBidirectionalMode(printerRef prn, int bidi) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
@@ -180,6 +192,7 @@ int prnSetBidirectionalMode(printerRef prn, int bidi) {
   return 0;
 }
 
+
 int prnSetHighBitMode(printerRef prn, int ascii) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
   switch (ascii) {
@@ -191,11 +204,13 @@ int prnSetHighBitMode(printerRef prn, int ascii) {
   return 0;
 }
 
+
 int prnResetPrinterStatus(printerRef prn) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
   fprintf(prn->s_out, "\033c");
   return 0;
 }
+
 
 int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
@@ -230,6 +245,7 @@ int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang) {
   }
   return 0;
 }
+
 
 int prnSelectFont(printerRef prn, printFont font) {
   if (prn == NULL) return ERR_IMWAPI_UNKNOWN;

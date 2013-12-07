@@ -8,6 +8,7 @@
 #include <string.h>
 #include "imwhgr.h"
 
+
 int hgrPrintBitmapStripeH8Wk8(printerRef prn, const uint8_t bitmap[], int chrWidth) {
   uint8_t *stripes;
   int i, j;
@@ -33,6 +34,7 @@ int hgrPrintBitmapStripeH8Wk8(printerRef prn, const uint8_t bitmap[], int chrWid
     return ERR_IMWAPI_OUTOFMEMORY;
 }
 
+
 int hgrInterleaveBitmapH16Wk8(const uint8_t inbmp[], uint8_t outbmp[], int chrWidth) {
   int i;
   
@@ -42,6 +44,7 @@ int hgrInterleaveBitmapH16Wk8(const uint8_t inbmp[], uint8_t outbmp[], int chrWi
     memcpy(&outbmp[(i+8)*chrWidth], &inbmp[(2*i+1)*chrWidth], chrWidth);
   return 0;
 }
+
 
 int hgrPrintBitmapStripeHiresH16Wk8(printerRef prn, const uint8_t bitmap[], int chrWidth) {
   uint8_t *intbmp;

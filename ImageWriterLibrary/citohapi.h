@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "imwlibver.h"
 
+
 #ifndef IMAGEWRITERLIBRARY_CITOHAPI_H
 #define IMAGEWRITERLIBRARY_CITOHAPI_H
 
@@ -26,6 +27,7 @@
 #define IMWAPI_6LPI                  -1
 #define IMWAPI_8LPI                  -2
 
+
 typedef enum {
   kAmerican = 0,
   kBritish,
@@ -37,17 +39,20 @@ typedef enum {
   kDanish
 } charSet;
 
+
 typedef enum {
   kDraft = 0,
   kStandard,
   kNLQ
 } printFont;
 
+
 typedef struct {
   FILE *s_out;
   FILE *s_in;
   int headPos;
 } printer, *printerRef;
+
 
 printerRef prnAlloc(FILE *output, FILE *input, int *err);
 int prnDealloc(printerRef prn);
@@ -66,5 +71,6 @@ int prnSetHighBitMode(printerRef prn, int ascii);
 int prnResetPrinterStatus(printerRef prn);
 int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang);
 int prnSelectFont(printerRef prn, printFont font);
+
 
 #endif

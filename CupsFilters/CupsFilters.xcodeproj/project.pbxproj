@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		010BBFA1185378660068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBFA0185378660068874E /* libiconv.dylib */; };
 		010BBFA2185378780068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBFA0185378660068874E /* libiconv.dylib */; };
+		010BBFA4185383900068874E /* filterlocalizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 010BBFA3185383900068874E /* filterlocalizer.c */; };
 		01106CF118491B04004DC5E2 /* rastertoimw.c in Sources */ = {isa = PBXBuildFile; fileRef = 01106CF018491B04004DC5E2 /* rastertoimw.c */; };
 		01106CF518491BA0004DC5E2 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF418491BA0004DC5E2 /* libcups.dylib */; };
 		01106CF718491BB7004DC5E2 /* libcupsimage.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 01106CF618491BB7004DC5E2 /* libcupsimage.dylib */; };
@@ -44,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		010BBFA0185378660068874E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		010BBFA3185383900068874E /* filterlocalizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filterlocalizer.c; sourceTree = SOURCE_ROOT; };
+		010BBFA51853839E0068874E /* filterlocalizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filterlocalizer.h; sourceTree = SOURCE_ROOT; };
 		01106CE618491AC9004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rastertoimw; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106CF018491B04004DC5E2 /* rastertoimw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rastertoimw.c; sourceTree = SOURCE_ROOT; };
 		01106CF418491BA0004DC5E2 /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
@@ -106,6 +109,8 @@
 			children = (
 				01106CF018491B04004DC5E2 /* rastertoimw.c */,
 				011DFF6A184CD4BC00212711 /* commandtoimw.c */,
+				010BBFA51853839E0068874E /* filterlocalizer.h */,
+				010BBFA3185383900068874E /* filterlocalizer.c */,
 			);
 			path = CupsFilters;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			files = (
 				01106CF118491B04004DC5E2 /* rastertoimw.c in Sources */,
 				0149FBBD184E6CC6002B4C05 /* filtersver.c in Sources */,
+				010BBFA4185383900068874E /* filterlocalizer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

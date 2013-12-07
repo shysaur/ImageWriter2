@@ -12,6 +12,7 @@
 
 #include "citohapi.h"
 #include "imwhgr.h"
+#include "imwtext.h"
 #include "filtersver.h"
 
 
@@ -106,16 +107,17 @@ int prnOutputSelfTestPage(printerRef prn) {
   prnSetHorizontalResolution(prn, 72);
   prnCarriageReturnLineFeed(prn);
   prnSelectFont(prn, kNLQ);
-  prnTextPrint(prn, "\016ImageWriter Test Page\017\r\n\r\n");
+  prnEncodedTextPrint(prn, "\016ImageWriter Test Page\017\r\n\r\n", "UTF-8");
   prnSetHorizontalResolution(prn, 96);
   sprintf(temp, "Filter version %.2f - Library version %.2f\r\n\r\n", imwfiltersVersion, citohapiVersion);
-  prnTextPrint(prn, temp);
+  prnEncodedTextPrint(prn, temp, "UTF-8");
   prnSelectFont(prn, kDraft);
   prnSetBidirectionalMode(prn, IMWAPI_BIDIRECTIONAL);
-  prnTextPrint(prn,
+  prnEncodedTextPrint(prn,
                "To get the printer's ROM version and to run the printer's self test, hold the Form Feed button\r\n"
                "while pressing the On/Off button, then release both buttons. To stop the print, turn off the\r\n"
-               "printer. \033!Disclaimer:\033\042 This driver is not provided and is not endorsed by Apple Inc.\r\n");
+               "printer. \033!Disclaimer:\033\042 This driver is not provided and is not endorsed by Apple Inc.\r\n",
+               "UTF-8");
   
   /* Nozzle Test */
   prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
@@ -142,7 +144,7 @@ int prnOutputSelfTestPage(printerRef prn) {
   prnSetHorizontalResolution(prn, 72);
   j = 0;
   temp[1] = '\0';
-  for (c=kAmerican; c<kDanish; c++) {
+  for (c=kAmerican; c<=kDanish; c++) {
     prnSelectCharacterSet(prn, 0, c);
     for (i=32; i<127; i++) {
       if (j % 72 == 0) prnCarriageReturnLineFeed(prn);
@@ -163,16 +165,15 @@ int prnOutputSelfTestPage(printerRef prn) {
   /* Resolution Test */
   prnSelectFont(prn, kDraft);
   prnSetHorizontalResolution(prn, 144);
-  prnSelectCharacterSet(prn, 0, kAmerican);
   prnGraphicGoToX(prn, TEST_COL_WIDTH*144/72);
-  prnTextPrint(prn, "72 dpi vertical");
+  prnEncodedTextPrint(prn, "72 dpi vertical", "UTF-8");
   prnGraphicGoToX(prn, 2*TEST_COL_WIDTH*144/72);
-  prnTextPrint(prn, "144 dpi vertical");
+  prnEncodedTextPrint(prn, "144 dpi vertical", "UTF-8");
   prnCarriageReturnLineFeed(prn);
   for (i=0; i<8; i++) {
     prnSetHorizontalResolution(prn, resolution_list[i]);
     sprintf(temp, "%d dpi horizontal", resolution_list[i]);
-    prnTextPrint(prn, temp);
+    prnEncodedTextPrint(prn, temp, "UTF-8");
     prnGraphicGoToX(prn, TEST_COL_WIDTH*resolution_list[i]/72);
     hgrPrintBitmapStripeH8Wk8(prn, resolution_test, 4);
     prnGraphicGoToX(prn, TEST_COL_WIDTH*2*resolution_list[i]/72);

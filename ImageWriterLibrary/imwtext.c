@@ -246,7 +246,7 @@ int prnEncodedTextPrintF(printerRef prn, const char *fromcode, const char *forma
   va_start(args, format);
   ret = vasprintf(&tempbuf, format, args);
   va_end(args);
-  if (ret) return ERR_IMWAPI_OUTOFMEMORY;
+  if (ret<0) return ERR_IMWAPI_OUTOFMEMORY;
   
   ret = prnEncodedTextPrint(prn, tempbuf, fromcode);
   

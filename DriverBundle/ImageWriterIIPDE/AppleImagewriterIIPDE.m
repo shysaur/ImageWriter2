@@ -48,12 +48,9 @@ const int resolutions_x[] = {
 };
 #define CNT_RESOLUTIONS 8
 
-const pdeOptions presets[] = {
-  { 72,  72, YES},
-  {144,  72,  NO},
-  {160, 144,  NO}
-};
-#define CNT_PRESETS 3
+pdeOptions *presets = NULL;
+int presets_cnt = 0;
+#define PRESET_CUSTOM ((presets_cnt + 1))
 
 
 @implementation AppleImagewriterIIPDE
@@ -68,6 +65,33 @@ const pdeOptions presets[] = {
   ppd = [pdeCallback ppdFile];
   
   return self;
+}
+
+
+- (int)loadPresetsFromArray:(NSArray *)source {
+  int c, i;
+  
+  free(presets);
+  
+  c = (int)[source count];
+  presets = malloc(c * sizeof(pdeOptions));
+  
+  for (i=0; i<c; i++) {
+    NSDictionary *pset;
+    NSArray *psetdpi;
+    pset = [source objectAtIndex:i];
+    presets[i].bidir = [[pset objectForKey:@"Bidirectional"] integerValue];
+    psetdpi = [pset objectForKey:@"DPI"];
+    presets[i].resX = (int)[[psetdpi objectAtIndex:0] integerValue];
+    presets[i].resY = (int)[[psetdpi objectAtIndex:1] integerValue];
+    
+    [listQualityPresets
+     insertItemWithTitle:[pset objectForKey:@"Label"]
+     atIndex:i];
+  }
+  preset = PRESET_NOTSET;
+  
+  return c;
 }
 
 
@@ -157,7 +181,7 @@ const pdeOptions presets[] = {
   
   if (preset == PRESET_NOTSET) {
     stop = 0;
-    for (i=0; i<CNT_PRESETS && !stop; i++) {
+    for (i=0; i<presets_cnt && !stop; i++) {
       if (memcmp(&presets[i], &options, sizeof(pdeOptions)) == 0)
         stop = 1;
     }
@@ -191,12 +215,22 @@ const pdeOptions presets[] = {
 {
   [pdeBundle release];
   [pdeCallback release];
+  free(presets);
   
   [super dealloc];
 }
 
 
 - (void)willShow {
+  NSArray *defPresets;
+  
+  defPresets = [[NSArray alloc]
+                initWithContentsOfURL:[pdeBundle
+                                       URLForResource:@"PDEPresets"
+                                       withExtension:@"plist"]];
+  presets_cnt = [self loadPresetsFromArray: defPresets];
+  [defPresets release];
+
   [self updateControls];
 }
 

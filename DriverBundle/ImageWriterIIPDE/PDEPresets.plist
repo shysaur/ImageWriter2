@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Label</key>
+		<string>Draft</string>
+		<key>DPI</key>
+		<array>
+			<string>72</string>
+			<string>72</string>
+		</array>
+		<key>Bidirectional</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>Standard</string>
+		<key>DPI</key>
+		<array>
+			<string>144</string>
+			<string>72</string>
+		</array>
+		<key>Bidirectional</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Label</key>
+		<string>High</string>
+		<key>DPI</key>
+		<array>
+			<string>160</string>
+			<string>144</string>
+		</array>
+		<key>Bidirectional</key>
+		<false/>
+	</dict>
+</array>
+</plist>

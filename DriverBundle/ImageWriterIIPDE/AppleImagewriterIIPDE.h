@@ -18,7 +18,6 @@ typedef struct {
 } pdeOptions;
 
 #define PRESET_NOTSET -1
-#define PRESET_CUSTOM 4
 
 
 
@@ -62,6 +61,7 @@ typedef struct {
 - (id)initWithCallback:(PDEPluginCallback *)callback;
 - (void)dealloc;
 
+- (int)loadPresetsFromArray:(NSArray *)source;
 - (NSString *)panelName;
 - (NSString *)panelKind;
 - (NSView *)panelView;

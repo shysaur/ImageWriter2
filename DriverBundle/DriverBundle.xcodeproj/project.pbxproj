@@ -25,6 +25,7 @@
 		010BBFB418539D790068874E /* PDEView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010BBFB618539D790068874E /* PDEView.xib */; };
 		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; };
 		011DFF79184D195B00212711 /* commandtoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 011DFF78184D195B00212711 /* commandtoimw */; };
+		01276692186A18DE0041091E /* PDEPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01276691186A18DE0041091E /* PDEPresets.plist */; };
 		014F764F1850F24F0069A909 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 014F764E1850F24F0069A909 /* libcups.dylib */; };
 		014F76521850F3450069A909 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014F76501850F2790069A909 /* ApplicationServices.framework */; };
 		014F7657185118350069A909 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 014F7655185118350069A909 /* Localizable.strings */; };
@@ -67,17 +68,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		010BBFAF1853927F0068874E /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		010BBFB118539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = file; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		010BBFAF1853927F0068874E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		010BBFB118539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		010BBFB218539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		010BBFB318539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		010BBFB518539D790068874E /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/PDEView.xib; sourceTree = "<group>"; };
-		010BBFB718539D7D0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = file; name = it; path = it.lproj/PDEView.xib; sourceTree = "<group>"; };
+		010BBFB518539D790068874E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PDEView.xib; sourceTree = "<group>"; };
+		010BBFB718539D7D0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/PDEView.xib; sourceTree = "<group>"; };
 		01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Apple ImageWriter II.drv"; sourceTree = "<group>"; };
 		01106D18184950A1004DC5E2 /* ImageWriterII.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageWriterII.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imagewriterii-Info.plist"; sourceTree = "<group>"; };
 		01106D2C18495AF6004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = rastertoimw; path = "/Users/danielecattaneo/Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/rastertoimw"; sourceTree = "<absolute>"; };
 		011DFF78184D195B00212711 /* commandtoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; name = commandtoimw; path = "/Users/danielecattaneo/Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/commandtoimw"; sourceTree = "<absolute>"; };
+		01276691186A18DE0041091E /* PDEPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PDEPresets.plist; sourceTree = "<group>"; };
 		014F764E1850F24F0069A909 /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
 		014F76501850F2790069A909 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		014F7656185118350069A909 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -189,8 +191,9 @@
 		016E71021850891800D129D7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				010BBFB618539D790068874E /* PDEView.xib */,
 				016E71031850891800D129D7 /* ImageWriterIIPDE-Info.plist */,
+				01276691186A18DE0041091E /* PDEPresets.plist */,
+				010BBFB618539D790068874E /* PDEView.xib */,
 				014F7655185118350069A909 /* Localizable.strings */,
 				016E71041850891800D129D7 /* InfoPlist.strings */,
 			);
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				010BBFB418539D790068874E /* PDEView.xib in Resources */,
+				01276692186A18DE0041091E /* PDEPresets.plist in Resources */,
 				016E71061850891800D129D7 /* InfoPlist.strings in Resources */,
 				014F7657185118350069A909 /* Localizable.strings in Resources */,
 			);

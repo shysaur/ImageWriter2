@@ -6,3 +6,8 @@
 
 /* Panel name in option list */
 "Print Quality" = "Qualità";
+
+/* Preset Names */
+"Draft" = "Bozza";
+"Standard" = "Normale";
+"High" = "Alta";

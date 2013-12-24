@@ -86,7 +86,8 @@ int presets_cnt = 0;
     presets[i].resY = (int)[[psetdpi objectAtIndex:1] integerValue];
     
     [listQualityPresets
-     insertItemWithTitle:[pset objectForKey:@"Label"]
+     insertItemWithTitle:NSLocalizedStringFromTableInBundle(
+                           [pset objectForKey:@"Label"], nil, pdeBundle, nil)
      atIndex:i];
   }
   preset = PRESET_NOTSET;

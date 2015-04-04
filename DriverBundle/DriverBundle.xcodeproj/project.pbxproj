@@ -23,8 +23,8 @@
 /* Begin PBXBuildFile section */
 		010BBFAE1853927F0068874E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 010BBFB01853927F0068874E /* Localizable.strings */; };
 		010BBFB418539D790068874E /* PDEView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010BBFB618539D790068874E /* PDEView.xib */; };
-		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; };
-		011DFF79184D195B00212711 /* commandtoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 011DFF78184D195B00212711 /* commandtoimw */; };
+		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		011DFF79184D195B00212711 /* commandtoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 011DFF78184D195B00212711 /* commandtoimw */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		01276692186A18DE0041091E /* PDEPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01276691186A18DE0041091E /* PDEPresets.plist */; };
 		014F764F1850F24F0069A909 /* libcups.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 014F764E1850F24F0069A909 /* libcups.dylib */; };
 		014F76521850F3450069A909 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014F76501850F2790069A909 /* ApplicationServices.framework */; };
@@ -259,7 +259,7 @@
 		01106D0018494C1B004DC5E2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0620;
 			};
 			buildConfigurationList = 01106D0318494C1B004DC5E2 /* Build configuration list for PBXProject "DriverBundle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -423,6 +423,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -430,7 +431,6 @@
 		01106D0518494C1B004DC5E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Script to make an installable package of the driver.
 #
@@ -22,11 +22,6 @@ xcodebuild -workspace "$PWD/ImageWriterII.xcworkspace" \
 
 # Extract the version number from the project...
 ver=$(/usr/libexec/PlistBuddy -c "Print:CFBundleShortVersionString" "DriverBundle/imagewriterii-Info.plist")
-
-# Copy the resource files...
-#cp README.txt build/Package/Resources/Welcome.txt
-sed -e '1,$s/@VERSION@/'$ver'/g' <DriverBundle/imagewriterii-Info.plist >build/Package/Info.plist
-sed -e '1,$s/@VERSION@/'$ver'/g' <DriverBundle/imagewriterii-Info.plist >build/Package/Desc.plist
 
 # Make the package with pkgbuild and the product distribution with productbuild...
 echo pkgbuild...

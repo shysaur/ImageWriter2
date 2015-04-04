@@ -55,7 +55,7 @@
 		01106CF018491B04004DC5E2 /* rastertoimw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rastertoimw.c; sourceTree = SOURCE_ROOT; };
 		01106CF418491BA0004DC5E2 /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
 		01106CF618491BB7004DC5E2 /* libcupsimage.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcupsimage.dylib; path = usr/lib/libcupsimage.dylib; sourceTree = SDKROOT; };
-		01106CFB184947CE004DC5E2 /* libimagewriter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libimagewriter.a; path = "../../../../Library/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug/libimagewriter.a"; sourceTree = "<group>"; };
+		01106CFB184947CE004DC5E2 /* libimagewriter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libimagewriter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		011DFF68184CD4BC00212711 /* commandtoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = commandtoimw; sourceTree = BUILT_PRODUCTS_DIR; };
 		011DFF6A184CD4BC00212711 /* commandtoimw.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = commandtoimw.c; sourceTree = SOURCE_ROOT; };
 		01BB91DD184A8D5900DD7A13 /* filtersver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filtersver.h; sourceTree = "<group>"; };

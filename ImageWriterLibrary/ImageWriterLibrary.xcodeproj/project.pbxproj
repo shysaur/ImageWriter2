@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		010BBF9A1853535C0068874E /* imwtext.c in Sources */ = {isa = PBXBuildFile; fileRef = 010BBF991853535C0068874E /* imwtext.c */; };
-		010BBF9D18536FDD0068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBF9C18536FDD0068874E /* libiconv.dylib */; };
 		010BBF9E185370020068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBF9C18536FDD0068874E /* libiconv.dylib */; };
 		0162E4E01847F1B7005B8284 /* apitest.c in Sources */ = {isa = PBXBuildFile; fileRef = 0162E4DF1847F1B7005B8284 /* apitest.c */; };
 		0162E4E61847F402005B8284 /* libimagewriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0162E4CE1847EBDB005B8284 /* libimagewriter.a */; };
@@ -50,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010BBF9D18536FDD0068874E /* libiconv.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

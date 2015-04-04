@@ -345,6 +345,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Debug;
@@ -357,6 +358,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Release;
@@ -374,6 +376,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Debug;
@@ -387,6 +390,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ImageWriterII-hcwnhtrarkojusejkvnmynjgdlfs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../ImageWriterLibrary/";
 			};
 			name = Release;

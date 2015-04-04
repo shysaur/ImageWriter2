@@ -14,8 +14,8 @@ mkdir -p build/Package/Root
 mkdir -p build/Package/Resources
 
 # Install into this directory...
-xcodebuild -project "$PWD/DriverBundle/Driverbundle.xcodeproj" \
-           -target ImageWriterII \
+xcodebuild -workspace "$PWD/ImageWriterII.xcworkspace" \
+           -scheme ImageWriterIIBundle \
            -configuration Release \
            install \
            DSTROOT="$PWD/build/Package/Root"

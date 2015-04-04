@@ -329,7 +329,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\nMACHID=$(../buildidgen.pl $HOSTNAME)\nbuildPlist=\"ImageWriterIIPDE//ImageWriterIIPDE-Info.plist\"\nCFBuildNumber=$MACHID'.'$COUNTER\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBuildNumber\" $buildPlist";
+			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\nbuildPlist=\"ImageWriterIIPDE//ImageWriterIIPDE-Info.plist\"\nCFBuildNumber=$COUNTER\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBuildNumber\" $buildPlist";
 		};
 		01BB91E1184AA2E000DD7A13 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -342,7 +342,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat bundlever.in | sed \"s/@VERSION/$COUNTER/g\" > bundlever.defs\n\nMACHID=$(../buildidgen.pl $HOSTNAME)\nread LIBRARY_VERSION < ../ImageWriterLibrary/version\nread FILTERS_VERSION < ../CupsFilters/version\n# Auto Increment Version Script\nbuildPlist=\"imagewriterii-Info.plist\"\nCFBuildNumber=$MACHID'.'$COUNTER'.'$FILTERS_VERSION'.'$LIBRARY_VERSION\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBuildNumber\" $buildPlist";
+			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat bundlever.in | sed \"s/@VERSION/$COUNTER/g\" > bundlever.defs\n\nread LIBRARY_VERSION < ../ImageWriterLibrary/version\nread FILTERS_VERSION < ../CupsFilters/version\n# Auto Increment Version Script\nbuildPlist=\"imagewriterii-Info.plist\"\nCFBuildNumber=$COUNTER'.'$FILTERS_VERSION'.'$LIBRARY_VERSION\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBuildNumber\" $buildPlist";
 		};
 /* End PBXShellScriptBuildPhase section */
 

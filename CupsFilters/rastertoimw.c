@@ -5,6 +5,7 @@
  */
 
 #include <stdio.h>
+#include <fcntl.h>
 #include <signal.h>
 #include <errno.h>
 #include <cups/cups.h>

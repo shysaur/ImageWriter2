@@ -70,7 +70,6 @@ int presets_cnt = 0;
 
 - (int)loadPresetsFromArray:(NSArray *)source {
   int c, i;
-  
   free(presets);
   
   c = (int)[source count];
@@ -194,7 +193,7 @@ int presets_cnt = 0;
   [listQualityPresets selectItemAtIndex:preset];
   [viewAdvanced setHidden:(preset != PRESET_CUSTOM)];
   if ([pdeCallback respondsToSelector:@selector(panelViewDidResize)])
-  [pdeCallback panelViewDidResize];
+    [pdeCallback panelViewDidResize];
   
   stop = 0;
   for (i=0; i<CNT_RESOLUTIONS && !stop; i++)
@@ -213,6 +212,7 @@ int presets_cnt = 0;
   [pdeBundle release];
   [pdeCallback release];
   free(presets);
+  presets = NULL;
   
   [super dealloc];
 }

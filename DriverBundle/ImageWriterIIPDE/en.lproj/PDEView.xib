@@ -31,7 +31,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView id="rlm-vB-7bY" customClass="VUTCollapsibleView">
+                <customView id="rlm-vB-7bY">
                     <rect key="frame" x="0.0" y="0.0" width="420" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>

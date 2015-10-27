@@ -109,7 +109,6 @@ int presets_cnt = 0;
 - (NSView *)panelView {
   if (!view) {
     [NSBundle loadNibNamed:@"PDEView" owner:self];
-    [viewAdvanced collapse:self];
   }
   return view;
 }
@@ -193,11 +192,7 @@ int presets_cnt = 0;
   }
   
   [listQualityPresets selectItemAtIndex:preset];
-  if (preset != PRESET_CUSTOM) {
-    [viewAdvanced collapse:self];
-  } else {
-    [viewAdvanced expand:self];
-  }
+  [viewAdvanced setHidden:(preset != PRESET_CUSTOM)];
   [pdeCallback panelViewDidResize];
   
   stop = 0;

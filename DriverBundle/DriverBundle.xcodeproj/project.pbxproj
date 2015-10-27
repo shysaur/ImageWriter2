@@ -32,6 +32,7 @@
 		016E70FC1850891800D129D7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016E70FB1850891800D129D7 /* Cocoa.framework */; };
 		016E71061850891800D129D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 016E71041850891800D129D7 /* InfoPlist.strings */; };
 		016E710F1850A58700D129D7 /* AppleImagewriterIIPDE.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */; };
+		01AD17C61BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AD17C51BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m */; };
 		01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 01E70A0A184BADD200B913FF /* PrinterIcon.iconset */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,8 @@
 		016E71051850891800D129D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleImagewriterIIPDE.h; sourceTree = "<group>"; };
 		016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleImagewriterIIPDE.m; sourceTree = "<group>"; };
+		01AD17C41BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleImagewriterIIPDEPlugIn.h; sourceTree = "<group>"; };
+		01AD17C51BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleImagewriterIIPDEPlugIn.m; sourceTree = "<group>"; };
 		01E70A0A184BADD200B913FF /* PrinterIcon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = PrinterIcon.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,8 +203,10 @@
 		016E71101850A59C00D129D7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */,
+				01AD17C41BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.h */,
+				01AD17C51BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m */,
 				016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */,
+				016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01AD17C61BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m in Sources */,
 				016E710F1850A58700D129D7 /* AppleImagewriterIIPDE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

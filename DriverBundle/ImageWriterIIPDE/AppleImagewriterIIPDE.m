@@ -4,43 +4,8 @@
  *  (c) 2013 Daniele Cattaneo
  */
 
-
+#import "AppleImagewriterIIPDEPlugin.h"
 #import "AppleImagewriterIIPDE.h"
-
-
-
-
-@implementation AppleImagewriterIIPDEPlugIn
-
-
-- (BOOL)initWithBundle:(NSBundle *)bundle {
-  return YES;
-}
-
-
-- (NSArray*)PDEPanelsForType:(NSString*)pdeType withHostInfo:(id)host {
-  PDEPluginCallback *callback;
-  NSMutableArray *pdes;
-  AppleImagewriterIIPDE *pde;
-  
-  pdes = [NSMutableArray array];
-  callback = (PDEPluginCallback *)host;
-  
-  if ([pdeType isEqual:(NSString*)kPrinterModuleTypeIDStr]) {
-    pde = [[[AppleImagewriterIIPDE alloc] initWithCallback:callback] autorelease];
-    if (pde)
-      [pdes addObject:pde];
-    else
-      pdes = nil;
-  }
-  
-  return pdes;
-}
-
-
-@end
-
-
 
 
 const int resolutions_x[] = {

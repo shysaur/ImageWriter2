@@ -7,9 +7,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import <PrintCore/PDEPluginInterface.h>
-#import <PrintCore/PMPrintingDialogExtensions.h>
-
 
 typedef struct {
   int resX, resY;
@@ -17,30 +14,6 @@ typedef struct {
 } pdeOptions;
 
 #define PRESET_NOTSET -1
-
-
-
-
-@interface AppleImagewriterIIPDEPlugIn : NSObject /* <PMPlugIn> */
-{
-}
-
-- (BOOL)initWithBundle:(NSBundle *)bundle;
-- (NSArray*)PDEPanelsForType:(NSString*)pdeType withHostInfo:(id)host;
-
-@end
-
-
-
-
-@interface PDEPluginCallback : NSObject /* <PDEPlugInCallbackProtocol> */
-{
-}
-
-- (void)panelViewDidResize;
-
-@end
-
 
 
 

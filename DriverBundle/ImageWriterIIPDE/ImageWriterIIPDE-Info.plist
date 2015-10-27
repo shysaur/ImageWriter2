@@ -9,7 +9,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>Apple ImageWriter II Option Panel</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.danielecattaneo.printers.${PRODUCT_NAME:rfc1034identifier}.pde</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -17,7 +17,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>179</string>
+	<string>198</string>
 	<key>NSPrincipalClass</key>
 	<string>AppleImagewriterIIPDEPlugIn</string>
 	<key>PMSandboxCompatiblePDEs</key>

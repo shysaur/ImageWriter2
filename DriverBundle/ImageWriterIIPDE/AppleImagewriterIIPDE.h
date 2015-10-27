@@ -36,6 +36,9 @@ typedef struct {
 @interface PDEPluginCallback : NSObject /* <PDEPlugInCallbackProtocol> */
 {
 }
+
+- (void)panelViewDidResize;
+
 @end
 
 

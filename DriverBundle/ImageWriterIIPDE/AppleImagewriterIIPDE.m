@@ -193,6 +193,7 @@ int presets_cnt = 0;
   
   [listQualityPresets selectItemAtIndex:preset];
   [viewAdvanced setHidden:(preset != PRESET_CUSTOM)];
+  if ([pdeCallback respondsToSelector:@selector(panelViewDidResize)])
   [pdeCallback panelViewDidResize];
   
   stop = 0;

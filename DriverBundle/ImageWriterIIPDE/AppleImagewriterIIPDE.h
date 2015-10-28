@@ -13,19 +13,18 @@ typedef struct {
   BOOL bidir;
 } pdeOptions;
 
-#define PRESET_NOTSET -1
-
-
 
 @interface AppleImagewriterIIPDE : NSObject
 {
-  IBOutlet id listQualityPresets;
-  IBOutlet id listResolutionX;
-  IBOutlet id listResolutionY;
-  IBOutlet id buttonBidirectional;
+  IBOutlet NSPopUpButton *listQualityPresets;
+  IBOutlet NSPopUpButton *listResolutionX;
+  IBOutlet NSPopUpButton *listResolutionY;
+  IBOutlet NSButton *buttonBidirectional;
   IBOutlet NSView *viewAdvanced;
-  IBOutlet id view;
+  IBOutlet NSView *view;
   
+  pdeOptions *presets;
+  int presets_cnt;
   pdeOptions options;
   int preset;
   NSBundle *pdeBundle;
@@ -36,7 +35,6 @@ typedef struct {
 - (id)initWithCallback:(PDEPluginCallback *)callback;
 - (void)dealloc;
 
-- (int)loadPresetsFromArray:(NSArray *)source;
 - (NSString *)panelName;
 - (NSString *)panelKind;
 - (NSView *)panelView;

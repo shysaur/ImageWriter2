@@ -13,9 +13,8 @@ const int resolutions_x[] = {
 };
 #define CNT_RESOLUTIONS 8
 
-pdeOptions *presets = NULL;
-int presets_cnt = 0;
 #define PRESET_CUSTOM ((presets_cnt + 1))
+#define PRESET_NOTSET -1
 
 
 @implementation AppleImagewriterIIPDE
@@ -28,6 +27,7 @@ int presets_cnt = 0;
   pdeBundle   = [[NSBundle bundleForClass:[self class]] retain];
   pdeCallback = [callback retain];
   ppd = [pdeCallback ppdFile];
+  presets_cnt = 0;
   
   return self;
 }
@@ -93,6 +93,7 @@ int presets_cnt = 0;
 
 - (IBAction)listResolutionYDidChange:(id)sender {
   NSInteger i;
+  
   i = [listResolutionY indexOfSelectedItem];
   options.resY = (i==0) ? 72 : 144;
   [self updateControls];
@@ -177,20 +178,18 @@ int presets_cnt = 0;
   [pdeBundle release];
   [pdeCallback release];
   free(presets);
-  presets = NULL;
   
   [super dealloc];
 }
 
 
 - (void)willShow {
+  NSURL *plist;
   NSArray *defPresets;
   
-  defPresets = [[NSArray alloc]
-                initWithContentsOfURL:[pdeBundle
-                                       URLForResource:@"PDEPresets"
-                                       withExtension:@"plist"]];
-  presets_cnt = [self loadPresetsFromArray: defPresets];
+  plist = [pdeBundle URLForResource:@"PDEPresets" withExtension:@"plist"];
+  defPresets = [[NSArray alloc] initWithContentsOfURL:plist];
+  presets_cnt = [self loadPresetsFromArray:defPresets];
   [defPresets release];
 
   [self updateControls];

@@ -30,7 +30,7 @@
       pdes = nil;
   }
   
-  return [pdes copy];
+  return [[pdes copy] autorelease];
 }
 
 

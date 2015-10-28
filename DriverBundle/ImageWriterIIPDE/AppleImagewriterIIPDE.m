@@ -33,30 +33,40 @@ const int resolutions_x[] = {
 }
 
 
-- (int)loadPresetsFromArray:(NSArray *)source {
-  int c, i;
-  free(presets);
+- (void)loadPresetsFromArray:(NSArray *)source {
+  NSInteger c, i;
+  NSString *title, *label;
+  NSDictionary *pset;
+  NSArray *psetdpi;
   
-  c = (int)[source count];
-  presets = malloc(c * sizeof(pdeOptions));
-  
-  for (i=0; i<c; i++) {
-    NSDictionary *pset;
-    NSArray *psetdpi;
-    pset = [source objectAtIndex:i];
-    presets[i].bidir = [[pset objectForKey:@"Bidirectional"] integerValue];
-    psetdpi = [pset objectForKey:@"DPI"];
-    presets[i].resX = (int)[[psetdpi objectAtIndex:0] integerValue];
-    presets[i].resY = (int)[[psetdpi objectAtIndex:1] integerValue];
-    
-    [listQualityPresets
-     insertItemWithTitle:NSLocalizedStringFromTableInBundle(
-                           [pset objectForKey:@"Label"], nil, pdeBundle, nil)
-     atIndex:i];
+  if (source == nil) {
+    c = 0;
+    goto fail;
   }
-  preset = PRESET_NOTSET;
   
-  return c;
+  free(presets);
+  c = [source count];
+  presets = calloc(c, sizeof(pdeOptions));
+  
+  i=0;
+  for (pset in source) {
+    presets[i].bidir = [[pset objectForKey:@"Bidirectional"] boolValue];
+    
+    psetdpi = [pset objectForKey:@"DPI"];
+    presets[i].resX = [[psetdpi objectAtIndex:0] intValue];
+    presets[i].resY = [[psetdpi objectAtIndex:1] intValue];
+    
+    label = [pset objectForKey:@"Label"];
+    title = NSLocalizedStringFromTableInBundle(label, nil, pdeBundle, nil);
+    [listQualityPresets insertItemWithTitle:title atIndex:i];
+    
+    i++;
+  }
+  
+fail:
+  preset = PRESET_NOTSET;
+  presets_cnt = c;
+  return;
 }
 
 
@@ -71,22 +81,21 @@ const int resolutions_x[] = {
 
 
 - (NSView *)panelView {
-  if (!view) {
+  if (!view)
     [NSBundle loadNibNamed:@"PDEView" owner:self];
-  }
   return view;
 }
 
 
 - (NSArray *)supportedPPDOptionKeys {
-  return [NSArray arrayWithObjects:@"Bidirectional", @"Resolution", nil];
+  return @[@"Bidirectional", @"Resolution"];
 }
 
 
 - (IBAction)listQualityPresetsDidChange:(id)sender {
-  preset = (int)[listQualityPresets indexOfSelectedItem];
-  if (preset < 3)
-    memcpy(&options, &presets[preset], sizeof(pdeOptions));
+  preset = [listQualityPresets indexOfSelectedItem];
+  if (preset < presets_cnt)
+    options = presets[preset];
   [self updateControls];
 }
 
@@ -95,13 +104,14 @@ const int resolutions_x[] = {
   NSInteger i;
   
   i = [listResolutionY indexOfSelectedItem];
-  options.resY = (i==0) ? 72 : 144;
+  options.resY = !i ? 72 : 144;
   [self updateControls];
 }
 
 
 - (IBAction)listResolutionXDidChange:(id)sender {
   NSInteger i;
+  
   i = [listResolutionX indexOfSelectedItem];
   options.resX = resolutions_x[i];
   [self updateControls];
@@ -115,12 +125,13 @@ const int resolutions_x[] = {
 
 
 - (BOOL)saveValuesAndReturnError:(NSError **)error {
-  [pdeCallback
-    willChangePPDOptionKeyValue:@"Resolution"
-    ppdChoice:[NSString stringWithFormat:@"%dx%ddpi", options.resX, options.resY]];
-  [pdeCallback
-    willChangePPDOptionKeyValue:@"Bidirectional"
-    ppdChoice:options.bidir ? @"True" : @"False"];
+  NSString *res, *bidir;
+  
+  res = [NSString stringWithFormat:@"%dx%ddpi", options.resX, options.resY];
+  bidir = options.bidir ? @"True" : @"False";
+  
+  [pdeCallback willChangePPDOptionKeyValue:@"Resolution" ppdChoice:res];
+  [pdeCallback willChangePPDOptionKeyValue:@"Bidirectional" ppdChoice:bidir];
   
   return YES;
 }
@@ -150,10 +161,7 @@ const int resolutions_x[] = {
       if (memcmp(&presets[i], &options, sizeof(pdeOptions)) == 0)
         stop = 1;
     }
-    if (stop)
-      preset = i - 1;
-    else
-      preset = PRESET_CUSTOM;
+    preset = stop ? i - 1 : PRESET_CUSTOM;
   }
   
   [listQualityPresets selectItemAtIndex:preset];
@@ -163,11 +171,14 @@ const int resolutions_x[] = {
   
   stop = 0;
   for (i=0; i<CNT_RESOLUTIONS && !stop; i++)
-    if (options.resX == resolutions_x[i]) stop = 1;
-  if (!stop) return NO; /* Ops! */
+    if (options.resX == resolutions_x[i])
+      stop = 1;
+  if (!stop)
+    return NO; /* Ops! */
+  
   [listResolutionX selectItemAtIndex:i-1];
   [listResolutionY selectItemAtIndex:(options.resY == 144)];
-  [buttonBidirectional setState:(options.bidir?NSOnState:NSOffState)];
+  [buttonBidirectional setState:(options.bidir ? NSOnState : NSOffState)];
   
   return YES;
 }
@@ -189,7 +200,7 @@ const int resolutions_x[] = {
   
   plist = [pdeBundle URLForResource:@"PDEPresets" withExtension:@"plist"];
   defPresets = [[NSArray alloc] initWithContentsOfURL:plist];
-  presets_cnt = [self loadPresetsFromArray:defPresets];
+  [self loadPresetsFromArray:defPresets];
   [defPresets release];
 
   [self updateControls];

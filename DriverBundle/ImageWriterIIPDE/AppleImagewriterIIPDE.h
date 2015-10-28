@@ -24,9 +24,9 @@ typedef struct {
   IBOutlet NSView *view;
   
   pdeOptions *presets;
-  int presets_cnt;
+  NSInteger presets_cnt;
   pdeOptions options;
-  int preset;
+  NSInteger preset;
   NSBundle *pdeBundle;
   PDEPluginCallback *pdeCallback;
   ppd_file_t *ppd;

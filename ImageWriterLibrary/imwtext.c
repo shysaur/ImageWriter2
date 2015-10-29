@@ -14,11 +14,9 @@
 
 #define N_A 0
 
-#define CHARSET_CNT 8
 
-
-const char iso_8859_to_imw[CHARSET_CNT][256] = {
-  /* kAmerican (ASCII) */
+const char iso_8859_to_imw[][256] = {
+  /* kPrnCharSetAmerican (ASCII) */
   {  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
    ' ','!','"','#','$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -35,7 +33,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
    N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
    N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
    N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A },
-  /* kBritish (ISO 646:GB) */
+  /* kPrnCharSetBritish (ISO 646:GB) */
   {   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ' ','!','"',N_A,'$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -52,7 +50,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A },
-  /* kGerman (ISO 646:DE) */
+  /* kPrnCharSetGerman (ISO 646:DE) */
   {   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ' ','!','"','#','$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -69,7 +67,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
     N_A,N_A,N_A,N_A,N_A,N_A, 92,N_A,N_A,N_A,N_A,N_A,']',N_A,N_A,'~',
     N_A,N_A,N_A,N_A,'{',N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,N_A,N_A,N_A,N_A,N_A,'|',N_A,N_A,N_A,N_A,N_A,'}',N_A,N_A,N_A },
-  /* kFrench (Custom) */
+  /* kPrnCharSetFrench (Custom) */
   {   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ' ','!','"',N_A,'$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -86,7 +84,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     '@',N_A,N_A,N_A,N_A,N_A,N_A, 92,'}','{',N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,'|',N_A,N_A,N_A,N_A,N_A,N_A },
-  /* kSwedish (Custom) */
+  /* kPrnCharSetSwedish (Custom) */
   {   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ' ','!','"','#','$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -103,7 +101,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
     N_A,N_A,N_A,N_A,N_A,N_A, 92,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,N_A,N_A,N_A,'{','}',N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,N_A,N_A,N_A,N_A,N_A,'|',N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A },
-  /* kItalian (Olivetti ISO 646 encoding) */
+  /* kPrnCharSetItalian (Olivetti ISO 646 encoding) */
   {   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ' ','!','"',N_A,'$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -120,7 +118,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     '{',N_A,N_A,N_A,N_A,N_A,N_A, 92,'}',']',N_A,N_A,'~',N_A,N_A,N_A,
     N_A,N_A,'|',N_A,N_A,N_A,N_A,N_A,N_A,'`',N_A,N_A,N_A,N_A,N_A,N_A },
-  /* kSpanish (Custom) */
+  /* kPrnCharSetSpanish (Custom) */
   {   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ' ','!','"',N_A,'$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -137,7 +135,7 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
     N_A, 92,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,'}',N_A,N_A,N_A,N_A,N_A,N_A,N_A,
     N_A,'|',N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A,N_A },
-  /* kDanish (ISO 646:DK) */
+  /* kPrnCharSetDanish (ISO 646:DK) */
   {   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ' ','!','"','#','$','%','&', 27,'(',')','*','+',',','-','.','/',
@@ -157,31 +155,25 @@ const char iso_8859_to_imw[CHARSET_CNT][256] = {
 };
 
 
-const charSet charset_idx[CHARSET_CNT] = {
-  kAmerican, kBritish, kGerman, kFrench, kSwedish, kItalian, kSpanish, kDanish
-};
-
-
 int prnISO8859TextPrint(printerRef prn, const char *s) {
   int i, j, res;
   char rc;
-  charSet curCS;
-  int csi;
+  prnCharSet curCS;
   
-  curCS = kAmerican;
-  csi = 0;
+  curCS = kPrnCharSetAmerican;
   prnSelectCharacterSet(prn, 0, curCS);
+  
   for (i=0; s[i] != '\0'; i++) {
-    rc = iso_8859_to_imw[csi][(unsigned char)s[i]];
+    rc = iso_8859_to_imw[curCS][(unsigned char)s[i]];
     
     if (rc == N_A) {
       res = -1;
-      for (j=0; j<CHARSET_CNT && res<0; j++)
-        if ((rc = iso_8859_to_imw[j][(unsigned char)s[i]]) != N_A) res = j;
+      for (j=0; j<kPrnCharSetCount && res<0; j++)
+        if ((rc = iso_8859_to_imw[j][(unsigned char)s[i]]) != N_A)
+          res = j;
       
       if (res >= 0) {
-        csi = res;
-        curCS = charset_idx[csi];
+        curCS = res;
         prnSelectCharacterSet(prn, 0, curCS);
       } else
         rc = '?';
@@ -194,13 +186,9 @@ int prnISO8859TextPrint(printerRef prn, const char *s) {
 
 
 int prnEncodedTextPrint(printerRef prn, const char *s, const char *fromcode) {
+  char *outb, *outb_wp, *inb_wp;
+  size_t inb_rem, oub_rem, res;
   iconv_t ic;
-  char *outb;
-  char *outb_wp;
-  char *inb_wp;
-  size_t inb_rem;
-  size_t oub_rem;
-  size_t res;
   int e;
   
   ic = iconv_open("ISO-8859-1", fromcode);
@@ -214,7 +202,8 @@ int prnEncodedTextPrint(printerRef prn, const char *s, const char *fromcode) {
   inb_rem = strlen(s);
   oub_rem = inb_rem + 32;
   outb = malloc(oub_rem + 1);
-  if (!outb) return ERR_IMWAPI_OUTOFMEMORY;
+  if (!outb)
+    return ERR_IMWAPI_OUTOFMEMORY;
   outb_wp = outb;
   inb_wp = (char*)s;
   
@@ -246,7 +235,8 @@ int prnEncodedTextPrintF(printerRef prn, const char *fromcode, const char *forma
   va_start(args, format);
   ret = vasprintf(&tempbuf, format, args);
   va_end(args);
-  if (ret<0) return ERR_IMWAPI_OUTOFMEMORY;
+  if (ret < 0)
+    return ERR_IMWAPI_OUTOFMEMORY;
   
   ret = prnEncodedTextPrint(prn, tempbuf, fromcode);
   

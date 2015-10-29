@@ -9,16 +9,19 @@
 
 printerRef prnAlloc(FILE *output, FILE *input, int *err) {
   printerRef prn;
+  
   if (output) {
-    prn = malloc(sizeof(printer));
+    prn = calloc(1, sizeof(printer));
     if (prn) {
       prn->s_in = input;
       prn->s_out = output;
       return prn;
     } else
-      if (err) *err = ERR_IMWAPI_OUTOFMEMORY;
+      if (err)
+        *err = ERR_IMWAPI_OUTOFMEMORY;
   } else
-    if (err) *err = ERR_IMWAPI_INVALIDPARAM;
+    if (err)
+      *err = ERR_IMWAPI_INVALIDPARAM;
   return NULL;
 }
 
@@ -30,9 +33,13 @@ int prnDealloc(printerRef prn) {
 
 
 int prnHardwareQuery(printerRef prn, char *answer) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (answer == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (prn->s_in == NULL || prn->s_in == stdin) return ERR_IMWAPI_WRONGORDER;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  if (answer == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  if (prn->s_in == NULL || prn->s_in == stdin)
+    return ERR_IMWAPI_WRONGORDER;
+  
   fflush(prn->s_out);
   fflush(prn->s_in);
   fputs("\0x1B?", prn->s_out);
@@ -42,7 +49,9 @@ int prnHardwareQuery(printerRef prn, char *answer) {
 
 
 int prnTextPrint(printerRef prn, char *text) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  
   fputs(text, prn->s_out);
   prn->headPos = -1;
   return 0;
@@ -52,7 +61,8 @@ int prnTextPrint(printerRef prn, char *text) {
 int prnSetHorizontalResolution(printerRef prn, int res) {
   char rc;
   
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
   switch (res) {
     case  72: rc = 'n'; break;
     case  80: rc = 'N'; break;
@@ -71,7 +81,9 @@ int prnSetHorizontalResolution(printerRef prn, int res) {
 
 
 int prnFormFeed(printerRef prn) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  
   fprintf(prn->s_out, "\014");
   prn->headPos = 0;
   return 0;
@@ -79,9 +91,11 @@ int prnFormFeed(printerRef prn) {
 
 
 int prnSetLineHeight(printerRef prn, int rows) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
   if ((rows < 1 || rows > 99) && rows != IMWAPI_6LPI && rows != IMWAPI_8LPI)
     return ERR_IMWAPI_WRONGORDER;
+  
   switch (rows) {
     case IMWAPI_6LPI:
       fprintf(prn->s_out, "\033A"); break;
@@ -95,8 +109,11 @@ int prnSetLineHeight(printerRef prn, int rows) {
 
 
 int prnSetFormHeight(printerRef prn, int rows) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (rows < 1 || rows > 9999) return ERR_IMWAPI_WRONGORDER;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  if (rows < 1 || rows > 9999)
+    return ERR_IMWAPI_WRONGORDER;
+  
   fprintf(prn->s_out, "\033H%04d", rows);
   return 0;
 }
@@ -106,8 +123,10 @@ int prnSetFormHeight(printerRef prn, int rows) {
 int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth, int optimizeWidth) {
   int partstart, partlen, partrle, nextpart, minrle;
   
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (swidth < 1 || swidth > 9999) return ERR_IMWAPI_WRONGORDER;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  if (swidth < 1 || swidth > 9999)
+    return ERR_IMWAPI_WRONGORDER;
   
   partrle = -1;
   partlen = 1;
@@ -165,8 +184,11 @@ int prnGraphicStripePrint(printerRef prn, const uint8_t stripe[], int swidth, in
 
 
 int prnGraphicGoToX(printerRef prn, int swidth) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (swidth < 0 || swidth > 9999) return ERR_IMWAPI_WRONGORDER;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  if (swidth < 0 || swidth > 9999)
+    return ERR_IMWAPI_WRONGORDER;
+  
   fprintf(prn->s_out, "\033F%04d", swidth);
   prn->headPos = swidth;
   return 0;
@@ -174,7 +196,9 @@ int prnGraphicGoToX(printerRef prn, int swidth) {
 
 
 int prnCarriageReturnLineFeed(printerRef prn) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  
   fprintf(prn->s_out, "\r\n");
   prn->headPos = 0;
   return 0;
@@ -182,10 +206,14 @@ int prnCarriageReturnLineFeed(printerRef prn) {
 
 
 int prnSetBidirectionalMode(printerRef prn, int bidi) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  
   switch (bidi) {
-    case IMWAPI_BIDIRECTIONAL: fprintf(prn->s_out, "\033<"); break;
-    case IMWAPI_LEFTTORIGHT: fprintf(prn->s_out, "\033>"); break;
+    case IMWAPI_BIDIRECTIONAL:
+      fprintf(prn->s_out, "\033<"); break;
+    case IMWAPI_LEFTTORIGHT:
+      fprintf(prn->s_out, "\033>"); break;
     default:
       return ERR_IMWAPI_INVALIDPARAM;
   }
@@ -194,10 +222,14 @@ int prnSetBidirectionalMode(printerRef prn, int bidi) {
 
 
 int prnSetHighBitMode(printerRef prn, int ascii) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  
   switch (ascii) {
-    case IMWAPI_ASCIIMODE: fwrite("\033D\0 ", sizeof(char), 4, prn->s_out); break;
-    case IMWAPI_8BITMODE: fwrite("\033Z\0 ", sizeof(char), 4, prn->s_out); break;
+    case IMWAPI_ASCIIMODE:
+      fwrite("\033D\0 ", sizeof(char), 4, prn->s_out); break;
+    case IMWAPI_8BITMODE:
+      fwrite("\033Z\0 ", sizeof(char), 4, prn->s_out); break;
     default:
       return ERR_IMWAPI_INVALIDPARAM;
   }
@@ -206,39 +238,45 @@ int prnSetHighBitMode(printerRef prn, int ascii) {
 
 
 int prnResetPrinterStatus(printerRef prn) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  
   fprintf(prn->s_out, "\033c");
   return 0;
 }
 
 
-int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
-  if (mouseText < 0 || mouseText > 1) return ERR_IMWAPI_INVALIDPARAM;
+int prnSelectCharacterSet(printerRef prn, int mouseText, prnCharSet lang) {
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  if (mouseText < 0 || mouseText > 1)
+    return ERR_IMWAPI_INVALIDPARAM;
+  
   if (mouseText) {
-    fprintf(stderr, "DEBUG: mouseText is on. This is extremely dangerous because"
-            " it can lead to garbage prints with no apparent reason if it's not disabled."
-            " You can also access mouseText stuff by printing a character > 128.\n");
+    fprintf(stderr, "DEBUG: mouseText is on. This is extremely dangerous"
+      " because it can lead to garbage prints with no apparent reason if it's"
+      " not disabled. You can also access mouseText stuff by printing a"
+      " character > 128.\n");
     fprintf(prn->s_out, "\033&");
-  } else {
+  } else
     fprintf(prn->s_out, "\033$");
-  }
+  
   switch (lang) {
-    case kAmerican:
+    case kPrnCharSetAmerican:
       fwrite("\033Z\07\0", sizeof(char), 4, prn->s_out); break;
-    case kBritish:
+    case kPrnCharSetBritish:
       fwrite("\033Z\04\0\033D\03\0", sizeof(char), 8, prn->s_out); break;
-    case kGerman:
+    case kPrnCharSetGerman:
       fwrite("\033Z\03\0\033D\04\0", sizeof(char), 8, prn->s_out); break;
-    case kFrench:
+    case kPrnCharSetFrench:
       fwrite("\033Z\01\0\033D\06\0", sizeof(char), 8, prn->s_out); break;
-    case kSwedish:
+    case kPrnCharSetSwedish:
       fwrite("\033Z\02\0\033D\05\0", sizeof(char), 8, prn->s_out); break;
-    case kItalian:
+    case kPrnCharSetItalian:
       fwrite("\033Z\06\0\033D\01\0", sizeof(char), 8, prn->s_out); break;
-    case kSpanish:
+    case kPrnCharSetSpanish:
       fwrite("\033D\07\0", sizeof(char), 4, prn->s_out); break;
-    case kDanish:
+    case kPrnCharSetDanish:
       fwrite("\033Z\05\0\033D\02\0", sizeof(char), 8, prn->s_out); break;
     default:
       return ERR_IMWAPI_INVALIDPARAM;
@@ -247,12 +285,17 @@ int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang) {
 }
 
 
-int prnSelectFont(printerRef prn, printFont font) {
-  if (prn == NULL) return ERR_IMWAPI_UNKNOWN;
+int prnSelectFont(printerRef prn, prnFont font) {
+  if (prn == NULL)
+    return ERR_IMWAPI_UNKNOWN;
+  
   switch (font) {
-    case kDraft: fprintf(prn->s_out, "\033a1"); break;
-    case kStandard: fprintf(prn->s_out, "\033a0"); break;
-    case kNLQ: fprintf(prn->s_out, "\033a2"); break;
+    case kPrnFontDraft:
+      fprintf(prn->s_out, "\033a1"); break;
+    case kPrnFontStandard:
+      fprintf(prn->s_out, "\033a0"); break;
+    case kPrnFontNLQ:
+      fprintf(prn->s_out, "\033a2"); break;
     default:
       return ERR_IMWAPI_INVALIDPARAM;
   }

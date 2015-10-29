@@ -15,23 +15,23 @@ int hgrPrintBitmapStripeH8Wk8(printerRef prn, const uint8_t bitmap[], int chrWid
   int err;
   
   stripes = malloc(chrWidth * 8);
-  if (stripes) {
-    for (i=0; i<chrWidth; i++)
-      for (j=0; j<8; j++)
-        stripes[i*8+j] =
-          ((bitmap[i+0*chrWidth] >> (7-j) & 1) << 0) |
-          ((bitmap[i+1*chrWidth] >> (7-j) & 1) << 1) |
-          ((bitmap[i+2*chrWidth] >> (7-j) & 1) << 2) |
-          ((bitmap[i+3*chrWidth] >> (7-j) & 1) << 3) |
-          ((bitmap[i+4*chrWidth] >> (7-j) & 1) << 4) |
-          ((bitmap[i+5*chrWidth] >> (7-j) & 1) << 5) |
-          ((bitmap[i+6*chrWidth] >> (7-j) & 1) << 6) |
-          ((bitmap[i+7*chrWidth] >> (7-j) & 1) << 7);
-    err = prnGraphicStripePrint(prn, stripes, chrWidth*8, 1);
-    free(stripes);
-    return err;
-  } else
+  if (!stripes)
     return ERR_IMWAPI_OUTOFMEMORY;
+  
+  for (i=0; i<chrWidth; i++)
+    for (j=0; j<8; j++)
+      stripes[i*8+j] =
+        ((bitmap[i+0*chrWidth] >> (7-j) & 1) << 0) |
+        ((bitmap[i+1*chrWidth] >> (7-j) & 1) << 1) |
+        ((bitmap[i+2*chrWidth] >> (7-j) & 1) << 2) |
+        ((bitmap[i+3*chrWidth] >> (7-j) & 1) << 3) |
+        ((bitmap[i+4*chrWidth] >> (7-j) & 1) << 4) |
+        ((bitmap[i+5*chrWidth] >> (7-j) & 1) << 5) |
+        ((bitmap[i+6*chrWidth] >> (7-j) & 1) << 6) |
+        ((bitmap[i+7*chrWidth] >> (7-j) & 1) << 7);
+  err = prnGraphicStripePrint(prn, stripes, chrWidth*8, 1);
+  free(stripes);
+  return err;
 }
 
 
@@ -51,7 +51,9 @@ int hgrPrintBitmapStripeHiresH16Wk8(printerRef prn, const uint8_t bitmap[], int 
   int err;
   
   intbmp = malloc(chrWidth * 16);
-  if (!intbmp) return ERR_IMWAPI_OUTOFMEMORY;
+  if (!intbmp)
+    return ERR_IMWAPI_OUTOFMEMORY;
+  
   err = hgrInterleaveBitmapH16Wk8(bitmap, intbmp, chrWidth);
   if (err) goto error_catch;
   err = prnSetLineHeight(prn, 1);
@@ -65,6 +67,7 @@ int hgrPrintBitmapStripeHiresH16Wk8(printerRef prn, const uint8_t bitmap[], int 
   err = prnSetLineHeight(prn, 15);
   if (err) goto error_catch;
   err = prnCarriageReturnLineFeed(prn);
+  
 error_catch:
   free(intbmp);
   return err;

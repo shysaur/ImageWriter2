@@ -11,7 +11,6 @@
 #include <cups/cups.h>
 #include <cups/ppd.h>
 #include <cups/raster.h>
-
 #include "filterlocalizer.h"
 #include "citohapi.h"
 #include "imwhgr.h"
@@ -41,9 +40,9 @@ int stripeIsEmpty(const uint8_t stripe[], int charWidth, int height) {
 int initializeCupsOptions(job_data_t *job, ppd_file_t **ppd, const char *argv[]) {
   char ls[64];
   
-  job->job_id      = atoi(argv[1]);
-  job->user        = argv[2];
-  job->title       = argv[3];
+  job->job_id = atoi(argv[1]);
+  job->user = argv[2];
+  job->title = argv[3];
   job->num_options = cupsParseOptions(argv[5], 0, &(job->options));
   
   if ((*ppd = ppdOpenFile(getenv("PPD"))) != NULL) {

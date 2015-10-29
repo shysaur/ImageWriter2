@@ -104,10 +104,10 @@ int prnOutputSelfTestPage(printerRef prn) {
   prnSetHighBitMode(prn, IMWAPI_8BITMODE);
   prnSetLineHeight(prn, IMWAPI_6LPI);
   prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
-  prnSelectCharacterSet(prn, 0, kAmerican);
+  prnSelectCharacterSet(prn, 0, kPrnCharSetAmerican);
   prnSetHorizontalResolution(prn, 72);
   prnCarriageReturnLineFeed(prn);
-  prnSelectFont(prn, kNLQ);
+  prnSelectFont(prn, kPrnFontNLQ);
   
   l10nGetString("ImageWriter Test Page", temp, sizeof(temp));
   prnEncodedTextPrintF(prn, "UTF-8", "\016%s\017\r\n\r\n", temp);
@@ -117,7 +117,7 @@ int prnOutputSelfTestPage(printerRef prn) {
   l10nGetString("Library version", temp2, sizeof(temp2));
   prnEncodedTextPrintF(prn, "UTF-8", "%s %.2f - %s %.2f\r\n\r\n", temp, imwfiltersVersion, temp2, citohapiVersion);
   
-  prnSelectFont(prn, kDraft);
+  prnSelectFont(prn, kPrnFontDraft);
   prnSetBidirectionalMode(prn, IMWAPI_BIDIRECTIONAL);
   
   l10nGetString("Test Page Additional Information", temp, sizeof(temp));
@@ -126,9 +126,9 @@ int prnOutputSelfTestPage(printerRef prn) {
   
   /* Nozzle Test */
   prnSetBidirectionalMode(prn, IMWAPI_LEFTTORIGHT);
-  prnSelectFont(prn, kStandard);
+  prnSelectFont(prn, kPrnFontStandard);
   prnSetHorizontalResolution(prn, 72);
-  prnSelectCharacterSet(prn, 0, kAmerican);
+  prnSelectCharacterSet(prn, 0, kPrnCharSetAmerican);
   prnCarriageReturnLineFeed(prn);
   for (i=0; i<4; i++) {
     prnGraphicStripePrint(prn, nozzle_test, sizeof(nozzle_test), 0);
@@ -146,11 +146,11 @@ int prnOutputSelfTestPage(printerRef prn) {
   
   
   /* Charset test */
-  prnSelectFont(prn, kStandard);
+  prnSelectFont(prn, kPrnFontStandard);
   prnSetHorizontalResolution(prn, 72);
   j = 0;
   temp[1] = '\0';
-  for (c=kAmerican; c<=kDanish; c++) {
+  for (c=kPrnCharSetAmerican; c<=kPrnCharSetDanish; c++) {
     prnSelectCharacterSet(prn, 0, c);
     for (i=32; i<127; i++) {
       if (j % 72 == 0) prnCarriageReturnLineFeed(prn);
@@ -170,7 +170,7 @@ int prnOutputSelfTestPage(printerRef prn) {
   
   
   /* Resolution Test */
-  prnSelectFont(prn, kDraft);
+  prnSelectFont(prn, kPrnFontDraft);
   prnSetHorizontalResolution(prn, 144);
   l10nGetString("dpi vertical", temp, sizeof(temp));
   prnGraphicGoToX(prn, TEST_COL_WIDTH*144/72);

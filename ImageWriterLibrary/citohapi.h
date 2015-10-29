@@ -29,22 +29,23 @@
 
 
 typedef enum {
-  kAmerican = 0,
-  kBritish,
-  kGerman,
-  kFrench,
-  kSwedish,
-  kItalian,
-  kSpanish,
-  kDanish
-} charSet;
+  kPrnCharSetAmerican = 0,
+  kPrnCharSetBritish,
+  kPrnCharSetGerman,
+  kPrnCharSetFrench,
+  kPrnCharSetSwedish,
+  kPrnCharSetItalian,
+  kPrnCharSetSpanish,
+  kPrnCharSetDanish,
+  kPrnCharSetCount
+} prnCharSet;
 
 
 typedef enum {
-  kDraft = 0,
-  kStandard,
-  kNLQ
-} printFont;
+  kPrnFontDraft = 0,
+  kPrnFontStandard,
+  kPrnFontNLQ
+} prnFont;
 
 
 typedef struct {
@@ -69,8 +70,8 @@ int prnCarriageReturnLineFeed(printerRef prn);
 int prnSetBidirectionalMode(printerRef prn, int bidi);
 int prnSetHighBitMode(printerRef prn, int ascii);
 int prnResetPrinterStatus(printerRef prn);
-int prnSelectCharacterSet(printerRef prn, int mouseText, charSet lang);
-int prnSelectFont(printerRef prn, printFont font);
+int prnSelectCharacterSet(printerRef prn, int mouseText, prnCharSet lang);
+int prnSelectFont(printerRef prn, prnFont font);
 
 
 #endif

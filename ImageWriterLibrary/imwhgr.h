@@ -6,6 +6,7 @@
 
 #include "citohapi.h"
 
+
 #ifndef IMAGEWRITERLIBRARY_IMWHGR_H
 #define IMAGEWRITERLIBRARY_IMWHGR_H
 

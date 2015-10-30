@@ -138,6 +138,7 @@ int main(int argc, const char *argv[]) {
   
   ras = cupsRasterOpen(rasterfile, CUPS_RASTER_READ);
   prn = prnAlloc(stdout, NULL, NULL);
+  prnTextPrint(prn, " \r");
   initializeBidirectional(ppd, prn);
   
   /* Page loop */

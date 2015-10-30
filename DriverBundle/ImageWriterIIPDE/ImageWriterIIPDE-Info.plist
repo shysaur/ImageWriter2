@@ -17,7 +17,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>205</string>
+	<string>208</string>
 	<key>NSPrincipalClass</key>
 	<string>AppleImagewriterIIPDEPlugIn</string>
 	<key>PMSandboxCompatiblePDEs</key>

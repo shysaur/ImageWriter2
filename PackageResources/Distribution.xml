@@ -3,6 +3,7 @@
     <title>Apple ImageWriter II Printer Driver</title> 
 
     <pkg-ref id="com.danielecattaneo.printers.imagewriterii"/>
+    <license file="License.rtf" uti="public.rtf"/>
     <options customize="never" require-scripts="false"/>
     <choices-outline>
         <line choice="default">

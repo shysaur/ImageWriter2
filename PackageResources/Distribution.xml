@@ -2,17 +2,17 @@
 <installer-gui-script minSpecVersion="1">
     <title>Apple ImageWriter II Printer Driver</title> 
 
-    <pkg-ref id="com.danielecattaneo.printers.imagewriterii"/>
+    <pkg-ref id="com.danielecattaneo.printers.imagewriterii" onConclusion="none">
+        DriverPackage.pkg
+    </pkg-ref>
+    
     <license file="License.rtf" uti="public.rtf"/>
+    
     <options customize="never" require-scripts="false"/>
     <choices-outline>
-        <line choice="default">
-            <line choice="com.danielecattaneo.printers.imagewriterii"/>
-        </line>
+        <line choice="com.danielecattaneo.printers.imagewriterii"/>
     </choices-outline>
-    <choice id="default"/>
     <choice id="com.danielecattaneo.printers.imagewriterii" visible="false">
         <pkg-ref id="com.danielecattaneo.printers.imagewriterii"/>
     </choice>
-    <pkg-ref id="com.danielecattaneo.printers.imagewriterii" onConclusion="none">DriverPackage.pkg</pkg-ref>
 </installer-gui-script>

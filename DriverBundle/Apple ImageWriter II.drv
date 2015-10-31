@@ -8,7 +8,6 @@
 #include <media.defs>
 #include <raster.defs>
 
-#include "bundlever.defs"
 
 /* Generic information */
 Font *
@@ -16,7 +15,7 @@ ManualCopies Yes
 Manufacturer Apple
 ModelName "ImageWriter II"
 PCFileName "Apple ImageWriter II.ppd"
-Version 1.$BUNDLE_VER
+Version 1.0.0
 Attribute Product "" "(ImageWriter II)"
 Attribute 1284DeviceID "" "MFG:Apple;MODEL:ImageWriter II;"
 

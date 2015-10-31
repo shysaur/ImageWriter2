@@ -218,11 +218,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01106D24184950A1004DC5E2 /* Build configuration list for PBXNativeTarget "ImageWriterII" */;
 			buildPhases = (
-				01BB91E1184AA2E000DD7A13 /* ShellScript */,
 				01106D14184950A1004DC5E2 /* Sources */,
 				01106D15184950A1004DC5E2 /* Frameworks */,
 				01106D16184950A1004DC5E2 /* Resources */,
 				01106D2B18495AEA004DC5E2 /* CopyFiles */,
+				01DD8A2A1BE4EF9C00025C82 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -243,6 +243,7 @@
 				016E70F51850891700D129D7 /* Sources */,
 				016E70F61850891700D129D7 /* Frameworks */,
 				016E70F71850891700D129D7 /* Resources */,
+				01DD8A2B1BE4F00A00025C82 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -329,9 +330,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\nbuildPlist=\"ImageWriterIIPDE//ImageWriterIIPDE-Info.plist\"\nCFBuildNumber=$COUNTER\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBuildNumber\" $buildPlist";
+			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version";
 		};
-		01BB91E1184AA2E000DD7A13 /* ShellScript */ = {
+		01DD8A2A1BE4EF9C00025C82 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -342,7 +343,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat bundlever.in | sed \"s/@VERSION/$COUNTER/g\" > bundlever.defs\n\nread LIBRARY_VERSION < ../ImageWriterLibrary/version\nread FILTERS_VERSION < ../CupsFilters/version\n# Auto Increment Version Script\nbuildPlist=\"imagewriterii-Info.plist\"\nCFBuildNumber=$COUNTER'.'$FILTERS_VERSION'.'$LIBRARY_VERSION\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $CFBuildNumber\" $buildPlist";
+			shellScript = "read BUNDLE_VERSION < ./version\nread LIBRARY_VERSION < ../ImageWriterLibrary/version\nread FILTERS_VERSION < ../CupsFilters/version\n# Auto Increment Version Script\nCFBuildNumber=$BUNDLE_VERSION'.'$FILTERS_VERSION'.'$LIBRARY_VERSION\n/usr/libexec/PlistBuddy -c \"Add :CFBundleVersion string $CFBuildNumber\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"";
+		};
+		01DD8A2B1BE4F00A00025C82 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "read CFBuildNumber < ./version\n/usr/libexec/PlistBuddy -c \"Add :CFBundleVersion string $CFBuildNumber\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

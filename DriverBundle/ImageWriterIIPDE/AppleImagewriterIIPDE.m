@@ -4,7 +4,7 @@
  *  (c) 2013 Daniele Cattaneo
  */
 
-#import "AppleImagewriterIIPDEPlugin.h"
+#import "AppleImagewriterIIPDEPlugIn.h"
 #import "AppleImagewriterIIPDE.h"
 
 

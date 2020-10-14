@@ -7,7 +7,7 @@
 #ifndef CUPSFILTERS_FILTERLOCALIZER_H
 #define CUPSFILTERS_FILTERLOCALIZER_H
 
-int l10nInitialize();
+int l10nInitialize(void);
 int l10nGetString(const char *id, char *outbuf, size_t bufsize);
 
 #endif

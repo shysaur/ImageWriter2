@@ -331,7 +331,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version";
+			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\n";
 		};
 		01DD8A2A1BE4EF9C00025C82 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -357,7 +357,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read CFBuildNumber < ./version\n/usr/libexec/PlistBuddy -c \"Add :CFBundleVersion string $CFBuildNumber\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"";
+			shellScript = "read CFBuildNumber < ./version\n/usr/libexec/PlistBuddy -c \"Add :CFBundleVersion string $CFBuildNumber\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

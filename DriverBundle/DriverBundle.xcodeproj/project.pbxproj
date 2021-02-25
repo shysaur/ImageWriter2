@@ -239,7 +239,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 016E710A1850891800D129D7 /* Build configuration list for PBXNativeTarget "ImageWriterIIPDE" */;
 			buildPhases = (
-				014F765818512FD90069A909 /* ShellScript */,
 				016E70F51850891700D129D7 /* Sources */,
 				016E70F61850891700D129D7 /* Frameworks */,
 				016E70F71850891700D129D7 /* Resources */,
@@ -320,31 +319,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Symlink the filters to /usr/libexec/cups/filter\nmkdir -p \"$DSTROOT/usr/libexec/cups/filter\"\nln -sf \"/Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/rastertoimw\" \"$DSTROOT/usr/libexec/cups/filter\"\nln -sf \"/Library/Printers/Apple/ImageWriterII.bundle/Contents/MacOS/commandtoimw\" \"$DSTROOT/usr/libexec/cups/filter\"\n\n# Create the PPD file and place it in the PPDs directory...\nmkdir -p \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\"\nppdc -d \"$DSTROOT/Library/Printers/PPDs/Contents/Resources\" -z \"$SRCROOT/Apple Imagewriter II.drv\"\n";
 		};
-		014F765818512FD90069A909 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\n";
-		};
 		01DD8A2A1BE4EF9C00025C82 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read BUNDLE_VERSION < ./version\nread LIBRARY_VERSION < ../ImageWriterLibrary/version\nread FILTERS_VERSION < ../CupsFilters/version\n# Auto Increment Version Script\nCFBuildNumber=$BUNDLE_VERSION'.'$FILTERS_VERSION'.'$LIBRARY_VERSION\n/usr/libexec/PlistBuddy -c \"Add :CFBundleVersion string $CFBuildNumber\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"\n";
+			shellScript = "COUNTER=$(git rev-list HEAD --count)\nif [ $? -ne 0 ]; then\n  COUNTER='1';\nfi\nBUNDLE_VERSION=$(( COUNTER - 59 + 227 ))\nLIBRARY_VERSION=$(( COUNTER - 59 + 219 ))\nFILTERS_VERSION=$(( COUNTER - 59 + 215 ))\n\n# Auto Increment Version Script\nCFBuildNumber=$BUNDLE_VERSION'.'$FILTERS_VERSION'.'$LIBRARY_VERSION\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion string $CFBuildNumber\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"\n";
 		};
 		01DD8A2B1BE4F00A00025C82 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -357,7 +344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read CFBuildNumber < ./version\n/usr/libexec/PlistBuddy -c \"Add :CFBundleVersion string $CFBuildNumber\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"\n";
+			shellScript = "COUNTER=$(git rev-list HEAD --count)\nif [ $? -ne 0 ]; then\n  COUNTER='1';\nfi\nBUNDLE_VERSION=$(( COUNTER - 59 + 227 ))\necho $BUNDLE_VERSION\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion string $BUNDLE_VERSION\" \"$BUILT_PRODUCTS_DIR\"/\"$INFOPLIST_PATH\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

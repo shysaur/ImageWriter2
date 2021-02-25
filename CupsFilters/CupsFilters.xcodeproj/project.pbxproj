@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0184D5A925E731CF00C0720B /* GenerateVersionFile */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0184D5AA25E731CF00C0720B /* Build configuration list for PBXAggregateTarget "GenerateVersionFile" */;
+			buildPhases = (
+				0184D5AD25E731D200C0720B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = GenerateVersionFile;
+			productName = GenerateVersionFile;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		010BBFA1185378660068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBFA0185378660068874E /* libiconv.dylib */; };
 		010BBFA2185378780068874E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 010BBFA0185378660068874E /* libiconv.dylib */; };
@@ -24,6 +38,23 @@
 		0149FBBC184E6CC5002B4C05 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
 		0149FBBD184E6CC6002B4C05 /* filtersver.c in Sources */ = {isa = PBXBuildFile; fileRef = 01BB91DF184A8D7800DD7A13 /* filtersver.c */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0184D5AE25E731FA00C0720B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01106CC118491923004DC5E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0184D5A925E731CF00C0720B;
+			remoteInfo = GenerateVersionFile;
+		};
+		0184D5B025E731FE00C0720B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01106CC118491923004DC5E2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0184D5A925E731CF00C0720B;
+			remoteInfo = GenerateVersionFile;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		01106CE418491AC9004DC5E2 /* CopyFiles */ = {
@@ -150,7 +181,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01106CEC18491ACA004DC5E2 /* Build configuration list for PBXNativeTarget "rastertoimw" */;
 			buildPhases = (
-				01BB91DB184A8CFD00DD7A13 /* ShellScript */,
 				01106CE218491AC9004DC5E2 /* Sources */,
 				01106CE318491AC9004DC5E2 /* Frameworks */,
 				01106CE418491AC9004DC5E2 /* CopyFiles */,
@@ -158,6 +188,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0184D5AF25E731FA00C0720B /* PBXTargetDependency */,
 			);
 			name = rastertoimw;
 			productName = rastertoimw;
@@ -168,7 +199,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 011DFF70184CD4BC00212711 /* Build configuration list for PBXNativeTarget "commandtoimw" */;
 			buildPhases = (
-				0149FBBE184E6CE5002B4C05 /* ShellScript */,
 				011DFF64184CD4BC00212711 /* Sources */,
 				011DFF65184CD4BC00212711 /* Frameworks */,
 				011DFF66184CD4BC00212711 /* CopyFiles */,
@@ -176,6 +206,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0184D5B125E731FE00C0720B /* PBXTargetDependency */,
 			);
 			name = commandtoimw;
 			productName = commandtoimw;
@@ -190,6 +221,12 @@
 			attributes = {
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Daniele Cattaneo";
+				TargetAttributes = {
+					0184D5A925E731CF00C0720B = {
+						CreatedOnToolsVersion = 11.3.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 01106CC418491923004DC5E2 /* Build configuration list for PBXProject "CupsFilters" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -206,36 +243,30 @@
 			targets = (
 				01106CE518491AC9004DC5E2 /* rastertoimw */,
 				011DFF67184CD4BC00212711 /* commandtoimw */,
+				0184D5A925E731CF00C0720B /* GenerateVersionFile */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0149FBBE184E6CE5002B4C05 /* ShellScript */ = {
+		0184D5AD25E731D200C0720B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
+				"$(SRCROOT)/filtersver.in",
+			);
+			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/filtersver.c",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat filtersver.in | sed \"s/@VERSION/$COUNTER/g\" > filtersver.c";
-		};
-		01BB91DB184A8CFD00DD7A13 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat filtersver.in | sed \"s/@VERSION/$COUNTER/g\" > filtersver.c";
+			shellScript = "COUNTER=$(git rev-list HEAD --count)\nif [ $? -ne 0 ]; then\n  COUNTER='1';\nfi\nCOUNTER=$(( COUNTER - 59 + 215 ))\necho $COUNTER\ncat filtersver.in | sed \"s/@VERSION/$COUNTER/g\" > filtersver.c\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -261,6 +292,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0184D5AF25E731FA00C0720B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0184D5A925E731CF00C0720B /* GenerateVersionFile */;
+			targetProxy = 0184D5AE25E731FA00C0720B /* PBXContainerItemProxy */;
+		};
+		0184D5B125E731FE00C0720B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0184D5A925E731CF00C0720B /* GenerateVersionFile */;
+			targetProxy = 0184D5B025E731FE00C0720B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		01106CD018491923004DC5E2 /* Debug */ = {
@@ -438,6 +482,22 @@
 			};
 			name = Release;
 		};
+		0184D5AB25E731CF00C0720B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0184D5AC25E731CF00C0720B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -464,6 +524,15 @@
 			buildConfigurations = (
 				011DFF6E184CD4BC00212711 /* Debug */,
 				011DFF6F184CD4BC00212711 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0184D5AA25E731CF00C0720B /* Build configuration list for PBXAggregateTarget "GenerateVersionFile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0184D5AB25E731CF00C0720B /* Debug */,
+				0184D5AC25E731CF00C0720B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

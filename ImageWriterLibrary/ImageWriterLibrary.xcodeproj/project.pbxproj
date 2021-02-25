@@ -207,12 +207,14 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/imwlibver.in",
 			);
 			outputPaths = (
+				"$(SRCROOT)/imwlibver.c",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "read COUNTER < ./version\nCOUNTER=$((COUNTER+1))\necho $COUNTER > ./version\ncat imwlibver.in | sed \"s/@VERSION/$COUNTER/g\" > imwlibver.c";
+			shellScript = "COUNTER=$(git rev-list HEAD --count)\nif [ $? -ne 0 ]; then\n  COUNTER='1';\nfi\nCOUNTER=$(( COUNTER - 59 + 219 ))\necho $COUNTER\ncat imwlibver.in | sed \"s/@VERSION/$COUNTER/g\" > imwlibver.c\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

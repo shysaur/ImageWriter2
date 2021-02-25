@@ -65,3 +65,9 @@ Option Resolution PickOne AnySetup 10
   Choice 136x144dpi "<</HWResolution[136 144]>>setpagedevice"
   Choice 144x144dpi "<</HWResolution[144 144]>>setpagedevice"
   *Choice 160x144dpi "<</HWResolution[160 144]>>setpagedevice"
+Option MemorySize PickOne AnySetup 10
+  *Choice 2K ""
+  Choice 32K ""
+Option FlushBufferAfterPrint Boolean AnySetup 10
+  *Choice True ""
+  Choice False ""

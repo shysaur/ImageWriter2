@@ -109,12 +109,14 @@ int outputStripeWithRes(printerRef prn, uint8_t curStripe[], int width, int hgr)
 
 int main(int argc, const char *argv[]) {
   ppd_file_t *ppd;
+  ppd_choice_t *choice;
   cups_raster_t *ras;
   cups_page_header2_t	pagehdr;
   job_data_t job;
   printerRef prn;
   int rasterfile;
   int page;
+  int memSize;
   char ls[64];
   
   l10nInitialize();
@@ -199,6 +201,22 @@ int main(int argc, const char *argv[]) {
   /* Page loop end */
   
   prnDealloc(prn);
+  
+  memSize = 2 * 1024;
+  if ((choice = ppdFindMarkedChoice(ppd, "MemorySize"))) {
+    if (strcmp(choice->choice, "32K") == 0) {
+      memSize = 32 * 1024;
+    }
+  }
+  if ((choice = ppdFindMarkedChoice(ppd, "FlushBufferAfterPrint"))) {
+    if (strcmp(choice->choice, "True") == 0) {
+      /* work around shitty RS232 USB adapters (looking at you Prolific) */
+      for (int i=0; i<memSize; i++) {
+        fputc('\0', stdout);
+      }
+    }
+  }
+  
   if (page == 0) {
     l10nGetString("No pages found!", ls, sizeof(ls));
     fprintf(stderr, "ERROR: %s\n", ls);

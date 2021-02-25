@@ -24,8 +24,8 @@ const int resolutions_x[] = {
   self = [super init];
   if (!self) return nil;
   
-  pdeBundle   = [[NSBundle bundleForClass:[self class]] retain];
-  pdeCallback = [callback retain];
+  pdeBundle   = [NSBundle bundleForClass:[self class]];
+  pdeCallback = callback;
   ppd = [pdeCallback ppdFile];
   presets_cnt = 0;
   
@@ -82,7 +82,7 @@ fail:
 
 - (NSView *)panelView {
   if (!view)
-    [NSBundle loadNibNamed:@"PDEView" owner:self];
+    [[NSBundle bundleForClass:self.class] loadNibNamed:@"PDEView" owner:self topLevelObjects:nil];
   return view;
 }
 
@@ -186,11 +186,7 @@ fail:
 
 - (void)dealloc
 {
-  [pdeBundle release];
-  [pdeCallback release];
   free(presets);
-  
-  [super dealloc];
 }
 
 
@@ -201,7 +197,6 @@ fail:
   plist = [pdeBundle URLForResource:@"PDEPresets" withExtension:@"plist"];
   defPresets = [[NSArray alloc] initWithContentsOfURL:plist];
   [self loadPresetsFromArray:defPresets];
-  [defPresets release];
 
   [self updateControls];
 }

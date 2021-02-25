@@ -23,14 +23,14 @@
   pdes = [NSMutableArray array];
   
   if ([pdeType isEqual:(NSString *)kPrinterModuleTypeIDStr]) {
-    pde = [[[AppleImagewriterIIPDE alloc] initWithCallback:host] autorelease];
+    pde = [[AppleImagewriterIIPDE alloc] initWithCallback:host];
     if (pde)
       [pdes addObject:pde];
     else
       pdes = nil;
   }
   
-  return [[pdes copy] autorelease];
+  return [pdes copy];
 }
 
 

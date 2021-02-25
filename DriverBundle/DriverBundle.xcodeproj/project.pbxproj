@@ -22,7 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		010BBFAE1853927F0068874E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 010BBFB01853927F0068874E /* Localizable.strings */; };
-		010BBFB418539D790068874E /* PDEView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010BBFB618539D790068874E /* PDEView.xib */; };
+		010BBFB418539D790068874E /* IMWPDEPrintQualityPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010BBFB618539D790068874E /* IMWPDEPrintQualityPanel.xib */; };
 		01106D2D18495AF6004DC5E2 /* rastertoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 01106D2C18495AF6004DC5E2 /* rastertoimw */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		011DFF79184D195B00212711 /* commandtoimw in CopyFiles */ = {isa = PBXBuildFile; fileRef = 011DFF78184D195B00212711 /* commandtoimw */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		01276692186A18DE0041091E /* PDEPresets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01276691186A18DE0041091E /* PDEPresets.plist */; };
@@ -31,8 +31,8 @@
 		014F7657185118350069A909 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 014F7655185118350069A909 /* Localizable.strings */; };
 		016E70FC1850891800D129D7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 016E70FB1850891800D129D7 /* Cocoa.framework */; };
 		016E71061850891800D129D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 016E71041850891800D129D7 /* InfoPlist.strings */; };
-		016E710F1850A58700D129D7 /* AppleImagewriterIIPDE.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */; };
-		01AD17C61BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AD17C51BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m */; };
+		016E710F1850A58700D129D7 /* IMWPDEPrintQualityPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E710E1850A58700D129D7 /* IMWPDEPrintQualityPanel.m */; };
+		01AD17C61BE02EA200524A66 /* IMWPDEPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AD17C51BE02EA200524A66 /* IMWPDEPlugIn.m */; };
 		01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 01E70A0A184BADD200B913FF /* PrinterIcon.iconset */; };
 /* End PBXBuildFile section */
 
@@ -72,14 +72,14 @@
 		010BBFB118539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		010BBFB218539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		010BBFB318539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		010BBFB718539D7D0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/PDEView.xib; sourceTree = "<group>"; };
+		010BBFB718539D7D0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/IMWPDEPrintQualityPanel.xib; sourceTree = "<group>"; };
 		01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Apple ImageWriter II.drv"; sourceTree = "<group>"; };
 		01106D18184950A1004DC5E2 /* ImageWriterII.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageWriterII.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imagewriterii-Info.plist"; sourceTree = "<group>"; };
 		01106D2C18495AF6004DC5E2 /* rastertoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = rastertoimw; sourceTree = BUILT_PRODUCTS_DIR; };
 		011DFF78184D195B00212711 /* commandtoimw */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = commandtoimw; sourceTree = BUILT_PRODUCTS_DIR; };
 		01276691186A18DE0041091E /* PDEPresets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PDEPresets.plist; sourceTree = "<group>"; };
-		01354C472534D13F00EFD1A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PDEView.xib; sourceTree = "<group>"; };
+		01354C472534D13F00EFD1A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IMWPDEPrintQualityPanel.xib; sourceTree = "<group>"; };
 		014F764E1850F24F0069A909 /* libcups.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcups.dylib; path = usr/lib/libcups.dylib; sourceTree = SDKROOT; };
 		014F76501850F2790069A909 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		014F7656185118350069A909 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -90,10 +90,10 @@
 		016E71001850891800D129D7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		016E71031850891800D129D7 /* ImageWriterIIPDE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImageWriterIIPDE-Info.plist"; sourceTree = "<group>"; };
 		016E71051850891800D129D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleImagewriterIIPDE.h; sourceTree = "<group>"; };
-		016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleImagewriterIIPDE.m; sourceTree = "<group>"; };
-		01AD17C41BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleImagewriterIIPDEPlugIn.h; sourceTree = "<group>"; };
-		01AD17C51BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleImagewriterIIPDEPlugIn.m; sourceTree = "<group>"; };
+		016E710D1850A58700D129D7 /* IMWPDEPrintQualityPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMWPDEPrintQualityPanel.h; sourceTree = "<group>"; };
+		016E710E1850A58700D129D7 /* IMWPDEPrintQualityPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMWPDEPrintQualityPanel.m; sourceTree = "<group>"; };
+		01AD17C41BE02EA200524A66 /* IMWPDEPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMWPDEPlugIn.h; sourceTree = "<group>"; };
+		01AD17C51BE02EA200524A66 /* IMWPDEPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMWPDEPlugIn.m; sourceTree = "<group>"; };
 		01E70A0A184BADD200B913FF /* PrinterIcon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = PrinterIcon.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,10 +192,9 @@
 			isa = PBXGroup;
 			children = (
 				016E71031850891800D129D7 /* ImageWriterIIPDE-Info.plist */,
-				01276691186A18DE0041091E /* PDEPresets.plist */,
-				010BBFB618539D790068874E /* PDEView.xib */,
 				014F7655185118350069A909 /* Localizable.strings */,
 				016E71041850891800D129D7 /* InfoPlist.strings */,
+				01276691186A18DE0041091E /* PDEPresets.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -203,10 +202,11 @@
 		016E71101850A59C00D129D7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				01AD17C41BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.h */,
-				01AD17C51BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m */,
-				016E710D1850A58700D129D7 /* AppleImagewriterIIPDE.h */,
-				016E710E1850A58700D129D7 /* AppleImagewriterIIPDE.m */,
+				01AD17C41BE02EA200524A66 /* IMWPDEPlugIn.h */,
+				01AD17C51BE02EA200524A66 /* IMWPDEPlugIn.m */,
+				010BBFB618539D790068874E /* IMWPDEPrintQualityPanel.xib */,
+				016E710D1850A58700D129D7 /* IMWPDEPrintQualityPanel.h */,
+				016E710E1850A58700D129D7 /* IMWPDEPrintQualityPanel.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				010BBFB418539D790068874E /* PDEView.xib in Resources */,
+				010BBFB418539D790068874E /* IMWPDEPrintQualityPanel.xib in Resources */,
 				01276692186A18DE0041091E /* PDEPresets.plist in Resources */,
 				016E71061850891800D129D7 /* InfoPlist.strings in Resources */,
 				014F7657185118350069A909 /* Localizable.strings in Resources */,
@@ -360,8 +360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01AD17C61BE02EA200524A66 /* AppleImagewriterIIPDEPlugIn.m in Sources */,
-				016E710F1850A58700D129D7 /* AppleImagewriterIIPDE.m in Sources */,
+				01AD17C61BE02EA200524A66 /* IMWPDEPlugIn.m in Sources */,
+				016E710F1850A58700D129D7 /* IMWPDEPrintQualityPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,13 +391,13 @@
 			path = ../CupsFilters;
 			sourceTree = "<group>";
 		};
-		010BBFB618539D790068874E /* PDEView.xib */ = {
+		010BBFB618539D790068874E /* IMWPDEPrintQualityPanel.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				010BBFB718539D7D0068874E /* it */,
 				01354C472534D13F00EFD1A0 /* Base */,
 			);
-			name = PDEView.xib;
+			name = IMWPDEPrintQualityPanel.xib;
 			sourceTree = "<group>";
 		};
 		014F7655185118350069A909 /* Localizable.strings */ = {

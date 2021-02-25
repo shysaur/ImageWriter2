@@ -1,5 +1,5 @@
 /*
- *  AppleImagewriterIIPDE.m
+ *  IMWPDEPrintQualityPanel.m
  *  Apple Imagewriter OS X PDE classes
  *  (c) 2013 Daniele Cattaneo
  */
@@ -14,7 +14,7 @@ typedef struct {
 } pdeOptions;
 
 
-@interface AppleImagewriterIIPDE : NSObject
+@interface IMWPDEPrintQualityPanel : NSObject
 {
   IBOutlet NSPopUpButton *listQualityPresets;
   IBOutlet NSPopUpButton *listResolutionX;

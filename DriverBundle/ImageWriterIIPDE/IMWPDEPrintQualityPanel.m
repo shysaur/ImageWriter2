@@ -1,11 +1,11 @@
 /*
- *  AppleImagewriterIIPDE.m
+ *  IMWPDEPrintQualityPanel.m
  *  Apple Imagewriter OS X PDE classes
  *  (c) 2013 Daniele Cattaneo
  */
 
-#import "AppleImagewriterIIPDEPlugIn.h"
-#import "AppleImagewriterIIPDE.h"
+#import "IMWPDEPlugIn.h"
+#import "IMWPDEPrintQualityPanel.h"
 
 
 const int resolutions_x[] = {
@@ -17,7 +17,7 @@ const int resolutions_x[] = {
 #define PRESET_NOTSET -1
 
 
-@implementation AppleImagewriterIIPDE
+@implementation IMWPDEPrintQualityPanel
 
 
 - (id)initWithCallback:(PDEPluginCallback *)callback {
@@ -82,7 +82,7 @@ fail:
 
 - (NSView *)panelView {
   if (!view)
-    [[NSBundle bundleForClass:self.class] loadNibNamed:@"PDEView" owner:self topLevelObjects:nil];
+    [[NSBundle bundleForClass:self.class] loadNibNamed:@"IMWPDEPrintQualityPanel" owner:self topLevelObjects:nil];
   return view;
 }
 

@@ -1,5 +1,5 @@
 /*
- *  AppleImagewriterIIPDEPlugin.h
+ *  IMWPDEPlugIn.h
  *  Apple Imagewriter OS X PDE classes
  *  (c) 2015 Daniele Cattaneo
  */
@@ -16,7 +16,7 @@
 @end
 
 
-@interface AppleImagewriterIIPDEPlugIn : NSObject /* <PMPlugIn> */
+@interface IMWPDEPlugIn : NSObject /* <PMPlugIn> */
 
 - (BOOL)initWithBundle:(NSBundle *)bundle;
 - (NSArray*)PDEPanelsForType:(NSString*)pdeType withHostInfo:(id)host;

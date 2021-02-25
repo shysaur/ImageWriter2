@@ -1,14 +1,14 @@
 /*
- *  AppleImagewriterIIPDEPlugin.m
+ *  IMWPDEPlugIn.m
  *  Apple Imagewriter OS X PDE classes
  *  (c) 2015 Daniele Cattaneo
  */
 
-#import "AppleImagewriterIIPDEPlugIn.h"
-#import "AppleImagewriterIIPDE.h"
+#import "IMWPDEPlugIn.h"
+#import "IMWPDEPrintQualityPanel.h"
 
 
-@implementation AppleImagewriterIIPDEPlugIn
+@implementation IMWPDEPlugIn
 
 
 - (BOOL)initWithBundle:(NSBundle *)bundle {
@@ -18,12 +18,12 @@
 
 - (NSArray*)PDEPanelsForType:(NSString*)pdeType withHostInfo:(id)host {
   NSMutableArray *pdes;
-  AppleImagewriterIIPDE *pde;
+  IMWPDEPrintQualityPanel *pde;
   
   pdes = [NSMutableArray array];
   
   if ([pdeType isEqual:(NSString *)kPrinterModuleTypeIDStr]) {
-    pde = [[AppleImagewriterIIPDE alloc] initWithCallback:host];
+    pde = [[IMWPDEPrintQualityPanel alloc] initWithCallback:host];
     if (pde)
       [pdes addObject:pde];
     else

@@ -6,31 +6,29 @@
 
 #import "IMWPDEPlugIn.h"
 #import "IMWPDEPrintQualityPanel.h"
+#import "IMWPDEAdvancedPanel.h"
 
 
 @implementation IMWPDEPlugIn
 
 
-- (BOOL)initWithBundle:(NSBundle *)bundle {
+- (BOOL)initWithBundle:(NSBundle *)bundle
+{
   return YES;
 }
 
 
-- (NSArray*)PDEPanelsForType:(NSString*)pdeType withHostInfo:(id)host {
-  NSMutableArray *pdes;
-  IMWPDEPrintQualityPanel *pde;
+- (NSArray*)PDEPanelsForType:(NSString*)pdeType withHostInfo:(id)host
+{
+  if (![pdeType isEqual:(NSString *)kPrinterModuleTypeIDStr])
+    return @[];
   
-  pdes = [NSMutableArray array];
+  IMWPDEPrintQualityPanel *panel1 = [[IMWPDEPrintQualityPanel alloc] initWithCallback:host];
+  IMWPDEAdvancedPanel *panel2 = [[IMWPDEAdvancedPanel alloc] initWithCallback:host];
+  if (!panel1 || !panel2)
+    return nil;
   
-  if ([pdeType isEqual:(NSString *)kPrinterModuleTypeIDStr]) {
-    pde = [[IMWPDEPrintQualityPanel alloc] initWithCallback:host];
-    if (pde)
-      [pdes addObject:pde];
-    else
-      pdes = nil;
-  }
-  
-  return [pdes copy];
+  return @[panel1, panel2];
 }
 
 

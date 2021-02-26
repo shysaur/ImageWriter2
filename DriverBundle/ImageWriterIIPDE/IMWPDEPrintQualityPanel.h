@@ -14,7 +14,7 @@ typedef struct {
 } pdeOptions;
 
 
-@interface IMWPDEPrintQualityPanel : NSObject
+@interface IMWPDEPrintQualityPanel : NSObject /*<PDEPanel>*/
 {
   IBOutlet NSPopUpButton *listQualityPresets;
   IBOutlet NSPopUpButton *listResolutionX;
@@ -41,9 +41,10 @@ typedef struct {
 - (NSArray *)supportedPPDOptionKeys;
 - (BOOL)saveValuesAndReturnError:(NSError **)error;
 - (BOOL)restoreValuesAndReturnError:(NSError **)error;
-- (BOOL)updateControls;
 - (void)willShow;
 - (BOOL)shouldHide;
+
+- (BOOL)updateControls;
 
 - (IBAction)listQualityPresetsDidChange:(id)sender;
 - (IBAction)listResolutionYDidChange:(id)sender;

@@ -34,6 +34,8 @@
 		016E710F1850A58700D129D7 /* IMWPDEPrintQualityPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E710E1850A58700D129D7 /* IMWPDEPrintQualityPanel.m */; };
 		01AD17C61BE02EA200524A66 /* IMWPDEPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AD17C51BE02EA200524A66 /* IMWPDEPlugIn.m */; };
 		01E70A0B184BADD200B913FF /* PrinterIcon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 01E70A0A184BADD200B913FF /* PrinterIcon.iconset */; };
+		01F30EBC25E861DE008433CC /* IMWPDEAdvancedPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F30EBB25E861DE008433CC /* IMWPDEAdvancedPanel.m */; };
+		01F30EBE25E86203008433CC /* IMWPDEAdvancedPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F30EBD25E86203008433CC /* IMWPDEAdvancedPanel.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,9 @@
 		01AD17C41BE02EA200524A66 /* IMWPDEPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMWPDEPlugIn.h; sourceTree = "<group>"; };
 		01AD17C51BE02EA200524A66 /* IMWPDEPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMWPDEPlugIn.m; sourceTree = "<group>"; };
 		01E70A0A184BADD200B913FF /* PrinterIcon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = PrinterIcon.iconset; sourceTree = "<group>"; };
+		01F30EBA25E861DE008433CC /* IMWPDEAdvancedPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMWPDEAdvancedPanel.h; sourceTree = "<group>"; };
+		01F30EBB25E861DE008433CC /* IMWPDEAdvancedPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMWPDEAdvancedPanel.m; sourceTree = "<group>"; };
+		01F30EBD25E86203008433CC /* IMWPDEAdvancedPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMWPDEAdvancedPanel.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +212,9 @@
 				010BBFB618539D790068874E /* IMWPDEPrintQualityPanel.xib */,
 				016E710D1850A58700D129D7 /* IMWPDEPrintQualityPanel.h */,
 				016E710E1850A58700D129D7 /* IMWPDEPrintQualityPanel.m */,
+				01F30EBD25E86203008433CC /* IMWPDEAdvancedPanel.xib */,
+				01F30EBA25E861DE008433CC /* IMWPDEAdvancedPanel.h */,
+				01F30EBB25E861DE008433CC /* IMWPDEAdvancedPanel.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 				010BBFB418539D790068874E /* IMWPDEPrintQualityPanel.xib in Resources */,
 				01276692186A18DE0041091E /* PDEPresets.plist in Resources */,
 				016E71061850891800D129D7 /* InfoPlist.strings in Resources */,
+				01F30EBE25E86203008433CC /* IMWPDEAdvancedPanel.xib in Resources */,
 				014F7657185118350069A909 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +371,7 @@
 			files = (
 				01AD17C61BE02EA200524A66 /* IMWPDEPlugIn.m in Sources */,
 				016E710F1850A58700D129D7 /* IMWPDEPrintQualityPanel.m in Sources */,
+				01F30EBC25E861DE008433CC /* IMWPDEAdvancedPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

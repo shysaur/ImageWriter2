@@ -76,13 +76,13 @@ fail:
 
 
 - (NSString *)panelKind {
-  return @"com.danielecattaneo.printers.imagewriterii.pde";
+  return @"com.danielecattaneo.printers.imagewriterii.pde.quality";
 }
 
 
 - (NSView *)panelView {
   if (!view)
-    [[NSBundle bundleForClass:self.class] loadNibNamed:@"IMWPDEPrintQualityPanel" owner:self topLevelObjects:nil];
+    [pdeBundle loadNibNamed:@"IMWPDEPrintQualityPanel" owner:self topLevelObjects:nil];
   return view;
 }
 

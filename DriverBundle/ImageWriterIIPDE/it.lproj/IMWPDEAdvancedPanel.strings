@@ -1,0 +1,12 @@
+
+/* Class = "NSButtonCell"; title = "After printing, flush buffer"; ObjectID = "Uy8-bP-SeY"; */
+"Uy8-bP-SeY.title" = "Svuota buffer dopo la stampa";
+
+/* Class = "NSMenuItem"; title = "32 KB"; ObjectID = "ZL1-fO-J2f"; */
+"ZL1-fO-J2f.title" = "32 KB";
+
+/* Class = "NSTextFieldCell"; title = "Memory Expansion:"; ObjectID = "aEy-He-VJ2"; */
+"aEy-He-VJ2.title" = "Espansione memoria:";
+
+/* Class = "NSMenuItem"; title = "No expansion (2 KB)"; ObjectID = "q7g-hq-pIj"; */
+"q7g-hq-pIj.title" = "Nessuna (2 KB)";

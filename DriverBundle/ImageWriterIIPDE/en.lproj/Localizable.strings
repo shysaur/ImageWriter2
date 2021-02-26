@@ -4,8 +4,9 @@
  *  (c) 2013 Daniele Cattaneo
  */
 
-/* Panel name in option list */
+/* Panel names in option list */
 "Print Quality" = "Print Quality";
+"Advanced" = "Advanced";
 
 /* Preset Names */
 "Draft" = "Draft";

@@ -19,12 +19,11 @@
             <rect key="frame" x="0.0" y="0.0" width="420" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uls-Hb-3DO">
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uls-Hb-3DO">
                     <rect key="frame" x="178" y="31" width="162" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="No expansion (2 KB)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="q7g-hq-pIj" id="oac-Dc-nJX">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" id="aLz-JA-uQa">
                             <items>
                                 <menuItem title="No expansion (2 KB)" state="on" id="q7g-hq-pIj"/>
@@ -36,9 +35,8 @@
                         <action selector="changeMemorySize:" target="-2" id="IGO-w3-53c"/>
                     </connections>
                 </popUpButton>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgw-jN-JgA">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lgw-jN-JgA">
                     <rect key="frame" x="178" y="10" width="180" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="After printing, flush buffer" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Uy8-bP-SeY">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -47,9 +45,8 @@
                         <action selector="changeFlushBuffer:" target="-2" id="PXB-Jb-McV"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1wz-Yi-W62">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1wz-Yi-W62">
                     <rect key="frame" x="51" y="37" width="123" height="16"/>
-                    <autoresizingMask key="autoresizingMask"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Memory Expansion:" id="aEy-He-VJ2">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -57,6 +54,17 @@
                     </textFieldCell>
                 </textField>
             </subviews>
+            <constraints>
+                <constraint firstItem="Uls-Hb-3DO" firstAttribute="leading" secondItem="1wz-Yi-W62" secondAttribute="trailing" constant="8" id="4eI-67-nVM"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lgw-jN-JgA" secondAttribute="trailing" constant="20" symbolic="YES" id="Liy-y3-pZk"/>
+                <constraint firstItem="Uls-Hb-3DO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="9" id="OGM-P8-AOQ"/>
+                <constraint firstItem="lgw-jN-JgA" firstAttribute="leading" secondItem="Uls-Hb-3DO" secondAttribute="leading" id="fF8-WS-lMr"/>
+                <constraint firstItem="Uls-Hb-3DO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="180" id="gav-vb-kOV"/>
+                <constraint firstItem="1wz-Yi-W62" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="11" id="gxe-MK-3qo"/>
+                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Uls-Hb-3DO" secondAttribute="trailing" constant="83" id="hlG-sV-cgv"/>
+                <constraint firstItem="1wz-Yi-W62" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="r0E-Xn-mWy"/>
+                <constraint firstItem="lgw-jN-JgA" firstAttribute="top" secondItem="Uls-Hb-3DO" secondAttribute="bottom" constant="8" id="xxD-Cx-6ZY"/>
+            </constraints>
             <point key="canvasLocation" x="140" y="50"/>
         </view>
     </objects>

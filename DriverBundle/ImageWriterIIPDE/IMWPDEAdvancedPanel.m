@@ -102,8 +102,7 @@
   _memoryExpansion = _btnMemorySize.indexOfSelectedItem == 1;
   
   NSString *mem = _memoryExpansion ? @"32K" : @"2K";
-  BOOL ok = [_pdeCallback willChangePPDOptionKeyValue:@"MemorySize" ppdChoice:mem];
-  NSLog(@"%s %d %@ %d", __PRETTY_FUNCTION__, _memoryExpansion, mem, ok);
+  [_pdeCallback willChangePPDOptionKeyValue:@"MemorySize" ppdChoice:mem];
 }
 
 
@@ -112,8 +111,7 @@
   _flushBuffer = _btnFlushBuffer.state == NSOnState;
   
   NSString *flush = _flushBuffer ? @"True" : @"False";
-  BOOL ok = [_pdeCallback willChangePPDOptionKeyValue:@"FlushBufferAfterPrint" ppdChoice:flush];
-  NSLog(@"%s %d %@ %d", __PRETTY_FUNCTION__, _flushBuffer, flush, ok);
+  [_pdeCallback willChangePPDOptionKeyValue:@"FlushBufferAfterPrint" ppdChoice:flush];
 }
 
 

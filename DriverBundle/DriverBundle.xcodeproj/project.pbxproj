@@ -74,7 +74,6 @@
 		010BBFB118539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		010BBFB218539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		010BBFB318539BCD0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		010BBFB718539D7D0068874E /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/IMWPDEPrintQualityPanel.xib; sourceTree = "<group>"; };
 		01106D0718494C39004DC5E2 /* Apple ImageWriter II.drv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Apple ImageWriter II.drv"; sourceTree = "<group>"; };
 		01106D18184950A1004DC5E2 /* ImageWriterII.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageWriterII.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		01106D1F184950A1004DC5E2 /* imagewriterii-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "imagewriterii-Info.plist"; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		016E710E1850A58700D129D7 /* IMWPDEPrintQualityPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMWPDEPrintQualityPanel.m; sourceTree = "<group>"; };
 		018E796125E916E5003EA694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IMWPDEAdvancedPanel.xib; sourceTree = "<group>"; };
 		018E796425E916EE003EA694 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/IMWPDEAdvancedPanel.strings; sourceTree = "<group>"; };
+		018E796525E96FA5003EA694 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/IMWPDEPrintQualityPanel.strings; sourceTree = "<group>"; };
 		01AD17C41BE02EA200524A66 /* IMWPDEPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMWPDEPlugIn.h; sourceTree = "<group>"; };
 		01AD17C51BE02EA200524A66 /* IMWPDEPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMWPDEPlugIn.m; sourceTree = "<group>"; };
 		01E70A0A184BADD200B913FF /* PrinterIcon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = PrinterIcon.iconset; sourceTree = "<group>"; };
@@ -405,8 +405,8 @@
 		010BBFB618539D790068874E /* IMWPDEPrintQualityPanel.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				010BBFB718539D7D0068874E /* it */,
 				01354C472534D13F00EFD1A0 /* Base */,
+				018E796525E96FA5003EA694 /* it */,
 			);
 			name = IMWPDEPrintQualityPanel.xib;
 			sourceTree = "<group>";
